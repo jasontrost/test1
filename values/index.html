@@ -60,27 +60,27 @@
     </section>
 
     <!-- Values overview -->
-    <section>
+    <section class="values-nav-section">
         <div class="values-overview fade-in">
-            <a href="#give-a-shit" class="value-icon-card">
-                <div class="value-icon">1</div>
-                <span>Give a Shit</span>
+            <a href="#give-a-shit" class="value-nav-pill">
+                <span class="value-nav-num">01</span>
+                <span class="value-nav-label">Give a Shit</span>
             </a>
-            <a href="#make-others-better" class="value-icon-card">
-                <div class="value-icon">2</div>
-                <span>Make Others Better</span>
+            <a href="#make-others-better" class="value-nav-pill">
+                <span class="value-nav-num">02</span>
+                <span class="value-nav-label">Make Others Better</span>
             </a>
-            <a href="#be-a-pro" class="value-icon-card">
-                <div class="value-icon">3</div>
-                <span>Be a Pro</span>
+            <a href="#be-a-pro" class="value-nav-pill">
+                <span class="value-nav-num">03</span>
+                <span class="value-nav-label">Be a Pro</span>
             </a>
-            <a href="#bring-the-energy" class="value-icon-card">
-                <div class="value-icon">4</div>
-                <span>Bring the Energy</span>
+            <a href="#bring-the-energy" class="value-nav-pill">
+                <span class="value-nav-num">04</span>
+                <span class="value-nav-label">Bring the Energy</span>
             </a>
-            <a href="#push-to-win" class="value-icon-card">
-                <div class="value-icon">5</div>
-                <span>Push to Win</span>
+            <a href="#push-to-win" class="value-nav-pill">
+                <span class="value-nav-num">05</span>
+                <span class="value-nav-label">Push to Win</span>
             </a>
         </div>
     </section>
@@ -88,6 +88,7 @@
     <!-- Value deep-dives -->
     <section id="give-a-shit" class="value-section">
         <div class="value-section-inner">
+            <span class="value-section-num">01</span>
             <h2 class="value-section-title">Give a Shit</h2>
             <p class="value-section-lead">Care about the organisation beyond your daily remit.</p>
             <div class="value-examples">
@@ -105,6 +106,7 @@
 
     <section id="make-others-better" class="value-section">
         <div class="value-section-inner">
+            <span class="value-section-num">02</span>
             <h2 class="value-section-title">Make Others Better</h2>
             <p class="value-section-lead">The best teams aren't solo stars — they make everyone around them better.</p>
             <div class="value-examples">
@@ -122,6 +124,7 @@
 
     <section id="be-a-pro" class="value-section">
         <div class="value-section-inner">
+            <span class="value-section-num">03</span>
             <h2 class="value-section-title">Be a Pro</h2>
             <p class="value-section-lead">High performance and continuous focused training. Set and maintain high standards.</p>
             <div class="value-examples">
@@ -139,6 +142,7 @@
 
     <section id="bring-the-energy" class="value-section">
         <div class="value-section-inner">
+            <span class="value-section-num">04</span>
             <h2 class="value-section-title">Bring the Energy</h2>
             <p class="value-section-lead">Positive environments enable better achievements. Energy drives collaboration.</p>
             <div class="value-examples">
@@ -156,6 +160,7 @@
 
     <section id="push-to-win" class="value-section">
         <div class="value-section-inner">
+            <span class="value-section-num">05</span>
             <h2 class="value-section-title">Push to Win</h2>
             <p class="value-section-lead">Seek out challenges. That's how we grow and how we outperform.</p>
             <div class="value-examples">
@@ -207,8 +212,19 @@
         <div class="how-we-play fade-in">
             <div class="play-content">
                 <p>We eat together (daily free meals from our kitchen), we compete together (poker nights, sports events, gaming tournaments), and we travel together (team trips, off-sites, and the occasional questionable karaoke). Our culture isn't manufactured — it's what happens when you hire people who actually like each other.</p>
-                <a href="https://instagram.com/smarkets" target="_blank" rel="noopener noreferrer" class="btn">Follow us on Instagram</a>
             </div>
+        </div>
+        <!-- Instagram embed -->
+        <div class="instagram-embed fade-in">
+            <div class="instagram-header">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <a href="https://instagram.com/smarkets" target="_blank" rel="noopener noreferrer">@smarkets</a>
+            </div>
+            <div class="instagram-native-embed">
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/smarkets/" data-instgrm-version="14" style="background:#1a1a1a; border:0; border-radius:12px; margin:0 auto; max-width:540px; min-width:326px; padding:0; width:calc(100% - 2px);">
+                </blockquote>
+            </div>
+            <a href="https://instagram.com/smarkets" target="_blank" rel="noopener noreferrer" class="btn btn-outline instagram-follow">Follow @smarkets on Instagram</a>
         </div>
     </section>
 
@@ -228,5 +244,7 @@
 
     <script src="/company-data.js" defer></script>
     <script src="../components.js" defer></script>
+    <!-- Instagram embed.js (official Meta widget) -->
+    <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
