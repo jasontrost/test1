@@ -22,6 +22,15 @@
     --text-tertiary: #808080;
     --border: #2a2a2a;
     --nav-height: 50px;
+
+    /* Spacing scale */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 5rem;
 }
 
 html {
@@ -62,10 +71,10 @@ a, button, .card, .metric-item, .tech-tag {
 .skip-link {
     position: absolute;
     top: -100%;
-    left: 0;
+    inset-inline-start: 0;
     background: var(--accent);
     color: var(--bg-primary);
-    padding: 0.75rem 1.5rem;
+    padding: var(--space-lg) var(--space-lg);
     z-index: 10000;
     font-weight: 700;
     text-decoration: none;
@@ -82,14 +91,13 @@ a, button, .card, .metric-item, .tech-tag {
 nav {
     position: fixed;
     top: 0;
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     background: rgba(10, 10, 10, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     z-index: 1000;
-    padding: 0 2rem;
+    padding-inline: var(--space-xl);
     height: var(--nav-height);
     display: flex;
     align-items: center;
@@ -161,13 +169,12 @@ nav {
     display: none;
     position: fixed;
     top: var(--nav-height);
-    left: 0;
-    right: 0;
+    inset-inline: 0;
     bottom: 0;
     background: rgba(10, 10, 10, 0.98);
     border-bottom: 1px solid var(--border);
     z-index: 999;
-    padding: 1rem 2rem;
+    padding: var(--space-md) var(--space-xl);
     flex-direction: column;
     gap: 0;
     overflow-y: auto;
@@ -1827,10 +1834,13 @@ footer .social-links a:hover {
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
+    will-change: opacity, transform;
+    contain: layout style paint;
 }
 
 .fade-in.visible {
     animation: fadeInUp 0.6s ease forwards;
+    will-change: auto;
 }
 
 @keyframes fadeInUp {
@@ -1840,28 +1850,6 @@ footer .social-links a:hover {
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.animate-in {
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards;
-}
-
-/* Staggered animation delays via CSS custom property */
-.stagger-in {
-    opacity: 0;
-    animation: fadeIn 0.6s ease forwards;
-    animation-delay: calc(var(--i, 0) * 0.1s);
-}
 
 /* ============================================
    Utility
@@ -2024,12 +2012,10 @@ footer .social-links a:hover {
     .fade-in {
         opacity: 1;
         transform: none;
+        will-change: auto;
+        contain: none;
     }
 
-    .animate-in,
-    .stagger-in {
-        opacity: 1;
-    }
 }
 
 /* ============================================
@@ -2095,11 +2081,11 @@ footer .social-links a:hover {
 .dk-hero-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding-inline: var(--space-2xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem;
+    gap: var(--space-2xl);
 }
 
 .dk-hero h1 {
@@ -2120,8 +2106,8 @@ footer .social-links a:hover {
 
 .dk-rule {
     max-width: 1200px;
-    margin: 3rem auto 0;
-    padding: 0 3rem;
+    margin: var(--space-2xl) auto 0;
+    padding-inline: var(--space-2xl);
     height: 2px;
     background: var(--text-tertiary);
 }
@@ -2129,14 +2115,14 @@ footer .social-links a:hover {
 /* ---------- Sections ---------- */
 .dk-section {
     background: var(--bg-primary);
-    padding: 5rem 0;
+    padding: var(--space-3xl) 0;
     border-bottom: 1px solid var(--bg-tertiary);
 }
 
 .dk-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding-inline: var(--space-2xl);
 }
 
 /* ---------- Statement (large hero-like text) ---------- */
@@ -2148,7 +2134,7 @@ footer .social-links a:hover {
 }
 
 /* ---------- Labeled Blocks (Mission / How) ---------- */
-.dk-block { margin-bottom: 2rem; }
+.dk-block { margin-bottom: var(--space-xl); }
 .dk-label {
     display: block;
     font-size: clamp(2rem, 4vw, 3.2rem);
@@ -2166,7 +2152,7 @@ footer .social-links a:hover {
 .dk-sep {
     height: 1px;
     background: var(--border);
-    margin: 3rem 0;
+    margin: var(--space-2xl) 0;
 }
 
 /* ---------- Section Headings ---------- */
@@ -2175,7 +2161,8 @@ footer .social-links a:hover {
     font-weight: 700;
     line-height: 1.4;
     letter-spacing: 0.02em;
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-2xl);
+    margin-top: 0;
 }
 
 /* ---------- TAM / Opportunity ---------- */
@@ -2183,8 +2170,8 @@ footer .social-links a:hover {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
 }
 
 .dk-tam-item { text-align: center; }
@@ -2225,11 +2212,8 @@ footer .social-links a:hover {
 }
 
 .dk-comp-card {
-    border-left: 2px solid var(--text-tertiary);
-    padding: 1.5rem;
-}
-.dk-comp-card:first-child {
-    border-left: 2px solid var(--text-tertiary);
+    border-inline-start: 2px solid var(--text-tertiary);
+    padding: var(--space-lg);
 }
 
 .dk-comp-card h3 {
@@ -2254,13 +2238,13 @@ footer .social-links a:hover {
 .dk-rule-thin {
     height: 2px;
     background: var(--text-tertiary);
-    margin: 2rem 0 3rem;
+    margin: var(--space-xl) 0 var(--space-2xl);
 }
 
 .dk-biz {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 3rem;
+    gap: var(--space-2xl);
 }
 
 .dk-biz-card h3 {
@@ -2280,7 +2264,7 @@ footer .social-links a:hover {
 /* ---------- Margin Chart ---------- */
 .dk-margins {
     max-width: 800px;
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
 }
 
 .dk-margin-row {
@@ -2306,6 +2290,7 @@ footer .social-links a:hover {
 }
 
 .dk-margin-bar {
+    width: var(--bar-width, 100%);
     height: 100%;
     display: flex;
     align-items: center;
@@ -2341,22 +2326,23 @@ footer .social-links a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
-    gap: 2rem;
+    gap: var(--space-xl);
     min-height: 400px;
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
 }
 
 .dk-fly-item {
-    padding: 1.5rem;
+    padding: var(--space-lg);
     border: 1px solid var(--border);
     border-radius: 8px;
     background: var(--accent-dim);
 }
 
-.dk-fly-item h4 {
+.dk-fly-item h3 {
     font-size: 1.05rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-sm);
+    margin-top: 0;
 }
 .dk-fly-item p {
     font-size: 0.9rem;
@@ -2387,7 +2373,7 @@ footer .social-links a:hover {
 .dk-metrics {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 3rem 2rem;
+    gap: var(--space-2xl) var(--space-xl);
 }
 
 .dk-metric { text-align: center; }
@@ -2414,13 +2400,13 @@ footer .social-links a:hover {
     display: flex;
     flex-wrap: wrap;
     gap: 0;
-    margin-top: 2rem;
-    padding-left: 2rem;
+    margin-top: var(--space-xl);
+    padding-inline-start: var(--space-xl);
 }
 
 .dk-road-line {
     position: absolute;
-    left: 0.55rem;
+    inset-inline-start: 0.55rem; /* aligns with center of 10px dot at -1.65rem offset */
     top: 0;
     bottom: 0;
     width: 2px;
@@ -2444,7 +2430,7 @@ footer .social-links a:hover {
     flex-shrink: 0;
     position: relative;
     z-index: 1;
-    margin-left: -1.65rem;
+    margin-inline-start: -1.65rem; /* offsets dot to sit on the road-line */
 }
 .dk-road-dot-g {
     background: var(--accent);
@@ -2459,7 +2445,7 @@ footer .social-links a:hover {
 
 .dk-road-footer {
     text-align: center;
-    margin-top: 2rem;
+    margin-top: var(--space-xl);
     font-size: 1.1rem;
     font-weight: 700;
     letter-spacing: 0.02em;
@@ -2469,13 +2455,13 @@ footer .social-links a:hover {
 .dk-vals {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
 }
 
 .dk-val {
-    border-left: 3px solid var(--accent);
-    padding: 1.25rem 1.5rem;
+    border-inline-start: 3px solid var(--accent);
+    padding: var(--space-lg);
     background: var(--accent-dim);
 }
 .dk-val h3 {
@@ -2493,13 +2479,13 @@ footer .social-links a:hover {
 .dk-reg {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
 }
 
 .dk-reg-card {
     border: 1px solid var(--border);
-    padding: 1.5rem;
+    padding: var(--space-lg);
     border-radius: 4px;
 }
 .dk-reg-card h3 {
@@ -2517,13 +2503,13 @@ footer .social-links a:hover {
 .dk-offices {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 1rem;
+    gap: var(--space-xl);
+    margin-top: var(--space-md);
 }
 
 .dk-office {
     border: 1px solid var(--border);
-    padding: 1.5rem;
+    padding: var(--space-lg);
     border-radius: 4px;
 }
 .dk-office h3 {
@@ -2549,8 +2535,8 @@ footer .social-links a:hover {
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .dk-hero-inner { flex-direction: column; text-align: center; }
-    .dk-rule { margin: 2rem 1.5rem 0; padding: 0; }
-    .dk-inner { padding: 0 1.5rem; }
+    .dk-rule { margin: var(--space-xl) var(--space-lg) 0; padding: 0; }
+    .dk-inner { padding-inline: var(--space-lg); }
 
     .dk-tam {
         grid-template-columns: 1fr;
@@ -2582,7 +2568,7 @@ footer .social-links a:hover {
 
 @media (max-width: 480px) {
     .dk-hero { padding: 120px 0 40px; }
-    .dk-section { padding: 3rem 0; }
+    .dk-section { padding: var(--space-2xl) 0; }
 
     .dk-comp-grid {
         grid-template-columns: 1fr;
@@ -2592,7 +2578,7 @@ footer .social-links a:hover {
         grid-template-columns: 1fr;
         gap: 0.25rem;
     }
-    .dk-margin-co { text-align: left; }
+    .dk-margin-co { text-align: start; }
     .dk-margin-tag { margin-top: -0.25rem; }
 
     .dk-metrics {

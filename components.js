@@ -25,10 +25,10 @@
     skipLink.textContent = 'Skip to main content';
     document.body.insertBefore(skipLink, document.body.firstChild);
 
-    // Add id to main element for skip link target
+    // Ensure main element has skip link target (set in HTML, reinforced here)
     const mainEl = document.querySelector('main');
     if (mainEl) {
-        mainEl.id = 'main-content';
+        if (!mainEl.id) mainEl.id = 'main-content';
         mainEl.setAttribute('tabindex', '-1');
     }
 
@@ -82,11 +82,17 @@
 
         function trapFocus(e) {
             if (!mobileNav || !mobileNav.classList.contains('open')) return;
-            const focusable = [toggle, ...getFocusableElements(mobileNav)];
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
+
+            if (e.key === 'Escape') {
+                closeMobileNav();
+                return;
+            }
 
             if (e.key === 'Tab') {
+                const focusable = [toggle, ...getFocusableElements(mobileNav)];
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+
                 if (e.shiftKey && document.activeElement === first) {
                     e.preventDefault();
                     last.focus();
@@ -112,7 +118,6 @@
             toggle.setAttribute('aria-expanded', 'true');
             document.body.classList.add('nav-open');
             document.addEventListener('keydown', trapFocus);
-            // Move focus into the mobile nav
             const firstLink = mobileNav.querySelector('a');
             if (firstLink) firstLink.focus();
         }
@@ -126,16 +131,8 @@
                 }
             });
 
-            // Close mobile nav when a link is clicked
             mobileNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', closeMobileNav);
-            });
-
-            // Close mobile nav on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-                    closeMobileNav();
-                }
             });
         }
     }
@@ -210,36 +207,29 @@
     }
 
     // ── Scroll Animations ───────────────────────
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -80px 0px'
-    };
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -80px 0px'
+        };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-        observer.observe(el);
-    });
-
-    // ── Stagger animation observer ──────────────
-    const staggerObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '';
-                staggerObserver.unobserve(entry.target);
-            }
+    } else {
+        // Fallback: show all elements immediately
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.classList.add('visible');
         });
-    }, observerOptions);
-
-    document.querySelectorAll('.stagger-in').forEach(el => {
-        staggerObserver.observe(el);
-    });
+    }
 
 })();
