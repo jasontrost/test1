@@ -39,6 +39,7 @@ window.SM = {
     grossMargin:        '79%',
     sbkGrowthRate:      '82%',
     peakMAU:            '41k',
+    lifetimeCustomers:  '1M+',     // lifetime registered, vs 41k peak monthly active
     tradingMargin:      '5%',      // vs industry avg ~12.5%
 
     // ── Fundraising ──────────────────────────────
@@ -48,7 +49,8 @@ window.SM = {
         'Passion Capital',
         'DTCP',
         'Bolt Ventures',
-        'Eberg Capital'
+        'Eberg Capital',
+        'Game Changers Ventures'
     ],
 
     // ── Licensing ────────────────────────────────

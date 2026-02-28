@@ -154,82 +154,59 @@
             </div>
         </section>
 
-        <!-- Open Roles -->
+        <!-- Open Roles (dynamic from Ashby) -->
         <section>
             <h2 class="section-title">Open Roles</h2>
-            <div class="roles-grid">
-                <div class="role-card fade-in">
-                    <h3>Senior Backend Engineer</h3>
-                    <div class="role-location">London</div>
-                    <p class="role-description">Build the core exchange infrastructure. Work with Rust, C++17, and distributed systems at scale.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">Rust</span>
-                        <span class="role-tag">C++17</span>
-                        <span class="role-tag">Kafka</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
-
-                <div class="role-card fade-in">
-                    <h3>Frontend Engineer</h3>
-                    <div class="role-location">London</div>
-                    <p class="role-description">Design and build interfaces for complex trading systems. React, TypeScript, real-time data visualization.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">React</span>
-                        <span class="role-tag">TypeScript</span>
-                        <span class="role-tag">WebSockets</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
-
-                <div class="role-card fade-in">
-                    <h3>Quantitative Trader</h3>
-                    <div class="role-location">London</div>
-                    <p class="role-description">Provide liquidity and sharp pricing across markets. Design algorithms, manage risk, maximize returns.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">Market Making</span>
-                        <span class="role-tag">Pricing</span>
-                        <span class="role-tag">Risk</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
-
-                <div class="role-card fade-in">
-                    <h3>Product Manager</h3>
-                    <div class="role-location">London</div>
-                    <p class="role-description">Own the product roadmap for our exchange. Work with engineering, trading, and customers to shape the future.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">Product Strategy</span>
-                        <span class="role-tag">Exchange</span>
-                        <span class="role-tag">Analytics</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
-
-                <div class="role-card fade-in">
-                    <h3>DevOps Engineer</h3>
-                    <div class="role-location">London / Malta</div>
-                    <p class="role-description">Manage infrastructure and deployment pipelines. Kubernetes, Linux, monitoring systems, 24/7 reliability.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">Kubernetes</span>
-                        <span class="role-tag">Infrastructure</span>
-                        <span class="role-tag">Linux</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
-
-                <div class="role-card fade-in">
-                    <h3>Compliance Analyst</h3>
-                    <div class="role-location">Malta</div>
-                    <p class="role-description">Navigate regulatory requirements across jurisdictions. Ensure Smarkets operates responsibly and compliantly.</p>
-                    <div class="role-tags">
-                        <span class="role-tag">Regulatory</span>
-                        <span class="role-tag">Compliance</span>
-                        <span class="role-tag">Legal</span>
-                    </div>
-                    <a href="https://jobs.ashbyhq.com/smarkets" class="apply-button" target="_blank" rel="noopener noreferrer">Apply</a>
-                </div>
+            <div id="ashby-jobs" class="ashby-embed fade-in">
+                <p class="ashby-loading">Loading open roles&hellip;</p>
             </div>
+            <noscript>
+                <div class="ashby-fallback">
+                    <p>JavaScript is required to load live roles. <a href="https://jobs.ashbyhq.com/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">View all open roles on Ashby</a>.</p>
+                </div>
+            </noscript>
+            <script>
+            (function () {
+                var API = 'https://api.ashbyhq.com/posting-api/job-board/smarkets';
+                fetch(API)
+                    .then(function (r) { return r.json(); })
+                    .then(function (data) {
+                        var jobs = data.jobs || [];
+                        var container = document.getElementById('ashby-jobs');
+                        if (!jobs.length) {
+                            container.innerHTML = '<p class="ashby-empty">No open roles right now — but we\'re always looking for great people. Send your CV to <a href="mailto:careers@smarkets.com" class="accent-link">careers@smarkets.com</a>.</p>';
+                            return;
+                        }
+                        // Group by department
+                        var depts = {};
+                        jobs.forEach(function (job) {
+                            var dept = job.departmentName || 'General';
+                            if (!depts[dept]) depts[dept] = [];
+                            depts[dept].push(job);
+                        });
+                        var html = '';
+                        Object.keys(depts).sort().forEach(function (dept) {
+                            html += '<div class="ashby-dept"><h3 class="ashby-dept-title">' + dept + '</h3>';
+                            html += '<div class="ashby-roles">';
+                            depts[dept].forEach(function (job) {
+                                var loc = job.location || 'London';
+                                var url = 'https://jobs.ashbyhq.com/smarkets/' + job.id;
+                                html += '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="ashby-role">';
+                                html += '<span class="ashby-role-title">' + job.title + '</span>';
+                                html += '<span class="ashby-role-loc">' + loc + '</span>';
+                                html += '<span class="ashby-role-arrow">&rarr;</span>';
+                                html += '</a>';
+                            });
+                            html += '</div></div>';
+                        });
+                        container.innerHTML = html;
+                    })
+                    .catch(function () {
+                        var container = document.getElementById('ashby-jobs');
+                        container.innerHTML = '<p class="ashby-empty">Couldn\'t load roles right now. <a href="https://jobs.ashbyhq.com/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">View open roles on Ashby</a>.</p>';
+                    });
+            })();
+            </script>
         </section>
 
         <!-- Awards Section -->

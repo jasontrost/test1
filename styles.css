@@ -30,7 +30,7 @@
     --space-lg: 1.5rem;
     --space-xl: 2rem;
     --space-2xl: 3rem;
-    --space-3xl: 5rem;
+    --space-3xl: 3rem;
 }
 
 html {
@@ -272,7 +272,7 @@ nav {
    Sections
    ============================================ */
 section {
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -371,6 +371,9 @@ section {
     padding: 2rem;
     transition: all 0.3s ease;
     text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .investor-card:hover {
@@ -1239,7 +1242,7 @@ section {
    ============================================ */
 .cta-section {
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
     border-top: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
@@ -2070,8 +2073,9 @@ footer .social-links a:hover {
 /* ---------- Sections ---------- */
 .dk-section {
     background: var(--bg-primary);
-    padding: var(--space-3xl) 0;
+    padding: var(--space-2xl) 0;
     border-bottom: 1px solid var(--bg-tertiary);
+    max-width: none;
 }
 
 .dk-inner {
@@ -2099,11 +2103,14 @@ footer .social-links a:hover {
     margin-bottom: 0.5rem;
 }
 .dk-block-text {
-    font-size: clamp(1.6rem, 3.5vw, 2.8rem);
-    font-weight: 700;
-    line-height: 1.25;
-    letter-spacing: 0.02em;
+    font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 0;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
 }
+.dk-block-text:last-child { margin-bottom: 0; }
 .dk-sep {
     height: 1px;
     background: var(--border);
@@ -2695,3 +2702,155 @@ a.accent-link { color: var(--accent, #00CE8F); }
     margin-top: 1rem;
     display: inline-block;
 }
+
+/* ── 404 page ─────────────────────────────── */
+.hero-404 { min-height: 60vh; }
+.hero-404 .hero-subtitle { margin-bottom: 2rem; }
+.error-links { margin-bottom: 2rem; }
+.error-suggestions { margin-top: 2rem; }
+.error-suggestions p { color: #aaa; font-size: 0.95rem; }
+.error-nav {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    justify-content: center;
+    margin: 1rem 0;
+}
+.error-nav a {
+    color: var(--accent, #00CE8F);
+    text-decoration: none;
+    font-weight: 600;
+}
+.error-nav a:hover { text-decoration: underline; }
+
+/* ── Social SVG icons ─────────────────────── */
+.social-links svg {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+/* ── CTA grid (about page) ──────────────── */
+.cta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.cta-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+.cta-card h3 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+.cta-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+/* ── Download grid (investor page) ──────── */
+.download-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.download-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+.download-card h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.download-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+.download-soon {
+    display: inline-block;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Ashby job board embed ──────────────── */
+.ashby-embed { max-width: 900px; margin: 0 auto; }
+.ashby-loading,
+.ashby-empty { color: var(--text-secondary); text-align: center; padding: 2rem 0; }
+.ashby-fallback { text-align: center; padding: 2rem 0; color: var(--text-secondary); }
+.ashby-dept { margin-bottom: 2rem; }
+.ashby-dept-title {
+    color: var(--accent);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+}
+.ashby-roles { display: flex; flex-direction: column; gap: 0; }
+.ashby-role {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: background 0.15s;
+}
+.ashby-role:hover { background: var(--bg-tertiary); padding-left: 0.5rem; padding-right: 0.5rem; border-radius: 6px; }
+.ashby-role-title { flex: 1; font-weight: 600; }
+.ashby-role-loc { color: var(--text-tertiary); font-size: 0.9rem; }
+.ashby-role-arrow { color: var(--accent); font-size: 1.1rem; }
+
+/* ── Press kit (newsroom) ───────────────── */
+.press-kit { max-width: 900px; margin: 0 auto; padding: 0; }
+.press-kit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.press-kit-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+.press-kit-card h4 {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+.press-kit-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+.press-kit-card p:last-child { margin-bottom: 0; }
+.press-kit-card strong { color: var(--text-primary); }
