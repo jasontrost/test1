@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partnerships - Smarkets</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -54,10 +55,8 @@
         }
 
         .featured-partnership-visual {
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
             border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
+            overflow: hidden;
             min-height: 300px;
             display: flex;
             align-items: center;
@@ -65,9 +64,17 @@
             border: 1px solid var(--border);
         }
 
+        .featured-partnership-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .featured-partnership-visual p {
             color: var(--text-tertiary);
             font-style: italic;
+            padding: 2rem;
         }
 
         .brands-grid {
@@ -185,14 +192,14 @@
                             </ul>
                         </div>
                         <div class="featured-partnership-visual">
-                            <p>"SailGP's real-time race data powers a unique, data-driven trading experience for fans."</p>
+                            <img src="01049-SGP26-SMarkets-announcement-16x9-v3B.jpg" alt="SailGP x Smarkets — Official Sports Trading Partner">
                         </div>
                     </div>
 
                     <!-- AFC Bournemouth Partnership -->
                     <div class="featured-partnership">
                         <div class="featured-partnership-visual">
-                            <p>"Training wear partnership celebrating Premier League excellence"</p>
+                            <img src="01049-SGP26-SMarkets-announcement-16x9-v3A.jpg" alt="SailGP Emirates GBR Team x Smarkets partnership">
                         </div>
                         <div class="featured-partnership-content">
                             <span class="card-tag">SPORTSBOOK</span>
