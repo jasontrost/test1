@@ -14,10 +14,13 @@
         return currentPage === page ? 'active' : '';
     }
 
+    // ── Smarkets Logo ───────────────────────────
+    const logoIMG = `<img src="smarkets-white-wordmark-no-padding.svg" alt="Smarkets" class="nav-logo">`;
+
     // ── Navigation ──────────────────────────────
     const navHTML = `
         <a href="index.html" class="nav-brand">
-            <span class="s">S</span><span class="rest">markets</span>
+            ${logoIMG}
         </a>
         <ul class="nav-links">
             <li><a href="about.html" class="${isActive('about.html')}">About</a></li>
@@ -100,7 +103,7 @@
         </div>
         <div class="footer-bottom">
             <div class="footer-brand">
-                <span class="s">S</span><span class="rest">markets</span>
+                ${logoIMG}
             </div>
             <div class="footer-legal">
                 <a href="#">Terms</a>
