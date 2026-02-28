@@ -165,10 +165,9 @@
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="terms.html">Terms of Service</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
-                    <li><a href="responsible-gambling.html">Responsible Gambling</a></li>
-                    <li><a href="cookies.html">Cookie Policy</a></li>
+                    <li><a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" rel="noopener noreferrer">Terms of Service</a></li>
+                    <li><a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" rel="noopener noreferrer">Privacy Policy</a></li>
+                    <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Gambling</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -195,10 +194,9 @@
                 ${logoIMG}
             </div>
             <div class="footer-legal">
-                <a href="terms.html">Terms</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="cookies.html">Cookies</a>
-                <a href="responsible-gambling.html">Responsible Gambling</a>
+                <a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" rel="noopener noreferrer">Terms</a>
+                <a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" rel="noopener noreferrer">Privacy</a>
+                <a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Gambling</a>
             </div>
             <div class="footer-copyright">
                 &copy; ${new Date().getFullYear()} Smarkets. All rights reserved. Licensed and regulated by the UK Gambling Commission and Malta Gaming Authority.
