@@ -73,11 +73,37 @@
         const toggle = nav.querySelector('.mobile-menu-toggle');
         const mobileNav = document.getElementById('mobile-nav');
 
+        // ── Focus trap helper ────────────────────
+        function getFocusableElements(container) {
+            return container.querySelectorAll(
+                'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+            );
+        }
+
+        function trapFocus(e) {
+            if (!mobileNav || !mobileNav.classList.contains('open')) return;
+            const focusable = [toggle, ...getFocusableElements(mobileNav)];
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.key === 'Tab') {
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        }
+
         function closeMobileNav() {
             mobileNav.classList.remove('open');
             toggle.textContent = '\u2630';
             toggle.setAttribute('aria-expanded', 'false');
             document.body.classList.remove('nav-open');
+            document.removeEventListener('keydown', trapFocus);
+            toggle.focus();
         }
 
         function openMobileNav() {
@@ -85,6 +111,10 @@
             toggle.textContent = '\u2715';
             toggle.setAttribute('aria-expanded', 'true');
             document.body.classList.add('nav-open');
+            document.addEventListener('keydown', trapFocus);
+            // Move focus into the mobile nav
+            const firstLink = mobileNav.querySelector('a');
+            if (firstLink) firstLink.focus();
         }
 
         if (toggle && mobileNav) {
@@ -105,7 +135,6 @@
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
                     closeMobileNav();
-                    toggle.focus();
                 }
             });
         }
@@ -136,18 +165,27 @@
             <div class="footer-col">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Responsible Gambling</a></li>
-                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="responsible-gambling.html">Responsible Gambling</a></li>
+                    <li><a href="cookies.html">Cookie Policy</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
                 <div class="social-links">
-                    <a href="https://twitter.com/smarkets" title="X / Twitter" rel="noopener noreferrer">\uD835\uDD4F</a>
-                    <a href="https://linkedin.com/company/smarkets" title="LinkedIn" rel="noopener noreferrer">in</a>
-                    <a href="https://instagram.com/smarkets" title="Instagram" rel="noopener noreferrer">IG</a>
+                    <a href="https://twitter.com/smarkets" rel="noopener noreferrer" aria-label="Follow Smarkets on X (formerly Twitter)">
+                        <span aria-hidden="true">\uD835\uDD4F</span>
+                        <span class="sr-only">X / Twitter</span>
+                    </a>
+                    <a href="https://linkedin.com/company/smarkets" rel="noopener noreferrer" aria-label="Follow Smarkets on LinkedIn">
+                        <span aria-hidden="true">in</span>
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
+                    <a href="https://instagram.com/smarkets" rel="noopener noreferrer" aria-label="Follow Smarkets on Instagram">
+                        <span aria-hidden="true">IG</span>
+                        <span class="sr-only">Instagram</span>
+                    </a>
                 </div>
                 <p class="footer-press-email">press@smarkets.com</p>
             </div>
@@ -157,10 +195,10 @@
                 ${logoIMG}
             </div>
             <div class="footer-legal">
-                <a href="#">Terms</a>
-                <a href="#">Privacy</a>
-                <a href="#">Cookies</a>
-                <a href="#">Responsible Gambling</a>
+                <a href="terms.html">Terms</a>
+                <a href="privacy.html">Privacy</a>
+                <a href="cookies.html">Cookies</a>
+                <a href="responsible-gambling.html">Responsible Gambling</a>
             </div>
             <div class="footer-copyright">
                 &copy; ${new Date().getFullYear()} Smarkets. All rights reserved. Licensed and regulated by the UK Gambling Commission and Malta Gaming Authority.
@@ -204,11 +242,6 @@
 
     document.querySelectorAll('.stagger-in').forEach(el => {
         staggerObserver.observe(el);
-    });
-
-    // ── Prevent # links from scrolling ──────────
-    document.querySelectorAll('a[href="#"]').forEach(link => {
-        link.addEventListener('click', (e) => e.preventDefault());
     });
 
 })();
