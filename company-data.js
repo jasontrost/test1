@@ -4,8 +4,14 @@
  * Single source of truth for numbers, dates, and facts used across the site.
  * Update this file when metrics change; every page pulls from here.
  *
- * Usage: <script src="/company-data.js"></script> (before components.js)
- * Then reference window.SM.founded, window.SM.headcount, etc.
+ * HOW IT WORKS
+ * 1. This file defines window.SM with all canonical values.
+ * 2. On DOMContentLoaded it finds every element with a data-sm="key"
+ *    attribute and sets its textContent to window.SM[key].
+ * 3. HTML still contains the value as fallback text (for SEO / no-JS),
+ *    but JS overwrites it at runtime so you only need to update THIS file.
+ *
+ * Usage: <script src="/company-data.js" defer></script>
  *
  * Last reviewed: February 2026
  */
@@ -67,3 +73,17 @@ window.SM = {
     // Hedging:  "as of [date]" on any metric that ages
     dataAsOf:           'February 2026',
 };
+
+/* ── DOM hydration ────────────────────────────────
+   Find every [data-sm] element and replace its text
+   with the matching window.SM value.
+   ──────────────────────────────────────────────── */
+document.addEventListener('DOMContentLoaded', function () {
+    var els = document.querySelectorAll('[data-sm]');
+    for (var i = 0; i < els.length; i++) {
+        var key = els[i].getAttribute('data-sm');
+        if (window.SM.hasOwnProperty(key)) {
+            els[i].textContent = String(window.SM[key]);
+        }
+    }
+});
