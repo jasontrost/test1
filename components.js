@@ -144,7 +144,7 @@
                 <h4>Product</h4>
                 <ul>
                     <li><a href="https://smarkets.com" rel="noopener noreferrer">Exchange</a></li>
-                    <li><a href="https://sbk.com" rel="noopener noreferrer">SBK Sportsbook</a></li>
+                    <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK Sportsbook</a></li>
                     <li><a href="https://docs.smarkets.com" rel="noopener noreferrer">API</a></li>
                 </ul>
             </div>
@@ -184,19 +184,7 @@
                     </a>
                 </div>
                 <p class="footer-press-email">press@smarkets.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-brand">
-                ${logoIMG}
-            </div>
-            <div class="footer-legal">
-                <a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" rel="noopener noreferrer">Terms</a>
-                <a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" rel="noopener noreferrer">Privacy</a>
-                <a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Gambling</a>
-            </div>
-            <div class="footer-copyright">
-                &copy; ${new Date().getFullYear()} Smarkets. All rights reserved. Licensed and regulated by the UK Gambling Commission and Malta Gaming Authority.
+                <p class="footer-copyright">&copy; ${new Date().getFullYear()} Smarkets. All rights reserved.</p>
             </div>
         </div>
     `;
