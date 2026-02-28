@@ -54,18 +54,226 @@
     <main id="main-content">
 
     <!-- Hero -->
-    <section class="dk-hero">
+    <section class="dk-hero dk-hero-canvas">
+        <canvas id="hero-canvas"></canvas>
         <div class="dk-hero-inner">
             <div class="dk-hero-text">
                 <h1>
                     <span class="dk-white">We believe markets are the best way to</span><br>
-                    <span class="dk-green">price uncertain events</span>
+                    <span class="dk-green">price </span><span id="glitch-word" class="dk-green"></span><span class="dk-green"> events</span>
                 </h1>
-                <p class="dk-hero-sub">Smarkets is a prediction market exchange, founded in 2008 and headquartered in London. We run two products — the Smarkets exchange and the SBK sportsbook — both powered by the same proprietary technology.</p>
+                <p class="dk-hero-sub">Smarkets is a prediction market exchange, founded in 2008 and headquartered in London. We run three products — the Smarkets prediction market, the SBK sportsbook built on top of it, and Hanson, an institutional market maker — all powered by the same proprietary technology.</p>
             </div>
         </div>
-        <div class="dk-rule"></div>
     </section>
+
+    <script>
+    (() => {
+        // --- Glitch decoder for "uncertain" ---
+        const glitchEl = document.getElementById('glitch-word');
+        const target = 'uncertain';
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789/\\|<>[]{}#@&';
+        let revealed = 0, frame = 0, paused = false, pauseTimer = 0;
+        function glitchTick() {
+            frame++;
+            // Long pause between cycles — show "uncertain" solidly for ~8 seconds
+            if (paused) { pauseTimer--; if (pauseTimer <= 0) { paused = false; revealed = 0; } return; }
+            // Slow scramble: only update every 6th frame (~10fps feel)
+            if (frame % 6 !== 0) return;
+            let text = '';
+            for (let i = 0; i < target.length; i++) {
+                if (i < revealed) text += target[i];
+                else text += chars[Math.floor(Math.random() * chars.length)];
+            }
+            glitchEl.textContent = text;
+            // Reveal one letter every 12th frame (~slow typewriter)
+            if (frame % 12 === 0) revealed++;
+            if (revealed > target.length) { glitchEl.textContent = target; paused = true; pauseTimer = 500; }
+        }
+
+        // --- Canvas setup ---
+        const c = document.getElementById('hero-canvas');
+        const ctx = c.getContext('2d');
+        function resize() {
+            const rect = c.parentElement.getBoundingClientRect();
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            c.width = rect.width * dpr;
+            c.height = rect.height * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            return { W: rect.width, H: rect.height };
+        }
+        let dims = resize();
+        window.addEventListener('resize', () => { dims = resize(); });
+
+        // Colors matched to site theme — boosted brightness
+        const ACCENT = [12, 205, 147];   // --accent #0CCD93
+        const DIM    = [12, 205, 147];   // use accent for constellation too
+        const neon = (a) => `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${a})`;
+        const dim  = (a) => `rgba(${DIM[0]},${DIM[1]},${DIM[2]},${a})`;
+
+        let t = 0;
+
+        // Constellation nodes
+        const nodes = Array.from({ length: 50 }, () => ({
+            x: Math.random(), y: Math.random(),
+            vx: (Math.random() - 0.5) * 0.00025,
+            vy: (Math.random() - 0.5) * 0.00025,
+            r: 1.5 + Math.random() * 2,
+        }));
+
+        // Streaks
+        const streaks = [];
+        function spawnStreak(W, H) {
+            streaks.push({
+                x: -50, y: 20 + Math.random() * (H - 40),
+                speed: 3 + Math.random() * 7,
+                length: 80 + Math.random() * 160,
+                opacity: 0.3 + Math.random() * 0.4,
+                width: 0.8 + Math.random() * 1.5,
+            });
+        }
+
+        // Flash
+        let flash = { active: false, x: 0, age: 0, intensity: 0 };
+        function triggerFlash(W) {
+            flash = { active: true, x: 0.15 * W + Math.random() * 0.7 * W, age: 0, intensity: 1.0 };
+        }
+
+        function render() {
+            const W = dims.W, H = dims.H;
+            t += 0.004;
+            ctx.clearRect(0, 0, W, H);
+
+            // Grid — brighter
+            ctx.strokeStyle = neon(0.04);
+            ctx.lineWidth = 0.5;
+            const sp = 55;
+            const ox = (t * 8) % sp, oy = (t * 4) % sp;
+            for (let x = -sp + ox; x < W + sp; x += sp) { ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke(); }
+            for (let y = -sp + oy; y < H + sp; y += sp) { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+
+            // Constellation
+            for (const n of nodes) {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 0 || n.x > 1) n.vx *= -1;
+                if (n.y < 0 || n.y > 1) n.vy *= -1;
+            }
+            const maxD = 0.13;
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < maxD) {
+                        ctx.beginPath();
+                        ctx.strokeStyle = dim(0.18 * (1 - dist / maxD));
+                        ctx.lineWidth = 0.6;
+                        ctx.moveTo(nodes[i].x * W, nodes[i].y * H);
+                        ctx.lineTo(nodes[j].x * W, nodes[j].y * H);
+                        ctx.stroke();
+                    }
+                }
+            }
+            for (const n of nodes) {
+                ctx.beginPath();
+                ctx.arc(n.x * W, n.y * H, n.r, 0, Math.PI * 2);
+                ctx.fillStyle = dim(0.5);
+                ctx.fill();
+                // Node glow
+                const g = ctx.createRadialGradient(n.x*W, n.y*H, 0, n.x*W, n.y*H, n.r * 4);
+                g.addColorStop(0, dim(0.1));
+                g.addColorStop(1, dim(0));
+                ctx.fillStyle = g;
+                ctx.beginPath();
+                ctx.arc(n.x * W, n.y * H, n.r * 4, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Chart lines — brighter
+            for (let l = 0; l < 2; l++) {
+                ctx.beginPath();
+                ctx.strokeStyle = neon(0.15 + l * 0.08);
+                ctx.lineWidth = 1.5 + l * 0.5;
+                for (let x = 0; x <= W; x += 3) {
+                    let y = H * (0.35 + l * 0.15)
+                        + Math.sin(x * 0.005 + t * (0.5 + l * 0.2) + l * 2) * 40
+                        + Math.sin(x * 0.015 + t * 1.1) * 12;
+                    if (flash.active) {
+                        const fdx = Math.abs(x - flash.x);
+                        if (fdx < 90 && l === 0) {
+                            y -= (1 - fdx / 90) * 60 * flash.intensity * Math.max(0, 1 - flash.age);
+                        }
+                    }
+                    x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath();
+                const gf = ctx.createLinearGradient(0, H * (0.35 + l * 0.15) - 40, 0, H);
+                gf.addColorStop(0, neon(0.05));
+                gf.addColorStop(0.4, neon(0.015));
+                gf.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = gf;
+                ctx.fill();
+            }
+
+            // Streaks — brighter, slightly more frequent
+            if (Math.random() < 0.04) spawnStreak(W, H);
+            for (let i = streaks.length - 1; i >= 0; i--) {
+                const sk = streaks[i];
+                sk.x += sk.speed;
+                if (sk.x - sk.length > W) { streaks.splice(i, 1); continue; }
+                const g = ctx.createLinearGradient(sk.x - sk.length, 0, sk.x, 0);
+                g.addColorStop(0, neon(0));
+                g.addColorStop(0.75, neon(sk.opacity * 0.5));
+                g.addColorStop(1, neon(sk.opacity));
+                ctx.beginPath();
+                ctx.strokeStyle = g;
+                ctx.lineWidth = sk.width;
+                ctx.moveTo(sk.x - sk.length, sk.y);
+                ctx.lineTo(sk.x, sk.y);
+                ctx.stroke();
+                // Head glow
+                const hg = ctx.createRadialGradient(sk.x, sk.y, 0, sk.x, sk.y, 8);
+                hg.addColorStop(0, neon(sk.opacity * 0.8));
+                hg.addColorStop(1, neon(0));
+                ctx.fillStyle = hg;
+                ctx.fillRect(sk.x - 8, sk.y - 8, 16, 16);
+            }
+
+            // Flash — brighter
+            if (flash.active) {
+                flash.age += 0.012;
+                const a = Math.max(0, flash.intensity * (1 - flash.age));
+                const g = ctx.createRadialGradient(flash.x, H * 0.4, 0, flash.x, H * 0.4, 200);
+                g.addColorStop(0, neon(a * 0.6));
+                g.addColorStop(0.3, neon(a * 0.2));
+                g.addColorStop(1, neon(0));
+                ctx.fillStyle = g;
+                ctx.fillRect(flash.x - 200, 0, 400, H);
+                if (flash.age > 1.3) flash.active = false;
+            }
+            if (Math.random() < 0.005) triggerFlash(W);
+
+            // Scanlines — lighter so they don't darken everything
+            for (let y = 0; y < H; y += 4) {
+                ctx.fillStyle = 'rgba(0,0,0,0.03)';
+                ctx.fillRect(0, y, W, 1);
+            }
+
+            // Vignette — softer centre, so graphics show through more
+            const pulse = 0.45 + 0.06 * Math.sin(t * 1.5);
+            const vig = ctx.createRadialGradient(W / 2, H * 0.45, W * 0.2, W / 2, H * 0.45, W * 0.75);
+            vig.addColorStop(0, 'rgba(0,0,0,0)');
+            vig.addColorStop(0.6, `rgba(0,0,0,${pulse * 0.3})`);
+            vig.addColorStop(1, `rgba(0,0,0,${pulse * 0.75})`);
+            ctx.fillStyle = vig;
+            ctx.fillRect(0, 0, W, H);
+
+            glitchTick();
+            requestAnimationFrame(render);
+        }
+        render();
+    })();
+    </script>
 
     <!-- What we do -->
     <section class="dk-section">
@@ -73,7 +281,7 @@
             <h2 class="dk-heading fade-in"><span class="dk-green">What we do</span></h2>
             <div class="dk-block fade-in">
                 <p class="dk-block-text">Our exchange lets people trade on the outcomes of real-world events — elections, sports, economics — at prices set by the market, not by a bookmaker. Our sportsbook, SBK, takes the same sharp pricing and wraps it in a simple betting experience.</p>
-                <p class="dk-block-text">Together, the two products serve different audiences with the same underlying engine: a matching platform, a market maker, and a risk system — all built in-house.</p>
+                <p class="dk-block-text">Together, the three products serve different audiences with the same underlying engine: a matching platform, a market maker, and a risk system — all built in-house.</p>
             </div>
         </div>
     </section>

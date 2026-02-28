@@ -148,7 +148,8 @@
                 <h4>Product</h4>
                 <ul>
                     <li><a href="https://smarkets.com" rel="noopener noreferrer">Exchange</a></li>
-                    <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK Sportsbook</a></li>
+                    <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK</a></li>
+                    <li><a href="https://hanson.as" rel="noopener noreferrer">Hanson</a></li>
                     <li><a href="https://apps.apple.com/gb/app/smarkets-betting-exchange/id1155643579" rel="noopener noreferrer">Smarkets on App Store</a></li>
                     <li><a href="https://apps.apple.com/gb/app/sbk-sports-betting-online/id1371054563" rel="noopener noreferrer">SBK on App Store</a></li>
                     <li><a href="https://docs.smarkets.com" rel="noopener noreferrer">API</a></li>
