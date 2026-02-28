@@ -813,25 +813,7 @@ section {
     color: var(--text-secondary);
 }
 
-.apply-button {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--bg-primary);
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    border: 2px solid var(--accent);
-    text-align: center;
-    width: 100%;
-}
-
-.apply-button:hover {
-    background: var(--bg-primary);
-    color: var(--accent);
-}
+/* .apply-button removed — consolidated into .btn */
 
 /* ============================================
    Partnership Cards
@@ -1279,6 +1261,7 @@ section {
     margin-right: auto;
 }
 
+/* .cta-button aliased to .btn for consistency */
 .cta-button {
     display: inline-block;
     background: var(--accent);
@@ -1863,14 +1846,14 @@ footer .social-links a:hover {
         grid-template-columns: 1fr;
     }
 
-    .timeline::before { left: 16px; }
+    .timeline::before { left: 1rem; }
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
         text-align: left;
-        padding-left: 50px;
+        padding-left: 3.125rem;
         padding-right: 0;
     }
-    .timeline-dot { left: 16px; transform: translateX(-50%); }
+    .timeline-dot { left: 1rem; transform: translateX(-50%); }
 
 
     .partnership-featured { padding: 2rem; }
@@ -1920,6 +1903,12 @@ footer .social-links a:hover {
         grid-template-columns: 1fr;
     }
 
+    .stats-bar {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 2rem 1rem;
+        gap: 1.5rem;
+    }
+
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1940,6 +1929,12 @@ footer .social-links a:hover {
     .featured-story { padding: 1.5rem; }
 
     .news-grid { grid-template-columns: 1fr; }
+
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
 
     .media-kit { padding: 1.5rem; }
     .media-kit h2 { font-size: 1.2rem; }
@@ -1995,7 +1990,7 @@ footer .social-links a:hover {
    Print Styles
    ============================================ */
 @media print {
-    nav, .mobile-nav, footer, .cta-section, .cta-button, .apply-button, .btn, .skip-link {
+    nav, .mobile-nav, footer, .cta-section, .cta-button, .btn, .skip-link {
         display: none !important;
     }
 

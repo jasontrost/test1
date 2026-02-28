@@ -210,9 +210,19 @@
             <script>
             (function () {
                 var API = 'https://api.ashbyhq.com/posting-api/job-board/smarkets';
-                fetch(API)
+                var controller = new AbortController();
+                var timeoutId = setTimeout(function () { controller.abort(); }, 8000);
+
+                function esc(str) {
+                    var div = document.createElement('div');
+                    div.textContent = str;
+                    return div.innerHTML;
+                }
+
+                fetch(API, { signal: controller.signal })
                     .then(function (r) { return r.json(); })
                     .then(function (data) {
+                        clearTimeout(timeoutId);
                         var jobs = data.jobs || [];
                         var container = document.getElementById('ashby-jobs');
                         if (!jobs.length) {
@@ -226,24 +236,47 @@
                             if (!depts[dept]) depts[dept] = [];
                             depts[dept].push(job);
                         });
-                        var html = '';
+                        // Build DOM safely instead of innerHTML string concatenation
+                        var fragment = document.createDocumentFragment();
                         Object.keys(depts).sort().forEach(function (dept) {
-                            html += '<div class="ashby-dept"><h3 class="ashby-dept-title">' + dept + '</h3>';
-                            html += '<div class="ashby-roles">';
+                            var deptDiv = document.createElement('div');
+                            deptDiv.className = 'ashby-dept';
+                            var deptTitle = document.createElement('h3');
+                            deptTitle.className = 'ashby-dept-title';
+                            deptTitle.textContent = dept;
+                            deptDiv.appendChild(deptTitle);
+                            var rolesDiv = document.createElement('div');
+                            rolesDiv.className = 'ashby-roles';
                             depts[dept].forEach(function (job) {
                                 var loc = job.location || 'London';
-                                var url = 'https://jobs.ashbyhq.com/smarkets/' + job.id;
-                                html += '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="ashby-role">';
-                                html += '<span class="ashby-role-title">' + job.title + '</span>';
-                                html += '<span class="ashby-role-loc">' + loc + '</span>';
-                                html += '<span class="ashby-role-arrow">&rarr;</span>';
-                                html += '</a>';
+                                var id = String(job.id).replace(/[^a-zA-Z0-9\-]/g, '');
+                                var link = document.createElement('a');
+                                link.href = 'https://jobs.ashbyhq.com/smarkets/' + id;
+                                link.target = '_blank';
+                                link.rel = 'noopener noreferrer';
+                                link.className = 'ashby-role';
+                                var titleSpan = document.createElement('span');
+                                titleSpan.className = 'ashby-role-title';
+                                titleSpan.textContent = job.title;
+                                var locSpan = document.createElement('span');
+                                locSpan.className = 'ashby-role-loc';
+                                locSpan.textContent = loc;
+                                var arrow = document.createElement('span');
+                                arrow.className = 'ashby-role-arrow';
+                                arrow.innerHTML = '&rarr;';
+                                link.appendChild(titleSpan);
+                                link.appendChild(locSpan);
+                                link.appendChild(arrow);
+                                rolesDiv.appendChild(link);
                             });
-                            html += '</div></div>';
+                            deptDiv.appendChild(rolesDiv);
+                            fragment.appendChild(deptDiv);
                         });
-                        container.innerHTML = html;
+                        container.innerHTML = '';
+                        container.appendChild(fragment);
                     })
                     .catch(function () {
+                        clearTimeout(timeoutId);
                         var container = document.getElementById('ashby-jobs');
                         container.innerHTML = '<p class="ashby-empty">Couldn\'t load roles right now. <a href="https://jobs.ashbyhq.com/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">View open roles on Ashby</a>.</p>';
                     });
