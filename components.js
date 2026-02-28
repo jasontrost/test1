@@ -7,8 +7,8 @@
     'use strict';
 
     // Determine current page from URL
-    const path = window.location.pathname;
-    const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+    const path = window.location.pathname.replace(/\/+$/, '');
+    const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index';
 
     function isActive(page) {
         return currentPage === page ? 'active' : '';
@@ -33,32 +33,32 @@
     }
 
     // ── Smarkets Logo ───────────────────────────
-    const logoIMG = `<img src="smarkets-white-wordmark-no-padding.svg" alt="Smarkets" class="nav-logo">`;
+    const logoIMG = `<img src="/smarkets-white-wordmark-no-padding.svg" alt="Smarkets" class="nav-logo">`;
 
     // ── Navigation ──────────────────────────────
     const navHTML = `
-        <a href="index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             ${logoIMG}
         </a>
         <ul class="nav-links">
-            <li><a href="about.html" class="${isActive('about.html')}"${ariaCurrent('about.html')}>About</a></li>
-            <li><a href="team.html" class="${isActive('team.html')}"${ariaCurrent('team.html')}>Team</a></li>
-            <li><a href="careers.html" class="${isActive('careers.html')}"${ariaCurrent('careers.html')}>Careers</a></li>
-            <li><a href="partnerships.html" class="${isActive('partnerships.html')}"${ariaCurrent('partnerships.html')}>Partnerships</a></li>
-            <li><a href="newsroom.html" class="${isActive('newsroom.html')}"${ariaCurrent('newsroom.html')}>Newsroom</a></li>
-            <li><a href="investors.html" class="${isActive('investors.html')}"${ariaCurrent('investors.html')}>Investors</a></li>
+            <li><a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
+            <li><a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
+            <li><a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
+            <li><a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
+            <li><a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
+            <li><a href="/investors" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a></li>
         </ul>
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
     `;
 
     const mobileNavHTML = `
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-            <a href="about.html" class="${isActive('about.html')}"${ariaCurrent('about.html')}>About</a>
-            <a href="team.html" class="${isActive('team.html')}"${ariaCurrent('team.html')}>Team</a>
-            <a href="careers.html" class="${isActive('careers.html')}"${ariaCurrent('careers.html')}>Careers</a>
-            <a href="partnerships.html" class="${isActive('partnerships.html')}"${ariaCurrent('partnerships.html')}>Partnerships</a>
-            <a href="newsroom.html" class="${isActive('newsroom.html')}"${ariaCurrent('newsroom.html')}>Newsroom</a>
-            <a href="investors.html" class="${isActive('investors.html')}"${ariaCurrent('investors.html')}>Investors</a>
+            <a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
+            <a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
+            <a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
+            <a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
+            <a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
+            <a href="/investors" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a>
         </div>
     `;
 
@@ -154,12 +154,12 @@
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="careers.html">Careers</a></li>
-                    <li><a href="newsroom.html">Newsroom</a></li>
-                    <li><a href="partnerships.html">Partnerships</a></li>
-                    <li><a href="investors.html">Investors</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/team">Team</a></li>
+                    <li><a href="/careers">Careers</a></li>
+                    <li><a href="/newsroom">Newsroom</a></li>
+                    <li><a href="/partnerships">Partnerships</a></li>
+                    <li><a href="/investors">Investors</a></li>
                 </ul>
             </div>
             <div class="footer-col">
