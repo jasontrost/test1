@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Smarkets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles for about.html */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .problem-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .problem-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+            transform: translateY(-5px);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .office-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .office-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+
+        .office-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .office-content {
+            padding: 2rem;
+        }
+
+        .office-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .office-location {
+            color: var(--accent);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .office-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .regulation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .regulation-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .regulation-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-tertiary);
+        }
+
+        .regulation-card h3 {
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .regulation-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .problem-grid,
+            .values-grid,
+            .metrics-grid,
+            .regulation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav></nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>We're fixing betting.</h1>
+            <p class="hero-subtitle">Building the world's most efficient prediction market exchange. Transparent. Fair. Revolutionary.</p>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section>
+        <h2 class="section-title fade-in">The Problem</h2>
+        <p class="section-subtitle fade-in">Traditional betting has dominated for centuries, but it's fundamentally broken.</p>
+        <div class="problem-grid">
+            <div class="problem-card fade-in">
+                <h3>High Margins</h3>
+                <p>Bookmakers extract 15-20% margins from every bet, significantly reducing customer returns and market efficiency.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <h3>Lack of Transparency</h3>
+                <p>Odds are set arbitrarily. Customers never see the true probability of an outcome or understand the pricing.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <h3>Poor User Experience</h3>
+                <p>Legacy platforms are slow, clunky, and disconnected from modern expectations of speed and usability.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <h3>Limited Liquidity</h3>
+                <p>With centralized bookmakers, betting options are restricted and liquidity pools are artificially limited.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <h3>Inefficient Discovery</h3>
+                <p>True market probability is hidden behind corporate pricing strategies rather than discovered through trading.</p>
+            </div>
+            <div class="problem-card fade-in">
+                <h3>No Asset Class</h3>
+                <p>Betting has no secondary market, no ability to trade positions, and no clear asset ownership model.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Timeline -->
+    <section>
+        <h2 class="section-title fade-in">Our Story</h2>
+        <p class="section-subtitle fade-in">From an ambitious startup to a global prediction market leader.</p>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2008</div>
+                    <div class="timeline-title">Founded in London</div>
+                    <div class="timeline-description">Jason Trost and Hunter Morris founded Smarkets with a vision to revolutionize prediction markets through technology and transparency.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2010</div>
+                    <div class="timeline-title">Exchange Goes Live</div>
+                    <div class="timeline-description">The Smarkets exchange launches, introducing transparent, peer-to-peer prediction market trading to the world.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2015</div>
+                    <div class="timeline-title">Self-Management Model</div>
+                    <div class="timeline-description">Transitioning to self-managing teams with radical transparency and self-set salaries. We believe in trusting our people.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2020</div>
+                    <div class="timeline-title">£1B+ Annual Volume</div>
+                    <div class="timeline-description">A major milestone reached as Smarkets processes over £1 billion in annual trading volume on its platform.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-title">Launched SBK Sportsbook</div>
+                    <div class="timeline-description">Introducing SBK, our sportsbook brand, expanding our offerings beyond exchange-based prediction markets.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-title">AFC Bournemouth Partnership</div>
+                    <div class="timeline-description">SBK becomes the official training kit sponsor of AFC Bournemouth, bringing Smarkets to a new audience.</div>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-year">2026</div>
+                    <div class="timeline-title">SailGP Official Sports Trading Partner</div>
+                    <div class="timeline-description">Becoming the official sports trading partner for SailGP, expanding our presence in premium sports partnerships.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work -->
+    <section>
+        <h2 class="section-title fade-in">How We Work</h2>
+        <p class="section-subtitle fade-in">Our culture is built on trust, transparency, and empowering our team to do their best work.</p>
+        <div class="values-grid">
+            <div class="value-card fade-in">
+                <div class="value-icon">🤝</div>
+                <h3>Self-Managing Teams</h3>
+                <p>Autonomous teams of 5-8 people set their own direction, make decisions independently, and own their outcomes.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">🔓</div>
+                <h3>Radical Transparency</h3>
+                <p>We operate with complete openness about financials, strategy, and decisions. Everyone knows what's happening.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">💰</div>
+                <h3>Self-Set Salaries</h3>
+                <p>Our team members determine their own compensation based on market research and personal judgment. Trust is paramount.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">⚙️</div>
+                <h3>Engineering-First Culture</h3>
+                <p>65% of our team are engineers. We believe good decisions are rooted in understanding the technology deeply.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">🏆</div>
+                <h3>Most Loved Workplace</h3>
+                <p>Our culture is certified as a Most Loved Workplace, reflecting our commitment to creating an exceptional environment.</p>
+            </div>
+            <div class="value-card fade-in">
+                <div class="value-icon">🎯</div>
+                <h3>Ownership Mentality</h3>
+                <p>Every team member has skin in the game. We collectively own our success and failures.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics -->
+    <section>
+        <h2 class="section-title fade-in">By The Numbers</h2>
+        <div class="metrics-grid">
+            <div class="metric-item fade-in">
+                <div class="metric-value">$Bn+</div>
+                <div class="metric-label">Annual Volume</div>
+            </div>
+            <div class="metric-item fade-in">
+                <div class="metric-value">1M+</div>
+                <div class="metric-label">Customers</div>
+            </div>
+            <div class="metric-item fade-in">
+                <div class="metric-value">100+</div>
+                <div class="metric-label">Team Members</div>
+            </div>
+            <div class="metric-item fade-in">
+                <div class="metric-value">65%</div>
+                <div class="metric-label">Engineers</div>
+            </div>
+            <div class="metric-item fade-in">
+                <div class="metric-value">150+</div>
+                <div class="metric-label">Countries</div>
+            </div>
+            <div class="metric-item fade-in">
+                <div class="metric-value">18</div>
+                <div class="metric-label">Years Established</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section>
+        <h2 class="section-title fade-in">Our Technology</h2>
+        <p class="section-subtitle fade-in">Built on a foundation of proven, scalable technologies that process billions in volume reliably.</p>
+        <div class="grid-auto">
+            <div class="tech-category fade-in">
+                <h3>Infrastructure</h3>
+                <div class="tech-items">
+                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">Kubernetes</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+            <div class="tech-category fade-in">
+                <h3>Data & Messaging</h3>
+                <div class="tech-items">
+                    <span class="tech-tag">Kafka</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redis</span>
+                </div>
+            </div>
+            <div class="tech-category fade-in">
+                <h3>Backend Languages</h3>
+                <div class="tech-items">
+                    <span class="tech-tag">Rust</span>
+                    <span class="tech-tag">C++17</span>
+                    <span class="tech-tag">Python</span>
+                </div>
+            </div>
+            <div class="tech-category fade-in">
+                <h3>Frontend</h3>
+                <div class="tech-items">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">WebSockets</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offices Section -->
+    <section>
+        <h2 class="section-title fade-in">Where We Work</h2>
+        <p class="section-subtitle fade-in">Headquartered in London with a growing presence in Malta. Global team, local excellence.</p>
+        <div class="grid-2">
+            <div class="office-card fade-in">
+                <div class="office-image">🏙️</div>
+                <div class="office-content">
+                    <h3>London, UK</h3>
+                    <div class="office-location">Headquarters</div>
+                    <p>Our main office at St. Katharine Docks, next to Tower Bridge. Where it all started and where our culture thrives.</p>
+                </div>
+            </div>
+            <div class="office-card fade-in">
+                <div class="office-image">🏝️</div>
+                <div class="office-content">
+                    <h3>Malta</h3>
+                    <div class="office-location">Operations Hub</div>
+                    <p>Our growing presence in Malta serves as our operations and regulatory hub, supporting our compliance and growth initiatives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulation Section -->
+    <section>
+        <h2 class="section-title fade-in">Licensing & Regulation</h2>
+        <p class="section-subtitle fade-in">Operating with the highest standards of compliance and regulatory oversight across multiple jurisdictions.</p>
+        <div class="regulation-grid">
+            <div class="regulation-card fade-in">
+                <h3>UK Gambling Commission</h3>
+                <p>Licensed and regulated by the UKGC, ensuring player protection, responsible gambling, and operational integrity.</p>
+            </div>
+            <div class="regulation-card fade-in">
+                <h3>Malta Gaming Authority</h3>
+                <p>Fully licensed by the MGA, allowing us to serve customers across Europe and beyond with regulatory confidence.</p>
+            </div>
+            <div class="regulation-card fade-in">
+                <h3>Multi-Jurisdictional Coverage</h3>
+                <p>Operating across multiple regulated jurisdictions globally, with compliance frameworks tailored to each market.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="components.js"></script>
+</body>
+</html>

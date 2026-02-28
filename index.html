@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company - Smarkets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles for index.html */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cards-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .card:hover .card-arrow {
+            gap: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav></nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Building the infrastructure for how the world prices uncertain events</h1>
+            <p class="hero-subtitle">The prediction market exchange. Billions in annual volume. Over 1 million customers worldwide.</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stat-item fade-in">
+            <div class="stat-value">$Bn+</div>
+            <div class="stat-label">Annual Volume</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-value">1M+</div>
+            <div class="stat-label">Customers</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-value">100+</div>
+            <div class="stat-label">Team Members</div>
+        </div>
+        <div class="stat-item fade-in">
+            <div class="stat-value">2008</div>
+            <div class="stat-label">Founded</div>
+        </div>
+    </section>
+
+    <!-- Company Pages Grid -->
+    <section class="cards-section">
+        <h2 class="section-title fade-in">Explore Smarkets</h2>
+        <div class="cards-grid">
+            <a href="about.html" class="card fade-in">
+                <div class="card-icon">🏢</div>
+                <h3 class="card-title">About</h3>
+                <p class="card-description">Our story, mission, and how we're transforming prediction markets.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+
+            <a href="team.html" class="card fade-in">
+                <div class="card-icon">👥</div>
+                <h3 class="card-title">Team</h3>
+                <p class="card-description">Meet the talented engineers and innovators building the future.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+
+            <a href="careers.html" class="card fade-in">
+                <div class="card-icon">💼</div>
+                <h3 class="card-title">Careers</h3>
+                <p class="card-description">Join our team and help shape the future of prediction markets.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+
+            <a href="partnerships.html" class="card fade-in">
+                <div class="card-icon">🤝</div>
+                <h3 class="card-title">Partnerships</h3>
+                <p class="card-description">Strategic partnerships and integrations with leading platforms.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+
+            <a href="newsroom.html" class="card fade-in">
+                <div class="card-icon">📰</div>
+                <h3 class="card-title">Newsroom</h3>
+                <p class="card-description">Latest news, press releases, and media coverage.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+
+            <a href="investors.html" class="card fade-in">
+                <div class="card-icon">📊</div>
+                <h3 class="card-title">Investors</h3>
+                <p class="card-description">Financial information and investor relations resources.</p>
+                <span class="card-arrow">Explore <span>→</span></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="components.js"></script>
+</body>
+</html>

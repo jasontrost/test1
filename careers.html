@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - Smarkets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Page-specific styles for careers.html */
+        /* hero uses shared styles from styles.css */
+
+        /* .section and .section-title use shared styles from styles.css */
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefit-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.3s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.5s; }
+        .benefit-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .benefit-card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            background-color: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .benefit-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .life-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .life-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, var(--bg-tertiary), var(--border));
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            font-size: 1rem;
+        }
+
+        .life-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .tech-stack {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-category {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .tech-category:nth-child(1) { animation-delay: 0.1s; }
+        .tech-category:nth-child(2) { animation-delay: 0.2s; }
+        .tech-category:nth-child(3) { animation-delay: 0.3s; }
+        .tech-category:nth-child(4) { animation-delay: 0.4s; }
+
+        .tech-category h4 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .tech-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tech-pill {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .tech-pill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .role-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 0.6s ease forwards;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .role-card:nth-child(1) { animation-delay: 0.1s; }
+        .role-card:nth-child(2) { animation-delay: 0.2s; }
+        .role-card:nth-child(3) { animation-delay: 0.3s; }
+        .role-card:nth-child(4) { animation-delay: 0.4s; }
+        .role-card:nth-child(5) { animation-delay: 0.5s; }
+        .role-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .role-card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        .role-card h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .role-location {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .role-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .role-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-tag {
+            background-color: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .apply-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: var(--bg-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            text-align: center;
+            width: 100%;
+        }
+
+        .apply-button:hover {
+            background-color: var(--bg-primary);
+            color: var(--accent);
+        }
+
+        .awards-section {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .awards-badge {
+            display: inline-block;
+            background-color: var(--bg-tertiary);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .awards-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .awards-section p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cta-message {
+            text-align: center;
+            padding: 3rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-message h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-message p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .cta-email {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-email:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .benefits-grid,
+            .roles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav></nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Join the team that's fixing betting</h1>
+                <p>We're hiring engineers, traders, and operators who think markets are fascinating</p>
+            </div>
+        </section>
+
+        <!-- Why Smarkets Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Why Smarkets</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💰</div>
+                        <h3>Self-Set Salaries</h3>
+                        <p>
+                            Every 6 months, submit your case. No politics, no guessing. We trust our team to set fair compensation based on value and impact.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📚</div>
+                        <h3>£1,000 Learning Budget</h3>
+                        <p>
+                            Books, courses, conferences — invest in yourself annually. We believe in continuous learning and growth.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👥</div>
+                        <h3>Self-Managing Teams</h3>
+                        <p>
+                            Small teams of 5-8 with real autonomy and ownership. No micromanagement, just people solving interesting problems.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🔍</div>
+                        <h3>Radical Transparency</h3>
+                        <p>
+                            Daily financials, fortnightly town halls, CEO Q&A sessions. Everyone knows what's happening and why.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🌍</div>
+                        <h3>Work Your Way</h3>
+                        <p>
+                            Hybrid model, 3 days typical on-site, 20 days/year work from anywhere. Flexibility that works for you.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🍽️</div>
+                        <h3>Free Meals & Perks</h3>
+                        <p>
+                            Daily meals, collaborative space at St. Katharine Docks next to Tower Bridge. Great place to work.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Life at Smarkets -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Life at Smarkets</h2>
+                <div class="life-section">
+                    <h3>Where brilliant minds come together</h3>
+                    <div class="placeholder-image">
+                        [Photo/Video of team at St. Katharine Docks HQ, collaborative spaces, and events]
+                    </div>
+                    <p>
+                        We've built a culture of collaboration, transparency, and respect. Our teams work at the intersection of finance, technology, and markets. Whether you're an engineer optimizing our Rust core, a trader shaping market prices, or a PM designing the next feature—you're part of something bigger. We celebrate wins together, learn from failures, and genuinely enjoy each other's company.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Tech Stack</h2>
+                <div class="tech-stack">
+                    <div class="tech-categories">
+                        <div class="tech-category">
+                            <h4>Infrastructure</h4>
+                            <div class="tech-pills">
+                                <span class="tech-pill">Linux</span>
+                                <span class="tech-pill">Kubernetes</span>
+                                <span class="tech-pill">Docker</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Data</h4>
+                            <div class="tech-pills">
+                                <span class="tech-pill">Kafka</span>
+                                <span class="tech-pill">PostgreSQL</span>
+                                <span class="tech-pill">Redis</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Backend</h4>
+                            <div class="tech-pills">
+                                <span class="tech-pill">Rust</span>
+                                <span class="tech-pill">C++17</span>
+                                <span class="tech-pill">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-category">
+                            <h4>Frontend</h4>
+                            <div class="tech-pills">
+                                <span class="tech-pill">React</span>
+                                <span class="tech-pill">TypeScript</span>
+                                <span class="tech-pill">WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Open Roles -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Open Roles</h2>
+                <div class="roles-grid">
+                    <div class="role-card">
+                        <h3>Senior Backend Engineer</h3>
+                        <div class="role-location">📍 London</div>
+                        <p class="role-description">
+                            Build the core exchange infrastructure. Work with Rust, C++17, and distributed systems at scale.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">Rust</span>
+                            <span class="role-tag">C++17</span>
+                            <span class="role-tag">Kafka</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>Frontend Engineer</h3>
+                        <div class="role-location">📍 London</div>
+                        <p class="role-description">
+                            Design and build interfaces for complex trading systems. React, TypeScript, real-time data visualization.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">React</span>
+                            <span class="role-tag">TypeScript</span>
+                            <span class="role-tag">WebSockets</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>Quantitative Trader</h3>
+                        <div class="role-location">📍 London</div>
+                        <p class="role-description">
+                            Provide liquidity and sharp pricing across markets. Design algorithms, manage risk, maximize returns.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">Market Making</span>
+                            <span class="role-tag">Pricing</span>
+                            <span class="role-tag">Risk</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>Product Manager</h3>
+                        <div class="role-location">📍 London</div>
+                        <p class="role-description">
+                            Own the product roadmap for our exchange. Work with engineering, trading, and customers to shape the future.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">Product Strategy</span>
+                            <span class="role-tag">Exchange</span>
+                            <span class="role-tag">Analytics</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>DevOps Engineer</h3>
+                        <div class="role-location">📍 London / Malta</div>
+                        <p class="role-description">
+                            Manage infrastructure and deployment pipelines. Kubernetes, Linux, monitoring systems, 24/7 reliability.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">Kubernetes</span>
+                            <span class="role-tag">Infrastructure</span>
+                            <span class="role-tag">Linux</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+
+                    <div class="role-card">
+                        <h3>Compliance Analyst</h3>
+                        <div class="role-location">📍 Malta</div>
+                        <p class="role-description">
+                            Navigate regulatory requirements across jurisdictions. Ensure Smarkets operates responsibly and compliantly.
+                        </p>
+                        <div class="role-tags">
+                            <span class="role-tag">Regulatory</span>
+                            <span class="role-tag">Compliance</span>
+                            <span class="role-tag">Legal</span>
+                        </div>
+                        <a href="#" class="apply-button">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="section">
+            <div class="container">
+                <div class="awards-section">
+                    <div class="awards-badge">🏆 Most Loved Workplace</div>
+                    <h3>Recognized for our culture</h3>
+                    <p>
+                        We're proud to be certified as a Most Loved Workplace, reflecting our commitment to creating an environment where people thrive, grow, and do their best work.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section">
+            <div class="container">
+                <div class="cta-message">
+                    <h3>Don't see your role?</h3>
+                    <p>
+                        We're always looking for exceptional people. If you think you'd be a great fit at Smarkets, reach out.
+                    </p>
+                    <p>
+                        Email us at <a href="mailto:careers@smarkets.com" class="cta-email">careers@smarkets.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer></footer>
+
+    <script src="components.js"></script>
+</body>
+</html>
