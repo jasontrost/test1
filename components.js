@@ -44,6 +44,7 @@
             <li><a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
             <li><a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
             <li><a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a></li>
+            <li><a href="/office" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
             <li><a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
             <li><a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
             <li><a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
@@ -57,6 +58,7 @@
             <a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
             <a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
             <a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a>
+            <a href="/office" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
             <a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
             <a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
             <a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
@@ -158,6 +160,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/team">Team</a></li>
                     <li><a href="/values">Values</a></li>
+                    <li><a href="/office">Office</a></li>
                     <li><a href="/careers">Careers</a></li>
                     <li><a href="/newsroom">Newsroom</a></li>
                     <li><a href="/partnerships">Partnerships</a></li>
