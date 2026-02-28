@@ -43,6 +43,7 @@
         <ul class="nav-links">
             <li><a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
             <li><a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
+            <li><a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a></li>
             <li><a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
             <li><a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
             <li><a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
@@ -55,6 +56,7 @@
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
             <a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
             <a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
+            <a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a>
             <a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
             <a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
             <a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
@@ -145,6 +147,8 @@
                 <ul>
                     <li><a href="https://smarkets.com" rel="noopener noreferrer">Exchange</a></li>
                     <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK Sportsbook</a></li>
+                    <li><a href="https://apps.apple.com/gb/app/smarkets-betting-exchange/id1155643579" rel="noopener noreferrer">Smarkets on App Store</a></li>
+                    <li><a href="https://apps.apple.com/gb/app/sbk-sports-betting-online/id1371054563" rel="noopener noreferrer">SBK on App Store</a></li>
                     <li><a href="https://docs.smarkets.com" rel="noopener noreferrer">API</a></li>
                 </ul>
             </div>
@@ -153,6 +157,7 @@
                 <ul>
                     <li><a href="/about">About</a></li>
                     <li><a href="/team">Team</a></li>
+                    <li><a href="/values">Values</a></li>
                     <li><a href="/careers">Careers</a></li>
                     <li><a href="/newsroom">Newsroom</a></li>
                     <li><a href="/partnerships">Partnerships</a></li>

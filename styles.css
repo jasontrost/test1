@@ -2854,3 +2854,276 @@ a.accent-link { color: var(--accent, #00CE8F); }
 }
 .press-kit-card p:last-child { margin-bottom: 0; }
 .press-kit-card strong { color: var(--text-primary); }
+
+/* ── Video embeds (responsive 16:9) ─────── */
+.video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+/* ── Values page ────────────────────────── */
+.values-overview {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.value-icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+    min-width: 120px;
+}
+.value-icon-card:hover { color: var(--accent); }
+.value-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    transition: background 0.2s, color 0.2s;
+}
+.value-icon-card:hover .value-icon {
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+.value-icon-card span { font-size: 0.85rem; font-weight: 600; text-align: center; }
+
+.value-section {
+    padding: 3rem 2rem;
+    border-bottom: 1px solid var(--border);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.value-section-inner { max-width: 700px; }
+.value-section-title {
+    color: var(--accent);
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.value-section-lead {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+.value-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.value-example h4 {
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+.value-example p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* Should / shouldn't join */
+.should-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.should-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+}
+.should-card h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.should-card ul {
+    list-style: none;
+    padding: 0;
+}
+.should-card li {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0.4rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+.should-yes li::before {
+    content: "\2713";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+.should-no li::before {
+    content: "\2717";
+    position: absolute;
+    left: 0;
+    color: #e05050;
+    font-weight: 700;
+}
+
+/* How we play */
+.how-we-play {
+    max-width: 700px;
+    margin: 0 auto;
+}
+.play-content p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+.careers-values {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+.careers-values h3 { color: var(--text-primary); margin-bottom: 0.75rem; }
+.careers-values p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.25rem; }
+
+/* ── Hiring process steps ───────────────── */
+.hiring-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.hiring-step {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+}
+.hiring-step-num {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+.hiring-step h3 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+.hiring-step p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* ── Featured people grid ───────────────── */
+.people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.person-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+.person-photo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.5rem;
+    color: var(--text-tertiary);
+}
+.person-card h4 {
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+.person-role {
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+}
+.person-quote {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* ── Global stats (team page) ───────────── */
+.global-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.global-stat-num {
+    color: var(--accent);
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+.global-stat-lbl {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
