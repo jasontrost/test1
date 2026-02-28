@@ -354,6 +354,54 @@ section {
 .grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
 .grid-auto-sm { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
 
+/* Investor Cards */
+.investor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.investor-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.investor-card:hover {
+    border-color: #444;
+    transform: translateY(-2px);
+}
+
+.investor-logo {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.investor-logo img {
+    max-height: 50px;
+    max-width: 220px;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.investor-card:hover .investor-logo img {
+    opacity: 1;
+}
+
+.investor-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    text-align: left;
+}
+
 /* ============================================
    Metrics
    ============================================ */
