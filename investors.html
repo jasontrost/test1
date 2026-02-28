@@ -2,252 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investor Relations - Smarkets</title>
+    <title>Smarkets | Investor Relations</title>
+    <meta name="description" content="Invest in the future of prediction markets. Smarkets is a profitable, capital-efficient exchange processing billions in annual volume. Backed by Susquehanna Growth Equity.">
+    <link rel="canonical" href="https://company.smarkets.com/investors.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | Investor Relations">
+    <meta property="og:description" content="Invest in the future of prediction markets. Profitable exchange, billions in annual volume, backed by Susquehanna Growth Equity.">
+    <meta property="og:url" content="https://company.smarkets.com/investors.html">
+    <meta property="og:site_name" content="Smarkets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | Investor Relations">
+    <meta name="twitter:description" content="Invest in the future of prediction markets. Profitable exchange, billions in annual volume, backed by Susquehanna Growth Equity.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Page-specific styles for investors.html */
-
-        section h2 {
-            font-size: 2.5rem;
-            color: var(--text-primary);
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        section h3 {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .cards-grid .card {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .cards-grid .card:nth-child(1) { animation-delay: 0.1s; }
-        .cards-grid .card:nth-child(2) { animation-delay: 0.2s; }
-        .cards-grid .card:nth-child(3) { animation-delay: 0.3s; }
-
-        .card p {
-            line-height: 1.7;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .metric {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .metric:nth-child(1) { animation-delay: 0.1s; }
-        .metric:nth-child(2) { animation-delay: 0.2s; }
-        .metric:nth-child(3) { animation-delay: 0.3s; }
-        .metric:nth-child(4) { animation-delay: 0.4s; }
-        .metric:nth-child(5) { animation-delay: 0.5s; }
-        .metric:nth-child(6) { animation-delay: 0.6s; }
-
-        .metric-value {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .metric-label {
-            color: var(--text-tertiary);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .why-smarkets {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .why-item {
-            padding: 1.5rem;
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .why-item:nth-child(1) { animation-delay: 0.1s; }
-        .why-item:nth-child(2) { animation-delay: 0.2s; }
-        .why-item:nth-child(3) { animation-delay: 0.3s; }
-        .why-item:nth-child(4) { animation-delay: 0.4s; }
-        .why-item:nth-child(5) { animation-delay: 0.5s; }
-        .why-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .why-item h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .why-item p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .investor-card {
-            background-color: var(--bg-secondary);
-            border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-top: 2rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .investor-name {
-            color: var(--accent);
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .investor-card p {
-            color: var(--text-secondary);
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .milestones {
-            margin-top: 3rem;
-        }
-
-        .milestone {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            padding-left: 2rem;
-            border-left: 2px solid var(--border);
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .milestone:nth-child(1) { animation-delay: 0.1s; }
-        .milestone:nth-child(2) { animation-delay: 0.2s; }
-        .milestone:nth-child(3) { animation-delay: 0.3s; }
-        .milestone:nth-child(4) { animation-delay: 0.4s; }
-        .milestone:nth-child(5) { animation-delay: 0.5s; }
-
-        .milestone::before {
-            content: '';
-            position: absolute;
-            left: -7px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background-color: var(--accent);
-            border-radius: 50%;
-        }
-
-        .milestone-date {
-            color: var(--accent);
-            font-weight: 600;
-            min-width: 150px;
-        }
-
-        .milestone-content {
-            color: var(--text-secondary);
-        }
-
-        .milestone-content h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 230, 118, 0.05) 0%, rgba(0, 230, 118, 0.02) 100%);
-            border-radius: 12px;
-            margin-top: 3rem;
-            opacity: 0;
-            animation: fadeInUp 0.6s ease-out forwards 0.6s;
-        }
-
-        .cta-section h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .cta-email {
-            font-size: 1.25rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        .cta-email a {
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .cards-grid,
-            .why-smarkets {
-                grid-template-columns: 1fr;
-            }
-
-            .metrics-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .milestone {
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            section h2 {
-                font-size: 1.5rem;
-            }
-
-            .metrics-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .card,
-            .metric,
-            .why-item {
-                padding: 1.5rem;
-            }
-
-            .metric-value {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -257,7 +35,7 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container">
+            <div class="hero-content">
                 <h1>Invest in the Future of Prediction Markets</h1>
                 <p>Market-driven price discovery is reshaping how the world hedges risk, exchanges information, and discovers truth. Be part of the platform capturing this $100B+ opportunity.</p>
             </div>
@@ -265,141 +43,131 @@
 
         <!-- The Opportunity Section -->
         <section>
-            <div class="container">
-                <h2>The Opportunity</h2>
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Market Size</h3>
-                        <p>The global online gambling market exceeds $100B and is growing annually. Prediction markets are expanding rapidly beyond sports into politics, finance, and live events, driven by the fundamental demand for price discovery and risk hedging.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Exchange Advantage</h3>
-                        <p>Our peer-to-peer exchange model captures transaction volume without taking principal risk. With no house edge, customers receive superior prices while Smarkets enjoys more sustainable, capital-efficient economics than traditional betting operators.</p>
-                    </div>
-                    <div class="card">
-                        <h3>Regulatory Tailwinds</h3>
-                        <p>Prediction markets are gaining regulatory legitimacy globally. Recent CFTC approval of contract markets validates the asset class. Smarkets is licensed across multiple jurisdictions, positioned to lead as regulation matures worldwide.</p>
-                    </div>
+            <h2 class="section-title">The Opportunity</h2>
+            <div class="grid-auto">
+                <div class="card fade-in">
+                    <h3>Market Size</h3>
+                    <p>The global online gambling market exceeds $100B and is growing annually. Prediction markets are expanding rapidly beyond sports into politics, finance, and live events, driven by the fundamental demand for price discovery and risk hedging.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Exchange Advantage</h3>
+                    <p>Our peer-to-peer exchange model captures transaction volume without taking principal risk. With no house edge, customers receive superior prices while Smarkets enjoys more sustainable, capital-efficient economics than traditional betting operators.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3>Regulatory Tailwinds</h3>
+                    <p>Prediction markets are gaining regulatory legitimacy globally. Recent CFTC approval of contract markets validates the asset class. Smarkets is licensed across multiple jurisdictions, positioned to lead as regulation matures worldwide.</p>
                 </div>
             </div>
         </section>
 
         <!-- Why Smarkets Section -->
         <section>
-            <div class="container">
-                <h2>Why Smarkets</h2>
-                <div class="why-smarkets">
-                    <div class="why-item">
-                        <h4>18 Years of Execution</h4>
-                        <p>Founded in 2008, we've outlasted every competitor and survived every market cycle. Our longevity proves the resilience of our model and our team's ability to execute at scale.</p>
-                    </div>
-                    <div class="why-item">
-                        <h4>Profitable & Capital Efficient</h4>
-                        <p>Named "one of the most profitable per capita companies in Europe" by Corporate Rebels. Our exchange model generates strong unit economics without heavy capital requirements.</p>
-                    </div>
-                    <div class="why-item">
-                        <h4>Engineering-First Culture</h4>
-                        <p>65% of our 100+ person team are engineers. We build sophisticated market-making and exchange technology rather than acquiring it. Deep technical talent drives our competitive moat.</p>
-                    </div>
-                    <div class="why-item">
-                        <h4>Two Brands, One Engine</h4>
-                        <p>Smarkets exchange provides deep liquidity. SBK sportsbook captures retail demand. Both brands share the same proprietary technology, allowing us to serve institutional and consumer markets simultaneously.</p>
-                    </div>
-                    <div class="why-item">
-                        <h4>Deep Liquidity & Sharp Pricing</h4>
-                        <p>Our proprietary market-making and exchange technology consistently delivers sharp, competitive pricing. Institutional traders rely on Smarkets for the deepest liquidity in prediction markets.</p>
-                    </div>
-                    <div class="why-item">
-                        <h4>Regulated & Trusted</h4>
-                        <p>Licensed by the UK Gambling Commission and Malta Gaming Authority. Multi-jurisdiction compliance allows us to serve global customers while maintaining institutional trust and credibility.</p>
-                    </div>
+            <h2 class="section-title">Why Smarkets</h2>
+            <div class="why-smarkets">
+                <div class="why-item fade-in">
+                    <h4>18 Years of Execution</h4>
+                    <p>Founded in 2008, we've outlasted every competitor and survived every market cycle. Our longevity proves the resilience of our model and our team's ability to execute at scale.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <h4>Profitable &amp; Capital Efficient</h4>
+                    <p>Named "one of the most profitable per capita companies in Europe" by Corporate Rebels. Our exchange model generates strong unit economics without heavy capital requirements.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <h4>Engineering-First Culture</h4>
+                    <p>65% of our 100+ person team are engineers. We build sophisticated market-making and exchange technology rather than acquiring it. Deep technical talent drives our competitive moat.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <h4>Two Brands, One Engine</h4>
+                    <p>Smarkets exchange provides deep liquidity. SBK sportsbook captures retail demand. Both brands share the same proprietary technology, allowing us to serve institutional and consumer markets simultaneously.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <h4>Deep Liquidity &amp; Sharp Pricing</h4>
+                    <p>Our proprietary market-making and exchange technology consistently delivers sharp, competitive pricing. Institutional traders rely on Smarkets for the deepest liquidity in prediction markets.</p>
+                </div>
+                <div class="why-item fade-in">
+                    <h4>Regulated &amp; Trusted</h4>
+                    <p>Licensed by the UK Gambling Commission and Malta Gaming Authority. Multi-jurisdiction compliance allows us to serve global customers while maintaining institutional trust and credibility.</p>
                 </div>
             </div>
         </section>
 
         <!-- Key Metrics Section -->
         <section>
-            <div class="container">
-                <h2>By the Numbers</h2>
-                <div class="metrics-grid">
-                    <div class="metric">
-                        <div class="metric-value">$Bn+</div>
-                        <div class="metric-label">Annual Volume</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">1M+</div>
-                        <div class="metric-label">Customers</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">100+</div>
-                        <div class="metric-label">Team Members</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">65%</div>
-                        <div class="metric-label">Engineers</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">18</div>
-                        <div class="metric-label">Years Operating</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-value">2</div>
-                        <div class="metric-label">Jurisdictions Licensed</div>
-                    </div>
+            <h2 class="section-title">By the Numbers</h2>
+            <div class="metrics-grid">
+                <div class="metric-item fade-in">
+                    <div class="metric-value">$Bn+</div>
+                    <div class="metric-label">Annual Volume</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">1M+</div>
+                    <div class="metric-label">Customers</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">100+</div>
+                    <div class="metric-label">Team Members</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">65%</div>
+                    <div class="metric-label">Engineers</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">18</div>
+                    <div class="metric-label">Years Operating</div>
+                </div>
+                <div class="metric-item fade-in">
+                    <div class="metric-value">2</div>
+                    <div class="metric-label">Jurisdictions Licensed</div>
                 </div>
             </div>
         </section>
 
         <!-- Our Investors Section -->
         <section>
-            <div class="container">
-                <h2>Our Investors</h2>
-                <div class="investor-card">
-                    <div class="investor-name">Susquehanna Growth Equity</div>
-                    <p>Smarkets is backed by Susquehanna Growth Equity, the growth investment arm of Susquehanna International Group (SIG) — one of the world's largest quantitative trading firms. SIG manages $500B+ in assets and brings deep expertise in market structure, trading technology, and exchange economics. This validation from a tier-one institutional investor underscores both the strength of our business model and the quality of our technology platform.</p>
-                </div>
+            <h2 class="section-title">Our Investors</h2>
+            <div class="investor-card fade-in">
+                <div class="investor-name">Susquehanna Growth Equity</div>
+                <p>Smarkets is backed by Susquehanna Growth Equity, the growth investment arm of Susquehanna International Group (SIG) &mdash; one of the world's largest quantitative trading firms. SIG manages $500B+ in assets and brings deep expertise in market structure, trading technology, and exchange economics. This validation from a tier-one institutional investor underscores both the strength of our business model and the quality of our technology platform.</p>
             </div>
         </section>
 
         <!-- Recent Milestones Section -->
         <section>
-            <div class="container">
-                <h2>Recent Milestones</h2>
-                <div class="milestones">
-                    <div class="milestone">
-                        <div class="milestone-date">Feb 2026</div>
-                        <div class="milestone-content">
-                            <h4>Official Sports Trading Partner of SailGP</h4>
-                            <p>Secured exclusive 3-year partnership with SailGP, positioning Smarkets as the premier prediction market platform for elite global sports.</p>
-                        </div>
+            <h2 class="section-title">Recent Milestones</h2>
+            <div class="milestones">
+                <div class="milestone fade-in">
+                    <div class="milestone-date">Feb 2026</div>
+                    <div class="milestone-content">
+                        <h4>Official Sports Trading Partner of SailGP</h4>
+                        <p>Secured exclusive 3-year partnership with SailGP, positioning Smarkets as the premier prediction market platform for elite global sports.</p>
                     </div>
-                    <div class="milestone">
-                        <div class="milestone-date">Jul 2025</div>
-                        <div class="milestone-content">
-                            <h4>AFC Bournemouth Training Kit Sponsorship</h4>
-                            <p>SBK sportsbook became official training kit sponsor of AFC Bournemouth, expanding brand visibility in European football.</p>
-                        </div>
+                </div>
+                <div class="milestone fade-in">
+                    <div class="milestone-date">Jul 2025</div>
+                    <div class="milestone-content">
+                        <h4>AFC Bournemouth Training Kit Sponsorship</h4>
+                        <p>SBK sportsbook became official training kit sponsor of AFC Bournemouth, expanding brand visibility in European football.</p>
                     </div>
-                    <div class="milestone">
-                        <div class="milestone-date">2024</div>
-                        <div class="milestone-content">
-                            <h4>SBK Sportsbook Launch</h4>
-                            <p>Successfully launched SBK retail sportsbook, complementing our core exchange business and diversifying revenue streams.</p>
-                        </div>
+                </div>
+                <div class="milestone fade-in">
+                    <div class="milestone-date">2024</div>
+                    <div class="milestone-content">
+                        <h4>SBK Sportsbook Launch</h4>
+                        <p>Successfully launched SBK retail sportsbook, complementing our core exchange business and diversifying revenue streams.</p>
                     </div>
-                    <div class="milestone">
-                        <div class="milestone-date">2023</div>
-                        <div class="milestone-content">
-                            <h4>$Billion+ Annual Volume Milestone</h4>
-                            <p>Reached record trading volume, demonstrating market-leading liquidity and customer demand for our prediction market platform.</p>
-                        </div>
+                </div>
+                <div class="milestone fade-in">
+                    <div class="milestone-date">2023</div>
+                    <div class="milestone-content">
+                        <h4>$Billion+ Annual Volume Milestone</h4>
+                        <p>Reached record trading volume, demonstrating market-leading liquidity and customer demand for our prediction market platform.</p>
                     </div>
-                    <div class="milestone">
-                        <div class="milestone-date">2022</div>
-                        <div class="milestone-content">
-                            <h4>Susquehanna Growth Equity Funding</h4>
-                            <p>Secured major institutional investment from Susquehanna Growth Equity, accelerating product development and international expansion.</p>
-                        </div>
+                </div>
+                <div class="milestone fade-in">
+                    <div class="milestone-date">2022</div>
+                    <div class="milestone-content">
+                        <h4>Susquehanna Growth Equity Funding</h4>
+                        <p>Secured major institutional investment from Susquehanna Growth Equity, accelerating product development and international expansion.</p>
                     </div>
                 </div>
             </div>
@@ -407,12 +175,10 @@
 
         <!-- CTA Section -->
         <section>
-            <div class="container">
-                <div class="cta-section">
-                    <h3>Interested in Investing in Smarkets?</h3>
-                    <div class="cta-email"><a href="mailto:investors@smarkets.com">investors@smarkets.com</a></div>
-                    <a href="mailto:investors@smarkets.com" class="btn">Get in Touch</a>
-                </div>
+            <div class="cta-section fade-in">
+                <h3>Interested in Investing in Smarkets?</h3>
+                <p><a href="mailto:investors@smarkets.com" class="cta-email">investors@smarkets.com</a></p>
+                <a href="mailto:investors@smarkets.com" class="btn">Get in Touch</a>
             </div>
         </section>
     </main>

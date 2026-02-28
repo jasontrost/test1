@@ -2,280 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsroom - Smarkets</title>
+    <title>Smarkets | Newsroom</title>
+    <meta name="description" content="The latest news from Smarkets. Press releases, partnership announcements, product launches, and media coverage from Europe's leading prediction market exchange.">
+    <link rel="canonical" href="https://company.smarkets.com/newsroom.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | Newsroom">
+    <meta property="og:description" content="The latest news from Smarkets. Press releases, partnership announcements, and media coverage.">
+    <meta property="og:url" content="https://company.smarkets.com/newsroom.html">
+    <meta property="og:site_name" content="Smarkets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | Newsroom">
+    <meta name="twitter:description" content="The latest news from Smarkets. Press releases, partnership announcements, and media coverage.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Page-specific styles for newsroom.html */
-
-        .featured-story {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .featured-story-content h2 {
-            color: var(--text-primary);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            line-height: 1.4;
-        }
-
-        .featured-story-content p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .featured-story-content .card-tag {
-            display: block;
-            margin-bottom: 1.5rem;
-        }
-
-        .featured-story-visual {
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-primary) 100%);
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border);
-        }
-
-        .featured-story-visual p {
-            color: var(--text-tertiary);
-            font-style: italic;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .news-item {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .news-item:hover {
-            border-color: #444;
-            transform: translateY(-2px);
-        }
-
-        .news-item .card-tag {
-            margin-bottom: 1rem;
-        }
-
-        .news-item h3 {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            flex-grow: 1;
-        }
-
-        .news-item .date {
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .news-item p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .news-item a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: opacity 0.3s ease;
-            align-self: flex-start;
-            margin-top: auto;
-        }
-
-        .news-item a:hover {
-            opacity: 0.8;
-        }
-
-        .press-section {
-            margin-bottom: 4rem;
-        }
-
-        .press-section h2 {
-            color: var(--text-primary);
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        .publications-bar {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .publication-name {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .publications-bar:hover .publication-name {
-            color: var(--text-tertiary);
-        }
-
-        .publication-name:hover {
-            color: var(--accent);
-        }
-
-        .media-kit {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .media-kit h2 {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .media-kit p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-size: 1.05rem;
-        }
-
-        .media-kit .contact {
-            color: var(--text-secondary);
-            margin-top: 2rem;
-            font-size: 0.95rem;
-        }
-
-        .media-kit .contact a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .media-kit .contact a:hover {
-            opacity: 0.8;
-        }
-
-        .boilerplate {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .boilerplate h3 {
-            color: var(--text-primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .boilerplate p {
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .news-item:nth-child(1) { animation-delay: 0s; }
-        .news-item:nth-child(2) { animation-delay: 0.1s; }
-        .news-item:nth-child(3) { animation-delay: 0.2s; }
-        .news-item:nth-child(4) { animation-delay: 0.3s; }
-        .news-item:nth-child(5) { animation-delay: 0.4s; }
-        .news-item:nth-child(6) { animation-delay: 0.5s; }
-
-        @media (max-width: 768px) {
-            .featured-story {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .news-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .publications-bar {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .featured-story {
-                padding: 1.5rem;
-            }
-
-            .card,
-            .news-item {
-                padding: 1.5rem;
-            }
-
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .media-kit {
-                padding: 1.5rem;
-            }
-
-            .media-kit h2 {
-                font-size: 1.2rem;
-            }
-
-            .publications-bar {
-                padding: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -285,131 +35,115 @@
     <main>
         <!-- Hero Section -->
         <section class="hero">
-            <div class="container">
+            <div class="hero-content">
                 <h1>Newsroom</h1>
                 <p>The latest from Smarkets</p>
             </div>
         </section>
 
         <!-- Featured Story -->
-        <section class="section">
-            <div class="container">
-                <div class="featured-story">
-                    <div class="featured-story-content">
-                        <span class="card-tag">PARTNERSHIP</span>
-                        <h2>SailGP Announces First Official Sports Trading Category Partner with Smarkets</h2>
-                        <p>Smarkets has been named the first-ever Official Sports Trading Partner of the Rolex SailGP Championship, marking a groundbreaking moment for competitive sailing and innovation in sports trading. The multi-year partnership brings real-time race data directly to prediction market trading, creating an entirely new category of engagement for global audiences.</p>
-                        <p>This strategic partnership demonstrates how cutting-edge trading technology and world-class sporting events can converge to deliver unprecedented fan experiences and opportunities for data-driven decision-making.</p>
-                        <a href="https://sailgp.com/news/26/sailgp-announces-first-official-sports-trading-category-partner-smarkets" class="btn" target="_blank">Read Full Story</a>
-                    </div>
-                    <div class="featured-story-visual">
-                        <p>February 26, 2026</p>
-                    </div>
+        <section>
+            <div class="featured-story fade-in">
+                <div class="featured-story-content">
+                    <span class="card-tag">PARTNERSHIP</span>
+                    <h2>SailGP Announces First Official Sports Trading Category Partner with Smarkets</h2>
+                    <p>Smarkets has been named the first-ever Official Sports Trading Partner of the Rolex SailGP Championship, marking a groundbreaking moment for competitive sailing and innovation in sports trading. The multi-year partnership brings real-time race data directly to prediction market trading, creating an entirely new category of engagement for global audiences.</p>
+                    <p>This strategic partnership demonstrates how cutting-edge trading technology and world-class sporting events can converge to deliver unprecedented fan experiences and opportunities for data-driven decision-making.</p>
+                    <a href="https://sailgp.com/news/26/sailgp-announces-first-official-sports-trading-category-partner-smarkets" class="btn" target="_blank" rel="noopener noreferrer">Read Full Story</a>
+                </div>
+                <div class="featured-story-visual">
+                    <p>February 26, 2026</p>
                 </div>
             </div>
         </section>
 
         <!-- Recent News Grid -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-heading">Recent News</h2>
-                <div class="news-grid">
-                    <!-- News Item 1 -->
-                    <div class="news-item">
-                        <span class="card-tag">BRAND</span>
-                        <h3>SBK Launches Bold AI-Built Ad Campaign for Premier League Season</h3>
-                        <p class="date">August 2025</p>
-                        <p>SBK unveils cutting-edge advertising campaign powered by artificial intelligence, revolutionizing how sports betting is marketed to Premier League audiences.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+        <section>
+            <h2 class="section-heading">Recent News</h2>
+            <div class="news-grid">
+                <div class="news-item fade-in">
+                    <span class="card-tag">BRAND</span>
+                    <h3>SBK Launches Bold AI-Built Ad Campaign for Premier League Season</h3>
+                    <p class="date">August 2025</p>
+                    <p>SBK unveils cutting-edge advertising campaign powered by artificial intelligence, revolutionizing how sports betting is marketed to Premier League audiences.</p>
+                    <a href="#">Read More &#8594;</a>
+                </div>
 
-                    <!-- News Item 2 -->
-                    <div class="news-item">
-                        <span class="card-tag">PARTNERSHIP</span>
-                        <h3>Smarkets' SBK Brand Scores Bournemouth Training Kit Sponsorship</h3>
-                        <p class="date">July 2025</p>
-                        <p>SBK announced as Official Training Wear Sponsor of AFC Bournemouth, bringing premium sportsbook brand to the Premier League's most innovative club.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+                <div class="news-item fade-in">
+                    <span class="card-tag">PARTNERSHIP</span>
+                    <h3>Smarkets' SBK Brand Scores Bournemouth Training Kit Sponsorship</h3>
+                    <p class="date">July 2025</p>
+                    <p>SBK announced as Official Training Wear Sponsor of AFC Bournemouth, bringing premium sportsbook brand to the Premier League's most innovative club.</p>
+                    <a href="#">Read More &#8594;</a>
+                </div>
 
-                    <!-- News Item 3 -->
-                    <div class="news-item">
-                        <span class="card-tag">CULTURE</span>
-                        <h3>Smarkets Named Most Loved Workplace</h3>
-                        <p class="date">2024</p>
-                        <p>Recognition of Smarkets' outstanding workplace culture and commitment to employee engagement, creativity, and professional development.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+                <div class="news-item fade-in">
+                    <span class="card-tag">CULTURE</span>
+                    <h3>Smarkets Named Most Loved Workplace</h3>
+                    <p class="date">2024</p>
+                    <p>Recognition of Smarkets' outstanding workplace culture and commitment to employee engagement, creativity, and professional development.</p>
+                    <a href="#">Read More &#8594;</a>
+                </div>
 
-                    <!-- News Item 4 -->
-                    <div class="news-item">
-                        <span class="card-tag">FUNDING</span>
-                        <h3>Smarkets Secures Funding from Susquehanna Growth Equity</h3>
-                        <p class="date">2024</p>
-                        <p>Major investment round led by global financial services firm Susquehanna, accelerating product innovation and international expansion.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+                <div class="news-item fade-in">
+                    <span class="card-tag">FUNDING</span>
+                    <h3>Smarkets Secures Funding from Susquehanna Growth Equity</h3>
+                    <p class="date">2024</p>
+                    <p>Major investment round led by global financial services firm Susquehanna, accelerating product innovation and international expansion.</p>
+                    <a href="#">Read More &#8594;</a>
+                </div>
 
-                    <!-- News Item 5 -->
-                    <div class="news-item">
-                        <span class="card-tag">PRODUCT</span>
-                        <h3>Smarkets Launches SBK Sportsbook</h3>
-                        <p class="date">2023</p>
-                        <p>Introduction of SBK, Smarkets' innovative sportsbook brand, bringing transparent, exchange-powered odds to sports betting.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+                <div class="news-item fade-in">
+                    <span class="card-tag">PRODUCT</span>
+                    <h3>Smarkets Launches SBK Sportsbook</h3>
+                    <p class="date">2023</p>
+                    <p>Introduction of SBK, Smarkets' innovative sportsbook brand, bringing transparent, exchange-powered odds to sports betting.</p>
+                    <a href="#">Read More &#8594;</a>
+                </div>
 
-                    <!-- News Item 6 -->
-                    <div class="news-item">
-                        <span class="card-tag">MILESTONE</span>
-                        <h3>Smarkets Surpasses £1 Billion in Annual Trading Volume</h3>
-                        <p class="date">2022</p>
-                        <p>Major milestone achievement as Smarkets becomes one of Europe's leading prediction market platforms with record trading activity.</p>
-                        <a href="#">Read More →</a>
-                    </div>
+                <div class="news-item fade-in">
+                    <span class="card-tag">MILESTONE</span>
+                    <h3>Smarkets Surpasses &pound;1 Billion in Annual Trading Volume</h3>
+                    <p class="date">2022</p>
+                    <p>Major milestone achievement as Smarkets becomes one of Europe's leading prediction market platforms with record trading activity.</p>
+                    <a href="#">Read More &#8594;</a>
                 </div>
             </div>
         </section>
 
         <!-- Press Section -->
-        <section class="section">
-            <div class="container">
-                <div class="press-section">
-                    <h2>In the Press</h2>
-                    <div class="publications-bar">
-                        <div class="publication-name">Bloomberg</div>
-                        <div class="publication-name">TechCrunch</div>
-                        <div class="publication-name">Financial Times</div>
-                        <div class="publication-name">SportBusiness</div>
-                        <div class="publication-name">EGR Intel</div>
-                        <div class="publication-name">SBC News</div>
-                    </div>
+        <section>
+            <div class="press-section">
+                <h2>In the Press</h2>
+                <div class="publications-bar">
+                    <div class="publication-name">Bloomberg</div>
+                    <div class="publication-name">TechCrunch</div>
+                    <div class="publication-name">Financial Times</div>
+                    <div class="publication-name">SportBusiness</div>
+                    <div class="publication-name">EGR Intel</div>
+                    <div class="publication-name">SBC News</div>
                 </div>
             </div>
         </section>
 
         <!-- Media Kit Section -->
-        <section class="section">
-            <div class="container">
-                <div class="media-kit">
-                    <h2>Media Kit</h2>
-                    <p>Access logos, executive photos, company fact sheets, and other resources for media coverage and press materials.</p>
-                    <a href="#" class="btn">Download Media Kit</a>
-                    <div class="contact">
-                        <p>For press inquiries, contact: <a href="mailto:press@smarkets.com">press@smarkets.com</a></p>
-                    </div>
+        <section>
+            <div class="media-kit fade-in">
+                <h2>Media Kit</h2>
+                <p>Access logos, executive photos, company fact sheets, and other resources for media coverage and press materials.</p>
+                <a href="#" class="btn">Download Media Kit</a>
+                <div class="contact">
+                    <p>For press inquiries, contact: <a href="mailto:press@smarkets.com">press@smarkets.com</a></p>
                 </div>
             </div>
         </section>
 
         <!-- Boilerplate Section -->
-        <section class="section">
-            <div class="container">
-                <div class="boilerplate">
-                    <h3>About Smarkets</h3>
-                    <p>Smarkets is Europe's leading prediction market platform and exchange, founded in 2008 and headquartered in London with operations in Malta. The company operates two primary brands: Smarkets, the peer-to-peer exchange offering the sharpest odds in prediction market trading, and SBK, a sports-focused sportsbook featuring transparent, exchange-powered pricing.</p>
-                    <p>With billions in annual trading volume and partnerships across world-class sporting events including the Rolex SailGP Championship and AFC Bournemouth, Smarkets is transforming how people trade on real-world outcomes. The platform is regulated in multiple jurisdictions and serves customers across the UK, Ireland, Sweden, and beyond.</p>
-                </div>
+        <section>
+            <div class="boilerplate fade-in">
+                <h3>About Smarkets</h3>
+                <p>Smarkets is Europe's leading prediction market platform and exchange, founded in 2008 and headquartered in London with operations in Malta. The company operates two primary brands: Smarkets, the peer-to-peer exchange offering the sharpest odds in prediction market trading, and SBK, a sports-focused sportsbook featuring transparent, exchange-powered pricing.</p>
+                <p>With billions in annual trading volume and partnerships across world-class sporting events including the Rolex SailGP Championship and AFC Bournemouth, Smarkets is transforming how people trade on real-world outcomes. The platform is regulated in multiple jurisdictions and serves customers across the UK, Ireland, Sweden, and beyond.</p>
             </div>
         </section>
     </main>

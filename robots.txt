@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://company.smarkets.com/sitemap.xml

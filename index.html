@@ -2,13 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company - Smarkets</title>
+    <title>Smarkets | The Prediction Market Exchange</title>
+    <meta name="description" content="Smarkets is building the infrastructure for how the world prices uncertain events. Billions in annual volume. Over 1 million customers worldwide.">
+    <link rel="canonical" href="https://company.smarkets.com/">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | The Prediction Market Exchange">
+    <meta property="og:description" content="Building the infrastructure for how the world prices uncertain events. Billions in annual volume. Over 1 million customers worldwide.">
+    <meta property="og:url" content="https://company.smarkets.com/">
+    <meta property="og:site_name" content="Smarkets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | The Prediction Market Exchange">
+    <meta name="twitter:description" content="Building the infrastructure for how the world prices uncertain events. Billions in annual volume. Over 1 million customers worldwide.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Smarkets",
+        "url": "https://smarkets.com",
+        "logo": "https://company.smarkets.com/smarkets-white-wordmark-no-padding.svg",
+        "description": "Europe's leading prediction market platform and exchange.",
+        "foundingDate": "2008",
+        "founders": [
+            { "@type": "Person", "name": "Jason Trost" },
+            { "@type": "Person", "name": "Hunter Morris" }
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "GB"
+        },
+        "sameAs": [
+            "https://twitter.com/smarkets",
+            "https://linkedin.com/company/smarkets",
+            "https://instagram.com/smarkets"
+        ]
+    }
+    </script>
+
     <style>
-        /* Page-specific styles for index.html */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -21,9 +67,7 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .stat-item {
-            text-align: center;
-        }
+        .stat-item { text-align: center; }
 
         .stat-value {
             font-size: 2.5rem;
@@ -51,7 +95,7 @@
             gap: 2rem;
         }
 
-        .card {
+        .cards-section .card {
             display: flex;
             flex-direction: column;
             cursor: pointer;
@@ -59,7 +103,7 @@
             overflow: hidden;
         }
 
-        .card::before {
+        .cards-section .card::before {
             content: '';
             position: absolute;
             top: 0;
@@ -72,9 +116,7 @@
             transition: transform 0.3s ease;
         }
 
-        .card:hover::before {
-            transform: scaleX(1);
-        }
+        .cards-section .card:hover::before { transform: scaleX(1); }
 
         .card-icon {
             font-size: 2.5rem;
@@ -104,14 +146,10 @@
             transition: gap 0.3s ease;
         }
 
-        .card:hover .card-arrow {
-            gap: 1rem;
-        }
+        .card:hover .card-arrow { gap: 1rem; }
 
         @media (max-width: 768px) {
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -153,45 +191,45 @@
         <h2 class="section-title fade-in">Explore Smarkets</h2>
         <div class="cards-grid">
             <a href="about.html" class="card fade-in">
-                <div class="card-icon">🏢</div>
+                <div class="card-icon" aria-hidden="true">&#127970;</div>
                 <h3 class="card-title">About</h3>
                 <p class="card-description">Our story, mission, and how we're transforming prediction markets.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
 
             <a href="team.html" class="card fade-in">
-                <div class="card-icon">👥</div>
+                <div class="card-icon" aria-hidden="true">&#128101;</div>
                 <h3 class="card-title">Team</h3>
                 <p class="card-description">Meet the talented engineers and innovators building the future.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
 
             <a href="careers.html" class="card fade-in">
-                <div class="card-icon">💼</div>
+                <div class="card-icon" aria-hidden="true">&#128188;</div>
                 <h3 class="card-title">Careers</h3>
                 <p class="card-description">Join our team and help shape the future of prediction markets.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
 
             <a href="partnerships.html" class="card fade-in">
-                <div class="card-icon">🤝</div>
+                <div class="card-icon" aria-hidden="true">&#129309;</div>
                 <h3 class="card-title">Partnerships</h3>
                 <p class="card-description">Strategic partnerships and integrations with leading platforms.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
 
             <a href="newsroom.html" class="card fade-in">
-                <div class="card-icon">📰</div>
+                <div class="card-icon" aria-hidden="true">&#128240;</div>
                 <h3 class="card-title">Newsroom</h3>
                 <p class="card-description">Latest news, press releases, and media coverage.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
 
             <a href="investors.html" class="card fade-in">
-                <div class="card-icon">📊</div>
+                <div class="card-icon" aria-hidden="true">&#128202;</div>
                 <h3 class="card-title">Investors</h3>
                 <p class="card-description">Financial information and investor relations resources.</p>
-                <span class="card-arrow">Explore <span>→</span></span>
+                <span class="card-arrow">Explore <span aria-hidden="true">&#8594;</span></span>
             </a>
         </div>
     </section>

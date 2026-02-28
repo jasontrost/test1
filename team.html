@@ -2,237 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Team - Smarkets</title>
+    <title>Smarkets | Team</title>
+    <meta name="description" content="Meet the people building the future of prediction markets. Over 100 talented individuals across London and Malta, united by a passion for markets and technology.">
+    <link rel="canonical" href="https://company.smarkets.com/team.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | Team">
+    <meta property="og:description" content="Meet the people building the future of prediction markets at Smarkets.">
+    <meta property="og:url" content="https://company.smarkets.com/team.html">
+    <meta property="og:site_name" content="Smarkets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | Team">
+    <meta name="twitter:description" content="Meet the people building the future of prediction markets at Smarkets.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Page-specific styles for team.html */
-        /* hero uses shared styles from styles.css */
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .member-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .member-card:nth-child(1) { animation-delay: 0.1s; }
-        .member-card:nth-child(2) { animation-delay: 0.2s; }
-
-        .member-card:hover {
-            border-color: #444;
-            transform: translateY(-2px);
-        }
-
-        .member-avatar {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, var(--accent), #00b85c);
-            border-radius: 50%;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--bg-primary);
-            font-weight: 700;
-        }
-
-        .member-card h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        .member-title {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .member-bio {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--text-primary);
-        }
-
-        .teams-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .team-card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .team-card:nth-child(1) { animation-delay: 0.1s; }
-        .team-card:nth-child(2) { animation-delay: 0.2s; }
-        .team-card:nth-child(3) { animation-delay: 0.3s; }
-        .team-card:nth-child(4) { animation-delay: 0.4s; }
-        .team-card:nth-child(5) { animation-delay: 0.5s; }
-        .team-card:nth-child(6) { animation-delay: 0.6s; }
-
-        .team-card:hover {
-            border-color: #444;
-            transform: translateY(-2px);
-        }
-
-        .team-card h3 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .team-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .culture-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .culture-item {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .culture-item:nth-child(1) { animation-delay: 0.1s; }
-        .culture-item:nth-child(2) { animation-delay: 0.2s; }
-        .culture-item:nth-child(3) { animation-delay: 0.3s; }
-
-        .culture-item h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .culture-icon {
-            width: 24px;
-            height: 24px;
-            background-color: var(--accent);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--bg-primary);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .culture-item p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .diversity {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 3rem 2rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .diversity h3 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .diversity p {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        .cta-section {
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg-primary);
-            padding: 1rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
-        }
-
-        .cta-button:hover {
-            background-color: var(--bg-primary);
-            color: var(--accent);
-        }
-
-        @media (max-width: 768px) {
-            .leadership-grid,
-            .teams-grid,
-            .culture-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -241,140 +34,130 @@
     <main>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
+        <div class="hero-content">
             <h1>The people building the future of prediction markets</h1>
             <p>Over 100 talented individuals across London and Malta, united by a passion for markets and technology</p>
         </div>
     </section>
 
     <!-- Leadership Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Leadership</h2>
-            <div class="leadership-grid">
-                <div class="member-card">
-                    <div class="member-avatar">JT</div>
-                    <h3>Jason Trost</h3>
-                    <div class="member-title">Founder & CEO</div>
-                    <p class="member-bio">
-                        Founded Smarkets in 2008 with a vision to revolutionize prediction markets. Previously held senior positions in Global Asset Management at UBS, bringing deep expertise in financial markets and exchange infrastructure.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com">LinkedIn</a>
-                    </div>
+    <section>
+        <h2 class="section-title">Leadership</h2>
+        <div class="leadership-grid">
+            <div class="member-card fade-in">
+                <div class="member-avatar">JT</div>
+                <h3>Jason Trost</h3>
+                <div class="member-title">Founder &amp; CEO</div>
+                <p class="member-bio">
+                    Founded Smarkets in 2008 with a vision to revolutionize prediction markets. Previously held senior positions in Global Asset Management at UBS, bringing deep expertise in financial markets and exchange infrastructure.
+                </p>
+                <div class="social-links">
+                    <a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a>
                 </div>
+            </div>
 
-                <div class="member-card">
-                    <div class="member-avatar">HM</div>
-                    <h3>Hunter Morris</h3>
-                    <div class="member-title">Co-Founder & CTO</div>
-                    <p class="member-bio">
-                        Co-founded Smarkets in 2008 with a focus on building robust, scalable exchange technology. Leads the engineering team in crafting a world-class platform using Rust, C++17, and cutting-edge infrastructure tools.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://linkedin.com">LinkedIn</a>
-                    </div>
+            <div class="member-card fade-in">
+                <div class="member-avatar">HM</div>
+                <h3>Hunter Morris</h3>
+                <div class="member-title">Co-Founder &amp; CTO</div>
+                <p class="member-bio">
+                    Co-founded Smarkets in 2008 with a focus on building robust, scalable exchange technology. Leads the engineering team in crafting a world-class platform using Rust, C++17, and cutting-edge infrastructure tools.
+                </p>
+                <div class="social-links">
+                    <a href="https://linkedin.com" rel="noopener noreferrer">LinkedIn</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Teams Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Our Teams</h2>
-            <div class="teams-grid">
-                <div class="team-card">
-                    <h3>Engineering</h3>
-                    <p>
-                        65% of our company. Building exchange infrastructure in Rust, C++17, Python, and React. Self-managing teams taking ownership of critical systems.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Trading & Market Making</h3>
-                    <p>
-                        Providing deep liquidity and sharp pricing across all markets. Sophisticated algorithms meeting our market participants where they are.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Product</h3>
-                    <p>
-                        Designing experiences that make complex markets accessible. Every feature built with trader and investor needs at heart.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Operations</h3>
-                    <p>
-                        Keeping the exchange running 24/7 across multiple jurisdictions. The backbone ensuring reliability and uptime.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Legal & Compliance</h3>
-                    <p>
-                        Navigating regulation across UK, Malta, and beyond. Ensuring we operate responsibly within evolving regulatory frameworks.
-                    </p>
-                </div>
-
-                <div class="team-card">
-                    <h3>Data & Analytics</h3>
-                    <p>
-                        Turning market data into actionable intelligence. Powering decisions across the organization with insights.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Culture Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">How We Work</h2>
-            <div class="culture-grid">
-                <div class="culture-item">
-                    <h4><span class="culture-icon">👥</span> Self-Managing Teams</h4>
-                    <p>
-                        Teams of 5-8 people with real autonomy. No rigid hierarchies—just passionate people taking ownership of what matters.
-                    </p>
-                </div>
-
-                <div class="culture-item">
-                    <h4><span class="culture-icon">🔍</span> Radical Transparency</h4>
-                    <p>
-                        Company financials shared daily. Town halls every 2-3 weeks with direct CEO Q&A. Everyone knows what's happening.
-                    </p>
-                </div>
-
-                <div class="culture-item">
-                    <h4><span class="culture-icon">💰</span> Self-Set Salaries</h4>
-                    <p>
-                        Every 6 months, you submit your business case. No politics, no guessing. Compensation tied to impact and value.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Diversity Section -->
-    <section class="section">
-        <div class="container">
-            <div class="diversity">
-                <h3>Our Commitment to Diversity</h3>
+    <section>
+        <h2 class="section-title">Our Teams</h2>
+        <div class="teams-grid">
+            <div class="team-card fade-in">
+                <h3>Engineering</h3>
                 <p>
-                    We're building a team that reflects the diversity of the markets we serve and the world we operate in. We believe different perspectives drive better decisions and stronger outcomes.
+                    65% of our company. Building exchange infrastructure in Rust, C++17, Python, and React. Self-managing teams taking ownership of critical systems.
+                </p>
+            </div>
+
+            <div class="team-card fade-in">
+                <h3>Trading &amp; Market Making</h3>
+                <p>
+                    Providing deep liquidity and sharp pricing across all markets. Sophisticated algorithms meeting our market participants where they are.
+                </p>
+            </div>
+
+            <div class="team-card fade-in">
+                <h3>Product</h3>
+                <p>
+                    Designing experiences that make complex markets accessible. Every feature built with trader and investor needs at heart.
+                </p>
+            </div>
+
+            <div class="team-card fade-in">
+                <h3>Operations</h3>
+                <p>
+                    Keeping the exchange running 24/7 across multiple jurisdictions. The backbone ensuring reliability and uptime.
+                </p>
+            </div>
+
+            <div class="team-card fade-in">
+                <h3>Legal &amp; Compliance</h3>
+                <p>
+                    Navigating regulation across UK, Malta, and beyond. Ensuring we operate responsibly within evolving regulatory frameworks.
+                </p>
+            </div>
+
+            <div class="team-card fade-in">
+                <h3>Data &amp; Analytics</h3>
+                <p>
+                    Turning market data into actionable intelligence. Powering decisions across the organization with insights.
                 </p>
             </div>
         </div>
     </section>
 
+    <!-- Culture Section -->
+    <section>
+        <h2 class="section-title">How We Work</h2>
+        <div class="culture-grid">
+            <div class="culture-item fade-in">
+                <h4><span class="culture-icon" aria-hidden="true">&#128101;</span> Self-Managing Teams</h4>
+                <p>
+                    Teams of 5-8 people with real autonomy. No rigid hierarchies&mdash;just passionate people taking ownership of what matters.
+                </p>
+            </div>
+
+            <div class="culture-item fade-in">
+                <h4><span class="culture-icon" aria-hidden="true">&#128269;</span> Radical Transparency</h4>
+                <p>
+                    Company financials shared daily. Town halls every 2-3 weeks with direct CEO Q&amp;A. Everyone knows what's happening.
+                </p>
+            </div>
+
+            <div class="culture-item fade-in">
+                <h4><span class="culture-icon" aria-hidden="true">&#128176;</span> Self-Set Salaries</h4>
+                <p>
+                    Every 6 months, you submit your business case. No politics, no guessing. Compensation tied to impact and value.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diversity Section -->
+    <section>
+        <div class="diversity fade-in">
+            <h3>Our Commitment to Diversity</h3>
+            <p>
+                We're building a team that reflects the diversity of the markets we serve and the world we operate in. We believe different perspectives drive better decisions and stronger outcomes.
+            </p>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container">
-            <a href="careers.html" class="cta-button">Want to join us?</a>
-        </div>
+        <a href="careers.html" class="cta-button">Want to join us?</a>
     </section>
     </main>
 

@@ -2,173 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Smarkets</title>
+    <title>Smarkets | About</title>
+    <meta name="description" content="Smarkets is building the world's most efficient prediction market exchange. Founded in 2008, we're transforming how the world prices uncertain events with transparency and technology.">
+    <link rel="canonical" href="https://company.smarkets.com/about.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | About">
+    <meta property="og:description" content="Building the world's most efficient prediction market exchange. Transparent. Fair. Revolutionary.">
+    <meta property="og:url" content="https://company.smarkets.com/about.html">
+    <meta property="og:site_name" content="Smarkets">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | About">
+    <meta name="twitter:description" content="Building the world's most efficient prediction market exchange. Transparent. Fair. Revolutionary.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Page-specific styles for about.html */
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .problem-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .problem-card:hover {
-            border-color: var(--accent);
-            background: var(--bg-tertiary);
-        }
-
-        .problem-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .problem-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .value-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .value-card:hover {
-            border-color: var(--accent);
-            background: var(--bg-tertiary);
-            transform: translateY(-5px);
-        }
-
-        .value-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .value-card h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-
-        .value-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .metrics-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .office-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .office-card:hover {
-            border-color: var(--accent);
-            background: var(--bg-tertiary);
-        }
-
-        .office-image {
-            width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .office-content {
-            padding: 2rem;
-        }
-
-        .office-content h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .office-location {
-            color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .office-content p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .regulation-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .regulation-card {
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .regulation-card:hover {
-            border-color: var(--accent);
-            background: var(--bg-tertiary);
-        }
-
-        .regulation-card h3 {
-            color: var(--accent);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .regulation-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .problem-grid,
-            .values-grid,
-            .metrics-grid,
-            .regulation-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -251,8 +108,8 @@
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="timeline-year">2020</div>
-                    <div class="timeline-title">£1B+ Annual Volume</div>
-                    <div class="timeline-description">A major milestone reached as Smarkets processes over £1 billion in annual trading volume on its platform.</div>
+                    <div class="timeline-title">&pound;1B+ Annual Volume</div>
+                    <div class="timeline-description">A major milestone reached as Smarkets processes over &pound;1 billion in annual trading volume on its platform.</div>
                 </div>
             </div>
 
@@ -291,32 +148,32 @@
         <p class="section-subtitle fade-in">Our culture is built on trust, transparency, and empowering our team to do their best work.</p>
         <div class="values-grid">
             <div class="value-card fade-in">
-                <div class="value-icon">🤝</div>
+                <div class="value-icon" aria-hidden="true">&#129309;</div>
                 <h3>Self-Managing Teams</h3>
                 <p>Autonomous teams of 5-8 people set their own direction, make decisions independently, and own their outcomes.</p>
             </div>
             <div class="value-card fade-in">
-                <div class="value-icon">🔓</div>
+                <div class="value-icon" aria-hidden="true">&#128275;</div>
                 <h3>Radical Transparency</h3>
                 <p>We operate with complete openness about financials, strategy, and decisions. Everyone knows what's happening.</p>
             </div>
             <div class="value-card fade-in">
-                <div class="value-icon">💰</div>
+                <div class="value-icon" aria-hidden="true">&#128176;</div>
                 <h3>Self-Set Salaries</h3>
                 <p>Our team members determine their own compensation based on market research and personal judgment. Trust is paramount.</p>
             </div>
             <div class="value-card fade-in">
-                <div class="value-icon">⚙️</div>
+                <div class="value-icon" aria-hidden="true">&#9881;&#65039;</div>
                 <h3>Engineering-First Culture</h3>
                 <p>65% of our team are engineers. We believe good decisions are rooted in understanding the technology deeply.</p>
             </div>
             <div class="value-card fade-in">
-                <div class="value-icon">🏆</div>
+                <div class="value-icon" aria-hidden="true">&#127942;</div>
                 <h3>Most Loved Workplace</h3>
                 <p>Our culture is certified as a Most Loved Workplace, reflecting our commitment to creating an exceptional environment.</p>
             </div>
             <div class="value-card fade-in">
-                <div class="value-icon">🎯</div>
+                <div class="value-icon" aria-hidden="true">&#127919;</div>
                 <h3>Ownership Mentality</h3>
                 <p>Every team member has skin in the game. We collectively own our success and failures.</p>
             </div>
@@ -368,7 +225,7 @@
                 </div>
             </div>
             <div class="tech-category fade-in">
-                <h3>Data & Messaging</h3>
+                <h3>Data &amp; Messaging</h3>
                 <div class="tech-items">
                     <span class="tech-tag">Kafka</span>
                     <span class="tech-tag">PostgreSQL</span>
@@ -400,7 +257,7 @@
         <p class="section-subtitle fade-in">Headquartered in London with a growing presence in Malta. Global team, local excellence.</p>
         <div class="grid-2">
             <div class="office-card fade-in">
-                <div class="office-image">🏙️</div>
+                <div class="office-image" aria-hidden="true">&#127961;&#65039;</div>
                 <div class="office-content">
                     <h3>London, UK</h3>
                     <div class="office-location">Headquarters</div>
@@ -408,7 +265,7 @@
                 </div>
             </div>
             <div class="office-card fade-in">
-                <div class="office-image">🏝️</div>
+                <div class="office-image" aria-hidden="true">&#127965;&#65039;</div>
                 <div class="office-content">
                     <h3>Malta</h3>
                     <div class="office-location">Operations Hub</div>
@@ -420,7 +277,7 @@
 
     <!-- Regulation Section -->
     <section>
-        <h2 class="section-title fade-in">Licensing & Regulation</h2>
+        <h2 class="section-title fade-in">Licensing &amp; Regulation</h2>
         <p class="section-subtitle fade-in">Operating with the highest standards of compliance and regulatory oversight across multiple jurisdictions.</p>
         <div class="regulation-grid">
             <div class="regulation-card fade-in">
