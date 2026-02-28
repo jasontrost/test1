@@ -13,13 +13,15 @@
     --bg-primary: #0a0a0a;
     --bg-secondary: #111111;
     --bg-tertiary: #1a1a1a;
-    --accent: #00E676;
-    --accent-dim: rgba(0, 230, 118, 0.1);
+    --accent: #0CCD93;
+    --accent-dark: #00B073;
+    --accent-darker: #0F9266;
+    --accent-dim: rgba(12, 205, 147, 0.1);
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --text-tertiary: #808080;
     --border: #2a2a2a;
-    --nav-height: 70px;
+    --nav-height: 50px;
 }
 
 html {
@@ -28,7 +30,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans Pro', 'Inter', sans-serif;
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
@@ -58,9 +60,9 @@ nav {
 }
 
 .nav-brand {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 800;
-    letter-spacing: -1px;
+    letter-spacing: -0.5px;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -80,8 +82,10 @@ nav {
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.3s ease;
     position: relative;
 }
@@ -148,7 +152,7 @@ nav {
    Hero
    ============================================ */
 .hero {
-    padding-top: 140px;
+    padding-top: 120px;
     padding-bottom: 80px;
     text-align: center;
     display: flex;
@@ -376,13 +380,13 @@ section {
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Source Sans Pro', 'Inter', sans-serif;
     background: var(--accent);
     color: var(--bg-primary);
 }
 
 .btn:hover {
-    background: #00c868;
+    background: var(--accent-dark);
     transform: translateY(-2px);
 }
 
@@ -392,7 +396,7 @@ section {
 }
 
 .btn-primary:hover {
-    background: #00c868;
+    background: var(--accent-dark);
     transform: translateY(-1px);
 }
 
