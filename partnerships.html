@@ -4,55 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partnerships - Smarkets</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Page-specific styles for partnerships.html */
-        /* hero + section + container use shared styles from styles.css */
-
-        .card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .card:hover {
-            border-color: #444;
-            transform: translateY(-2px);
-        }
-
-        .card-tag {
-            display: inline-block;
-            color: var(--accent);
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-
-        .card h2 {
-            color: var(--text-primary);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .card h3 {
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
 
         .featured-partnership {
             background-color: var(--bg-secondary);
@@ -156,36 +111,6 @@
             font-size: 1.1rem;
         }
 
-        .btn {
-            background-color: var(--accent);
-            color: var(--bg-primary);
-            font-weight: 600;
-            border-radius: 8px;
-            padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #00cc5e;
-            transform: translateY(-2px);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @media (max-width: 768px) {
             .featured-partnership {
                 grid-template-columns: 1fr;
@@ -251,7 +176,7 @@
                             <p>Smarkets is proud to announce a multi-year partnership as the Official Sports Trading Partner of the Rolex SailGP Championship. This groundbreaking agreement brings real-time race data into the world of prediction markets, creating a unique, data-driven trading experience for fans across the UK, Ireland, and Sweden.</p>
                             <p>As an official partner of the Emirates Great Britain SailGP Team (2025 Season Champions) and the Emirates Great Britain Sail Grand Prix Portsmouth event, Smarkets integrates cutting-edge race data to offer sharpest prices and innovative market structures that reflect the dynamic nature of competitive sailing.</p>
                             <p><strong>Key Details:</strong></p>
-                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <ul class="list-styled">
                                 <li>3-year multi-year partnership agreement</li>
                                 <li>Integration rights in UK, Ireland, and Sweden</li>
                                 <li>Official partner of Emirates Great Britain SailGP Team</li>
@@ -275,7 +200,7 @@
                             <p>SBK, Smarkets' dedicated sportsbook brand, proudly sponsors AFC Bournemouth as their Official Training Wear Partner for the 2025/26 Premier League season. SBK branding appears on the front of all first-team training wear, connecting our brand with one of the Premier League's most exciting clubs.</p>
                             <p>Beyond kit sponsorship, SBK serves as the Presenting Partner of the AFC Bournemouth podcast, delivering premium digital content and maintaining a dedicated presence in the club's training gallery. This partnership, facilitated through Black Knight Football Group, reflects SBK's commitment to supporting world-class football.</p>
                             <p><strong>Key Details:</strong></p>
-                            <ul style="margin-left: 1.5rem; color: var(--text-secondary);">
+                            <ul class="list-styled">
                                 <li>Official Training Wear Sponsor for 2025/26 season</li>
                                 <li>SBK branding on first-team training kit</li>
                                 <li>Presenting Partner of AFC Bournemouth podcast</li>
@@ -291,17 +216,17 @@
         <!-- Our Brands Section -->
         <section class="section">
             <div class="container">
-                <h2 style="color: var(--text-primary); font-size: 2rem; margin-bottom: 3rem; text-align: center;">Our Brands</h2>
+                <h2 class="section-heading">Our Brands</h2>
                 <div class="brands-grid">
-                    <div class="card">
+                    <div class="card animate-in">
                         <h3>The Exchange</h3>
                         <p>Smarkets operates the peer-to-peer prediction market exchange, offering the sharpest prices and deepest liquidity in the industry. With billions of pounds in annual trading volume, our exchange provides a transparent, fair platform for trading on real-world outcomes.</p>
-                        <p style="color: var(--text-tertiary); font-size: 0.9rem;">Founded in 2008, Smarkets pioneered prediction market trading in Europe and continues to set the standard for exchange-based sports and event trading.</p>
+                        <p class="text-muted">Founded in 2008, Smarkets pioneered prediction market trading in Europe and continues to set the standard for exchange-based sports and event trading.</p>
                     </div>
-                    <div class="card">
+                    <div class="card animate-in">
                         <h3>The Sportsbook</h3>
                         <p>SBK is our sports-focused sportsbook brand, delivering an alternative to traditional betting operators. With no casino offerings and odds derived directly from our exchange liquidity, SBK provides transparent pricing backed by real market data.</p>
-                        <p style="color: var(--text-tertiary); font-size: 0.9rem;">Launched in 2023, SBK brings the innovation and fairness of prediction markets to traditional sports betting, ensuring customers receive competitive odds at all times.</p>
+                        <p class="text-muted">Launched in 2023, SBK brings the innovation and fairness of prediction markets to traditional sports betting, ensuring customers receive competitive odds at all times.</p>
                     </div>
                 </div>
             </div>

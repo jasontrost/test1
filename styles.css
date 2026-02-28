@@ -274,6 +274,22 @@ section {
     font-size: 0.95rem;
 }
 
+.card h2 {
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.card-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
 /* ============================================
    Grids
    ============================================ */
@@ -355,12 +371,19 @@ section {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-decoration: none;
     transition: all 0.3s ease;
     cursor: pointer;
     border: none;
     font-family: 'Inter', sans-serif;
+    background: var(--accent);
+    color: var(--bg-primary);
+}
+
+.btn:hover {
+    background: #00c868;
+    transform: translateY(-2px);
 }
 
 .btn-primary {
@@ -930,6 +953,43 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ============================================
+   Utility
+   ============================================ */
+.section-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+}
+
+.list-styled {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
 }
 
 /* ============================================

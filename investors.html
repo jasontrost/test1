@@ -6,13 +6,10 @@
     <title>Investor Relations - Smarkets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Page-specific styles for investors.html */
-        /* hero + container use shared styles from styles.css */
-
-        /* section padding comes from shared styles.css */
 
         section h2 {
             font-size: 2.5rem;
@@ -34,32 +31,16 @@
             margin-bottom: 3rem;
         }
 
-        .card {
-            background-color: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+        .cards-grid .card {
             opacity: 0;
             animation: fadeInUp 0.6s ease-out forwards;
         }
 
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-
-        .card:hover {
-            border-color: #444;
-            transform: translateY(-2px);
-        }
-
-        .card h3 {
-            margin-top: 0;
-        }
+        .cards-grid .card:nth-child(1) { animation-delay: 0.1s; }
+        .cards-grid .card:nth-child(2) { animation-delay: 0.2s; }
+        .cards-grid .card:nth-child(3) { animation-delay: 0.3s; }
 
         .card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
             line-height: 1.7;
         }
 
@@ -228,44 +209,8 @@
             font-weight: 600;
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--bg-primary);
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+        .cta-email a {
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #00ff88;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 230, 118, 0.3);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         @media (max-width: 768px) {
@@ -466,7 +411,7 @@
             <div class="container">
                 <div class="cta-section">
                     <h3>Interested in Investing in Smarkets?</h3>
-                    <div class="cta-email"><a href="mailto:investors@smarkets.com" style="color: var(--accent); text-decoration: none;">investors@smarkets.com</a></div>
+                    <div class="cta-email"><a href="mailto:investors@smarkets.com">investors@smarkets.com</a></div>
                     <a href="mailto:investors@smarkets.com" class="btn">Get in Touch</a>
                 </div>
             </div>
