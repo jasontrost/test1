@@ -455,18 +455,6 @@ section {
 /* ============================================
    Tags / Badges
    ============================================ */
-.tag {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--accent);
-    background: rgba(0, 230, 118, 0.1);
-    padding: 0.3rem 0.75rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
-}
 
 .tech-tag {
     display: inline-block;
@@ -701,16 +689,6 @@ section {
 }
 
 
-/* Press section */
-.press-section { margin-bottom: 4rem; }
-.press-section h2 {
-    color: var(--text-primary);
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    text-align: center;
-}
-
 /* Media kit */
 
 /* ============================================
@@ -819,40 +797,6 @@ section {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-.teams-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.team-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-}
-
-.team-card:hover {
-    border-color: #444;
-    transform: translateY(-2px);
-}
-
-.team-card h3 {
-    color: var(--accent);
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-    font-weight: 700;
-}
-
-.team-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.6;
 }
 
 .culture-grid {
@@ -1038,6 +982,15 @@ section {
 .brands-grid .card h3 {
     color: var(--text-primary);
     font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.brand-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
     margin-bottom: 1rem;
 }
 
@@ -1178,7 +1131,6 @@ footer .social-links a:hover {
     .featured-partnership:nth-child(even) .featured-partnership-visual { order: 2; }
 
     .leadership-grid,
-    .teams-grid,
     .culture-grid {
         grid-template-columns: 1fr;
     }
@@ -1277,7 +1229,7 @@ footer .social-links a:hover {
 
     .hero::before { display: none; }
 
-    .card, .metric-item, .member-card, .team-card,
+    .card, .metric-item, .member-card,
     .value-card, .culture-item,
     .investor-card, .why-item, .milestone {
         break-inside: avoid;
@@ -1735,6 +1687,10 @@ footer .social-links a:hover {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
     margin-top: var(--space-lg);
+}
+
+.dk-tech-group {
+    /* Grouping container for a tech category (Backend, Frontend, etc.) */
 }
 
 .dk-tech-group-label {
