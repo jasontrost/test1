@@ -7,8 +7,12 @@
     'use strict';
 
     // Determine current page from URL
-    const path = window.location.pathname.replace(/\/+$/, '');
-    const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index';
+    // Handles: /about, /about/, /about/index.html, /about.html
+    const cleanPath = window.location.pathname
+        .replace(/\/+$/, '')
+        .replace(/\/index(?:\.html?)?$/, '')
+        .replace(/\.html?$/, '');
+    const currentPage = cleanPath.substring(cleanPath.lastIndexOf('/') + 1) || 'index';
 
     function isActive(page) {
         return currentPage === page ? 'active' : '';
@@ -17,13 +21,6 @@
     function ariaCurrent(page) {
         return currentPage === page ? ' aria-current="page"' : '';
     }
-
-    // ── Skip Link ─────────────────────────────
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main-content';
-    skipLink.className = 'skip-link';
-    skipLink.textContent = 'Skip to main content';
-    document.body.insertBefore(skipLink, document.body.firstChild);
 
     // Ensure main element has skip link target (set in HTML, reinforced here)
     const mainEl = document.querySelector('main');
@@ -94,6 +91,7 @@
 
             if (e.key === 'Tab') {
                 const focusable = [toggle, ...getFocusableElements(mobileNav)];
+                if (focusable.length === 0) return;
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
 
@@ -230,6 +228,7 @@
     }
 
     // Reveal page now that nav + footer are injected (prevents FOUC)
+    document.body.classList.remove('no-js');
     document.body.classList.add('ready');
 
 })();
