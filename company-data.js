@@ -22,15 +22,8 @@ window.SM = {
     founded:            2008,
     hqCity:             'London',
     hqDetail:           'St. Katharine Docks, next to Tower Bridge',
-    offices:            ['London, UK', 'Malta'],
     headcount:          '100+',
     engineeringPct:     '65%',
-    founder:            'Jason Trost',
-
-    // ── Products & brands ────────────────────────
-    exchangeName:       'Smarkets',
-    sportsbookName:     'SBK',
-    sbkLaunchYear:      2020,
 
     // ── Key metrics (as of FY 2024) ──────────────
     lifetimeVolume:     '$47B',
@@ -39,50 +32,17 @@ window.SM = {
     grossMargin:        '79%',
     sbkGrowthRate:      '82%',
     peakMAU:            '41k',
-    lifetimeCustomers:  '1M+',     // lifetime registered, vs 41k peak monthly active
-    tradingMargin:      '5%',      // vs industry avg ~12.5%
-
-    // ── Margin comparison (About page chart) ───
-    marginComparison: [
-        { name: 'Smarkets',      margin: 5,    barWidth: '40%', style: 'green' },
-        { name: 'FanDuel',       margin: 7.5,  barWidth: '60%', style: 'dim' },
-        { name: 'DraftKings',    margin: 10.5, barWidth: '84%', style: 'dim' },
-        { name: 'Industry avg',  margin: 12.5, barWidth: '100%', style: 'dim' },
-    ],
-    marginDisclaimer: 'Margins are approximate and based on publicly available data as of 2024. Competitor margins derived from annual filings and industry reports. Smarkets margin reflects exchange commission plus market-making spread.',
 
     // ── Fundraising ──────────────────────────────
     totalEquity:        '$35M',
-    investors: [
-        'Susquehanna Growth Equity',
-        'Passion Capital',
-        'DTCP',
-        'Bolt Ventures',
-        'Eberg Capital',
-        'Game Changers Ventures'
-    ],
 
     // ── Licensing ────────────────────────────────
     jurisdictions:      5,
-    licences: [
-        'UK Gambling Commission',
-        'Malta Gaming Authority',
-        'USA (Indiana)',
-        'Ireland',
-        'Sweden'
-    ],
 
     // ── Partnerships ─────────────────────────────
     sailgpDeal:         '3-year',
     sailgpStart:        'February 2026',
     afcbSeason:         '2025/26',
-
-    // ── Editorial conventions ────────────────────
-    // Dates:    "Month YYYY" for recent, "YYYY" for older
-    // Currency: "$" prefix, no decimals unless < $100M
-    // Growth:   "X% year-on-year" or "X% YoY"
-    // Hedging:  "as of [date]" on any metric that ages
-    dataAsOf:           'February 2026',
 };
 
 /* ── DOM hydration ────────────────────────────────
