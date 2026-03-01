@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smarkets | About</title>
-    <meta name="description" content="Smarkets is a prediction market exchange founded in 2008. We believe markets are the best way to price uncertain events — and we're building the technology to prove it.">
+    <meta name="description" content="Smarkets is a prediction market exchange founded in 2008. We believe markets are the best way to price uncertain events - and we're building the technology to prove it.">
     <link rel="canonical" href="https://company.smarkets.com/about">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
@@ -62,7 +62,7 @@
                     <span class="dk-white">We believe markets are the best way to</span><br>
                     <span class="dk-green">price </span><span id="glitch-word" class="dk-green"></span><span class="dk-green"> events</span>
                 </h1>
-                <p class="dk-hero-sub">Smarkets is a prediction market exchange, founded in <span data-sm="founded">2008</span> and headquartered in <span data-sm="hqCity">London</span>. We run three products — the Smarkets prediction market, the SBK sportsbook built on top of it, and Hanson, an institutional market maker — all powered by the same proprietary technology.</p>
+                <p class="dk-hero-sub">Smarkets is a prediction market exchange, founded in <span data-sm="founded">2008</span> and headquartered in <span data-sm="hqCity">London</span>. We run three products - the Smarkets prediction market, the SBK sportsbook built on top of it, and Hanson, an institutional market maker - all powered by the same proprietary technology.</p>
             </div>
         </div>
     </section>
@@ -109,7 +109,7 @@
         let dims = resize();
         window.addEventListener('resize', () => { dims = resize(); });
 
-        // Colors matched to site theme — boosted brightness
+        // Colors matched to site theme - boosted brightness
         const ACCENT = [12, 205, 147];   // --accent #0CCD93
         const DIM    = [12, 205, 147];   // use accent for constellation too
         const neon = (a) => `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${a})`;
@@ -117,7 +117,7 @@
 
         let t = 0;
 
-        // Constellation nodes — fewer on mobile for performance
+        // Constellation nodes - fewer on mobile for performance
         const nodeCount = isMobile ? 20 : 50;
         const nodes = Array.from({ length: nodeCount }, () => ({
             x: Math.random(), y: Math.random(),
@@ -149,7 +149,7 @@
             t += 0.004;
             ctx.clearRect(0, 0, W, H);
 
-            // Grid — brighter
+            // Grid - brighter
             ctx.strokeStyle = neon(0.04);
             ctx.lineWidth = 0.5;
             const sp = 55;
@@ -193,7 +193,7 @@
                 ctx.fill();
             }
 
-            // Chart lines — brighter
+            // Chart lines - brighter
             for (let l = 0; l < 2; l++) {
                 ctx.beginPath();
                 ctx.strokeStyle = neon(0.15 + l * 0.08);
@@ -220,7 +220,7 @@
                 ctx.fill();
             }
 
-            // Streaks — brighter, slightly more frequent
+            // Streaks - brighter, slightly more frequent
             if (Math.random() < 0.04) spawnStreak(W, H);
             for (let i = streaks.length - 1; i >= 0; i--) {
                 const sk = streaks[i];
@@ -244,7 +244,7 @@
                 ctx.fillRect(sk.x - 8, sk.y - 8, 16, 16);
             }
 
-            // Flash — brighter
+            // Flash - brighter
             if (flash.active) {
                 flash.age += 0.012;
                 const a = Math.max(0, flash.intensity * (1 - flash.age));
@@ -258,13 +258,13 @@
             }
             if (Math.random() < 0.005) triggerFlash(W);
 
-            // Scanlines — lighter so they don't darken everything
+            // Scanlines - lighter so they don't darken everything
             for (let y = 0; y < H; y += 4) {
                 ctx.fillStyle = 'rgba(0,0,0,0.03)';
                 ctx.fillRect(0, y, W, 1);
             }
 
-            // Vignette — softer centre, so graphics show through more
+            // Vignette - softer centre, so graphics show through more
             const pulse = 0.45 + 0.06 * Math.sin(t * 1.5);
             const vig = ctx.createRadialGradient(W / 2, H * 0.45, W * 0.2, W / 2, H * 0.45, W * 0.75);
             vig.addColorStop(0, 'rgba(0,0,0,0)');
@@ -292,21 +292,24 @@
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">What we do</span></h2>
             <div class="dk-block fade-in">
-                <p class="dk-block-text">Our exchange lets people trade on the outcomes of real-world events — elections, sports, economics — at prices set by the market, not by a bookmaker. Our sportsbook, SBK, takes the same sharp pricing and wraps it in a simple betting experience.</p>
-                <p class="dk-block-text">Together, the three products serve different audiences with the same underlying engine: a matching platform, a market maker, and a risk system — all built in-house.</p>
+                <p class="dk-block-text">Our exchange lets people trade on the outcomes of real-world events - elections, sports, economics - at prices set by the market, not by a bookmaker. Our sportsbook, SBK, takes the same sharp pricing and wraps it in a simple betting experience.</p>
+                <p class="dk-block-text">Together, the three products serve different audiences with the same underlying engine: a matching platform, a market maker, and a risk system - all built in-house.</p>
             </div>
             <div class="dk-product-shots fade-in">
                 <div class="dk-product-shot" aria-label="Smarkets exchange interface">
-                    <img src="../photos/smarkets-exchange.png" alt="Smarkets Exchange — live markets with order book" loading="lazy">
+                    <img src="../photos/smarkets-exchange.png" alt="Smarkets Exchange - live markets with order book" loading="lazy">
                     <span class="dk-shot-label">Smarkets Exchange</span>
+                    <span class="dk-shot-desc">Direct market access for traders</span>
                 </div>
                 <div class="dk-product-shot" aria-label="SBK sportsbook">
-                    <img src="../photos/sbk-sportsbook.png" alt="SBK Sportsbook — sports betting interface" loading="lazy">
-                    <span class="dk-shot-label">SBK Sportsbook</span>
+                    <img src="../photos/sbk-sportsbook.png" alt="SBK Sportsbook - sports betting interface" loading="lazy">
+                    <span class="dk-shot-label">SBK</span>
+                    <span class="dk-shot-desc">Better odds without the complexity</span>
                 </div>
                 <div class="dk-product-shot" aria-label="Hanson Applied Sciences">
-                    <img src="../photos/hanson.png" alt="Hanson Applied Sciences — market making and liquidity" loading="lazy" style="object-position: top">
+                    <img src="../photos/hanson.png" alt="Hanson Applied Sciences - market making and liquidity" loading="lazy" style="object-position: top">
                     <span class="dk-shot-label">Hanson</span>
+                    <span class="dk-shot-desc">Institutional liquidity, built in-house</span>
                 </div>
             </div>
         </div>
@@ -317,8 +320,8 @@
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Why it matters</span></h2>
             <div class="dk-block fade-in">
-                <p class="dk-block-text">Most betting companies charge customers 10–12% in hidden margin. We charge around 5%. That's possible because our exchange model means we don't need to take the other side of every bet — we match buyers with sellers and let the market set the price.</p>
-                <p class="dk-block-text">The result: customers get better odds, and we still run a profitable business. We've been profitable for multiple years — named <a href="https://www.corporate-rebels.com/blog/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">"one of the most profitable per capita companies in Europe"</a> by Corporate Rebels.</p>
+                <p class="dk-block-text">Most betting companies charge customers 10–12% in hidden margin. We charge around 5%. That's possible because our exchange model means we don't need to take the other side of every bet - we match buyers with sellers and let the market set the price.</p>
+                <p class="dk-block-text">The result: customers get better odds, and we still run a profitable business. We've been profitable for multiple years - named <a href="https://www.corporate-rebels.com/blog/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">"one of the most profitable per capita companies in Europe"</a> by Corporate Rebels.</p>
             </div>
             <div class="dk-margins fade-in" role="table" aria-label="Trading margin comparison">
                 <div class="dk-margin-row" role="row">
@@ -361,13 +364,13 @@
                 <div class="founder-bio">
                     <h3 class="founder-name">Jason Trost</h3>
                     <p class="founder-role">Founder &amp; CEO</p>
-                    <p class="dk-block-text">Jason left a trading desk at UBS in 2008 because he thought sports betting and prediction markets were technically crude, overpriced, and conceptually misframed compared with financial markets. The dominant exchange was charging 5% commission with poor UX. He believed he could build a low-margin, high-integrity exchange that treats bets like tradable financial assets rather than entertainment — and offer it at 2% commission with better technology.</p>
-                    <p class="dk-block-text">People said it was crazy to go after a monopoly. It took seven lean years of grinding before the model started to compound. Smarkets has since processed <span data-sm="lifetimeVolume">$47B</span> in volume across sports, politics, and economics — built entirely by an in-house engineering team in London.</p>
+                    <p class="dk-block-text">Jason left a trading desk at UBS in 2008 because he thought sports betting and prediction markets were technically crude, overpriced, and conceptually misframed compared with financial markets. The dominant exchange was charging 5% commission with poor UX. He believed he could build a low-margin, high-integrity exchange that treats bets like tradable financial assets rather than entertainment - and offer it at 2% commission with better technology.</p>
+                    <p class="dk-block-text">People said it was crazy to go after a monopoly. It took seven lean years of grinding before the model started to compound. Smarkets has since processed <span data-sm="lifetimeVolume">$47B</span> in volume across sports, politics, and economics - built entirely by an in-house engineering team in London.</p>
                 </div>
             </div>
             <div class="video-embed fade-in" style="margin-top: 2rem;">
-                <div class="yt-facade" id="yt-facade" role="button" tabindex="0" aria-label="Play video: History of Smarkets — Jason Trost, Founder &amp; CEO">
-                    <img src="https://img.youtube.com/vi/QU3QndInUt8/maxresdefault.jpg" alt="Video thumbnail — Jason Trost, Founder &amp; CEO" loading="lazy">
+                <div class="yt-facade" id="yt-facade" role="button" tabindex="0" aria-label="Play video: History of Smarkets - Jason Trost, Founder &amp; CEO">
+                    <img src="https://img.youtube.com/vi/QU3QndInUt8/maxresdefault.jpg" alt="Video thumbnail - Jason Trost, Founder &amp; CEO" loading="lazy">
                     <div class="yt-play" aria-hidden="true">
                         <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity="0.8"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
                     </div>
@@ -378,7 +381,7 @@
                     function load() {
                         var iframe = document.createElement('iframe');
                         iframe.src = 'https://www.youtube.com/embed/QU3QndInUt8?autoplay=1';
-                        iframe.title = 'History of Smarkets — Jason Trost, Founder & CEO';
+                        iframe.title = 'History of Smarkets - Jason Trost, Founder & CEO';
                         iframe.setAttribute('frameborder', '0');
                         iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
                         iframe.setAttribute('allowfullscreen', '');
@@ -436,20 +439,55 @@
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Built by engineers</span></h2>
             <div class="dk-block fade-in">
-                <p class="dk-block-text"><span data-sm="engineeringPct">65%</span> of the company are engineers. We build everything ourselves — the matching engine, the market maker, the risk system, the frontends — because owning the full stack is what lets us move fast and compound our advantage.</p>
-                <p class="dk-block-text">Our exchange infrastructure runs on Rust, our frontends are React, and our market-making algorithms are proprietary. We use Kafka for event streaming, PostgreSQL for persistence, and run everything on Kubernetes. There's no outsourced core — every critical system is written and operated by the team in <span data-sm="hqCity">London</span>.</p>
+                <p class="dk-block-text"><span data-sm="engineeringPct">65%</span> of the company are engineers. We build everything ourselves - the matching engine, the market maker, the risk system, the frontends - because owning the full stack is what lets us move fast and compound our advantage.</p>
+                <p class="dk-block-text">Our exchange infrastructure runs on Rust, our frontends are React, and our market-making algorithms are proprietary. We use Kafka for event streaming, PostgreSQL for persistence, and run everything on Kubernetes. There's no outsourced core - every critical system is written and operated by the team in <span data-sm="hqCity">London</span>.</p>
             </div>
-            <div class="dk-tech-tags fade-in">
-                <span class="tech-tag">Rust</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">React Native</span>
-                <span class="tech-tag">Kafka</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">Kubernetes</span>
-                <span class="tech-tag">Docker</span>
+            <div class="dk-tech-stack fade-in">
+                <div class="dk-tech-group">
+                    <span class="dk-tech-group-label">Backend</span>
+                    <div class="dk-tech-tags">
+                        <span class="tech-tag">Rust</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">gRPC / Protobuf</span>
+                    </div>
+                </div>
+                <div class="dk-tech-group">
+                    <span class="dk-tech-group-label">Frontend</span>
+                    <div class="dk-tech-tags">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Next.js</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="dk-tech-group">
+                    <span class="dk-tech-group-label">Data</span>
+                    <div class="dk-tech-tags">
+                        <span class="tech-tag">Kafka</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Elasticsearch</span>
+                    </div>
+                </div>
+                <div class="dk-tech-group">
+                    <span class="dk-tech-group-label">Infrastructure</span>
+                    <div class="dk-tech-tags">
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Terraform</span>
+                        <span class="tech-tag">Bazel</span>
+                    </div>
+                </div>
             </div>
-            <p class="dk-block-text dk-tech-cta fade-in"><a href="../careers/" class="accent-link">See what we're building &rarr;</a></p>
+            <div class="dk-eng-links fade-in">
+                <p class="dk-block-text">From the engineering blog:</p>
+                <ul class="dk-eng-blog-list">
+                    <li><a href="https://smarketshq.com/why-we-use-rust-in-hanson-95652b5724e4" target="_blank" rel="noopener noreferrer" class="accent-link">Why we use Rust in Hanson</a> - how we rebuilt the pricing engine for speed and safety</li>
+                    <li><a href="https://smarketshq.com/subpage/17e2d775fa7d" target="_blank" rel="noopener noreferrer" class="accent-link">Engineering at Smarkets</a> - deep dives into our architecture and infrastructure</li>
+                </ul>
+            </div>
+            <p class="dk-block-text dk-tech-cta fade-in"><a href="https://smarketshq.com/tech/home" target="_blank" rel="noopener noreferrer" class="accent-link">Read the engineering blog &rarr;</a> &nbsp;&middot;&nbsp; <a href="../careers/" class="accent-link">Join the team &rarr;</a></p>
         </div>
     </section>
 
@@ -479,13 +517,56 @@
         </div>
     </section>
 
-    <!-- Press & media -->
-    <section id="press" class="dk-section">
+    <!-- Regulation -->
+    <section id="regulation" class="dk-section">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Press &amp; media</span></h2>
+            <h2 class="dk-heading fade-in"><span class="dk-green">Regulation</span></h2>
             <div class="dk-block fade-in">
-                <p class="dk-block-text">For press enquiries, interviews, or commentary on prediction markets, contact <a href="mailto:press@smarkets.com" class="accent-link">press@smarkets.com</a>. For recent coverage and announcements, visit the <a href="../newsroom/" class="accent-link">Newsroom</a>.</p>
-                <p class="dk-block-text">For brand assets, logos, and executive headshots, email <a href="mailto:press@smarkets.com" class="accent-link">press@smarkets.com</a>.</p>
+                <p class="dk-block-text">We hold licences in <span data-sm="jurisdictions">6</span> jurisdictions across Europe and the United States. Regulatory compliance isn't a cost centre - it's the foundation of our product. Every market, every trade, and every payout runs through systems designed for auditability from day one.</p>
+            </div>
+            <div class="dk-licence-grid fade-in">
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127468;&#127463;</span>
+                    <h3>United Kingdom</h3>
+                    <span class="dk-licence-type">UK Gambling Commission</span>
+                    <span class="dk-licence-scope">Exchange &amp; sportsbook</span>
+                </div>
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127474;&#127481;</span>
+                    <h3>Malta</h3>
+                    <span class="dk-licence-type">Malta Gaming Authority</span>
+                    <span class="dk-licence-scope">Exchange &amp; sportsbook (EU)</span>
+                </div>
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127470;&#127466;</span>
+                    <h3>Ireland</h3>
+                    <span class="dk-licence-type">Revenue Commissioners</span>
+                    <span class="dk-licence-scope">Sportsbook</span>
+                </div>
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127480;&#127466;</span>
+                    <h3>Sweden</h3>
+                    <span class="dk-licence-type">Spelinspektionen</span>
+                    <span class="dk-licence-scope">Sportsbook</span>
+                </div>
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127482;&#127480;</span>
+                    <h3>Indiana, US</h3>
+                    <span class="dk-licence-type">Indiana Gaming Commission</span>
+                    <span class="dk-licence-scope">Sportsbook</span>
+                </div>
+                <div class="dk-licence-card">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127482;&#127480;</span>
+                    <h3>Colorado, US</h3>
+                    <span class="dk-licence-type">Colorado Division of Gaming</span>
+                    <span class="dk-licence-scope">Sportsbook</span>
+                </div>
+                <div class="dk-licence-card dk-licence-pending">
+                    <span class="dk-licence-flag" aria-hidden="true">&#127482;&#127480;</span>
+                    <h3>US (Federal)</h3>
+                    <span class="dk-licence-type">CFTC approval pending</span>
+                    <span class="dk-licence-scope">Prediction markets (event contracts)</span>
+                </div>
             </div>
         </div>
     </section>
@@ -494,7 +575,7 @@
     <section id="values" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Our values</span></h2>
-            <p class="dk-block-text fade-in">Five values drive how we hire, give feedback, and make decisions. These aren't aspirational — they're how we actually operate.</p>
+            <p class="dk-block-text fade-in">Five values drive how we hire, give feedback, and make decisions. These aren't aspirational - they're how we actually operate.</p>
             <div class="dk-values-grid fade-in">
                 <div class="dk-value-card">
                     <span class="dk-value-num">01</span>
@@ -504,7 +585,7 @@
                 <div class="dk-value-card">
                     <span class="dk-value-num">02</span>
                     <h3>Make Others Better</h3>
-                    <p>The best teams aren't solo stars — they make everyone around them better.</p>
+                    <p>The best teams aren't solo stars - they make everyone around them better.</p>
                 </div>
                 <div class="dk-value-card">
                     <span class="dk-value-num">03</span>
@@ -542,8 +623,8 @@
                 </div>
                 <div class="cta-card">
                     <h3>Invest</h3>
-                    <p>Request our investor deck or schedule a conversation with the team.</p>
-                    <a href="mailto:investors@smarkets.com?subject=Investor%20Enquiry" class="btn">Contact investors</a>
+                    <p>Performance data, financial reports, and shareholder information.</p>
+                    <a href="../investors/" class="btn">Investor relations</a>
                 </div>
             </div>
         </div>
