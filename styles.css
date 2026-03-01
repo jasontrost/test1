@@ -1895,12 +1895,6 @@ a.accent-link { color: var(--accent, #00CE8F); }
 /* Secondary CTA row below a primary button */
 .cta-secondary { margin-top: 1rem; }
 
-/* Centered page-footer note (last-updated, disclaimers) */
-.page-updated {
-    text-align: center;
-    padding: 1rem 2rem;
-}
-
 /* Inline button with top margin */
 .btn-inline {
     margin-top: 1rem;
