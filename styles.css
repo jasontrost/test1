@@ -1077,8 +1077,8 @@ section {
 footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border);
-    padding: 4rem 2rem;
-    margin-top: 6rem;
+    padding: 2rem 2rem;
+    margin-top: 2rem;
 }
 
 .footer-content {
@@ -1087,7 +1087,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1.5rem;
 }
 
 .footer-col h4 {
@@ -1443,6 +1443,38 @@ footer .social-links a:hover {
     margin-bottom: 1rem;
 }
 .dk-block-text:last-child { margin-bottom: 0; }
+
+/* ---------- Founder Section ---------- */
+.founder-section {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+    margin-bottom: 1.5rem;
+}
+.founder-photo {
+    border-radius: 8px;
+    overflow: hidden;
+}
+.founder-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+.founder-name {
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+.founder-role {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+}
+
 /* ---------- Section Headings ---------- */
 .dk-heading {
     font-size: clamp(1.3rem, 2.5vw, 1.8rem);
@@ -1585,7 +1617,7 @@ footer .social-links a:hover {
 /* ---------- Metrics ---------- */
 .dk-metrics {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space-2xl) var(--space-xl);
 }
 
@@ -1619,30 +1651,10 @@ footer .social-links a:hover {
     margin-top: var(--space-xl);
 }
 
-.dk-shot-placeholder {
-    background: var(--bg-secondary);
-    border: 2px dashed var(--border);
-    border-radius: 10px;
-    aspect-ratio: 16 / 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1.5rem;
-    text-align: center;
-}
-
 .dk-shot-label {
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-secondary);
-}
-
-.dk-shot-spec {
-    font-size: 0.7rem;
-    color: var(--text-tertiary);
-    font-style: italic;
 }
 
 .dk-product-shot {
@@ -1766,6 +1778,15 @@ footer .social-links a:hover {
 
     .dk-margin-row {
         grid-template-columns: 80px 1fr 100px;
+    }
+
+    .founder-section {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+    .founder-photo {
+        max-width: 240px;
     }
 
     .dk-metrics {
@@ -2357,7 +2378,7 @@ a.accent-link { color: var(--accent, #00CE8F); }
     color: var(--accent);
 }
 @media (max-width: 600px) {
-    .instagram-grid { grid-template-columns: repeat(2, 1fr); gap: 3px; }
+    .instagram-grid { grid-template-columns: 1fr; }
     .value-nav-pill { padding: 0.45rem 0.9rem; }
     .value-nav-label { font-size: 0.8rem; }
     .value-section-title { font-size: 1.4rem; }
@@ -2427,19 +2448,6 @@ a.accent-link { color: var(--accent, #00CE8F); }
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
-}
-.person-photo-placeholder {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--bg-secondary);
-    border: 2px solid var(--border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
-    font-size: 1.5rem;
-    color: var(--text-tertiary);
 }
 .person-photo {
     width: 80px;
@@ -2600,6 +2608,12 @@ a.accent-link { color: var(--accent, #00CE8F); }
     color: var(--text-primary);
 }
 
+/* Office map */
+.office-map {
+    max-width: 900px;
+    margin: 0 auto 2rem;
+}
+
 /* Office locations */
 .office-locations {
     display: grid;
@@ -2607,6 +2621,14 @@ a.accent-link { color: var(--accent, #00CE8F); }
     gap: 1.5rem;
     max-width: 700px;
     margin: 0 auto;
+}
+.office-card-map {
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    margin: -1.5rem -1.5rem 1.25rem -1.5rem;
+}
+.office-card-map iframe {
+    display: block;
 }
 .office-location-card {
     background: var(--bg-tertiary);

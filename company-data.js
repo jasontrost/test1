@@ -31,13 +31,12 @@ window.SM = {
     ebitda2024:         '$10.2M',
     grossMargin:        '79%',
     sbkGrowthRate:      '82%',
-    peakMAU:            '41k',
 
     // ── Fundraising ──────────────────────────────
     totalEquity:        '$35M',
 
     // ── Licensing ────────────────────────────────
-    jurisdictions:      5,
+    jurisdictions:      6,
 
     // ── Partnerships ─────────────────────────────
     sailgpDeal:         '3-year',

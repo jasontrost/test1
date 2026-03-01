@@ -52,7 +52,6 @@
         <ul class="nav-links">
             <li><a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
             <li><a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
-            <li><a href="${bp('/values')}" class="${isActive('values')}"${ariaCurrent('values')}>Values</a></li>
             <li><a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
             <li><a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
             <li><a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
@@ -66,7 +65,6 @@
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
             <a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
             <a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
-            <a href="${bp('/values')}" class="${isActive('values')}"${ariaCurrent('values')}>Values</a>
             <a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
             <a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
             <a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
@@ -170,7 +168,6 @@
                 <ul>
                     <li><a href="${bp('/about')}">About</a></li>
                     <li><a href="${bp('/team')}">Team</a></li>
-                    <li><a href="${bp('/values')}">Values</a></li>
                     <li><a href="${bp('/office')}">Office</a></li>
                     <li><a href="${bp('/careers')}">Careers</a></li>
                     <li><a href="${bp('/newsroom')}">Newsroom</a></li>

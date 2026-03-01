@@ -49,7 +49,7 @@
 <body class="no-js">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav><noscript><div class="noscript-nav" role="navigation" aria-label="Main navigation"><a href="../">Home</a> <a href="../about/">About</a> <a href="../team/">Team</a> <a href="../values/">Values</a> <a href="../careers/">Careers</a> <a href="../office/">Office</a> <a href="../partnerships/">Partnerships</a> <a href="../newsroom/">Newsroom</a> <a href="../investors/">Investors</a></div></noscript></nav>
+    <nav><noscript><div class="noscript-nav" role="navigation" aria-label="Main navigation"><a href="../">Home</a> <a href="../about/">About</a> <a href="../team/">Team</a> <a href="../careers/">Careers</a> <a href="../office/">Office</a> <a href="../partnerships/">Partnerships</a> <a href="../newsroom/">Newsroom</a> <a href="../investors/">Investors</a></div></noscript></nav>
 
     <main id="main-content">
 
@@ -350,23 +350,44 @@
         </div>
     </section>
 
-    <!-- How we make money -->
-    <section id="business-model" class="dk-section">
+    <!-- Founder story -->
+    <section id="origin" class="dk-section">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">How we make money</span></h2>
-            <div class="dk-biz fade-in">
-                <div class="dk-biz-card">
-                    <h3 class="dk-green">Market making</h3>
-                    <p>We provide liquidity by quoting prices on both sides of a market. This earns us roughly 5% of customer trading volume on average.</p>
+            <h2 class="dk-heading fade-in"><span class="dk-green">How it started</span></h2>
+            <div class="founder-section fade-in">
+                <div class="founder-photo">
+                    <img src="https://jasontrost.com/DSC00140-Edit.webp" alt="Jason Trost, Founder &amp; CEO of Smarkets" loading="lazy">
                 </div>
-                <div class="dk-biz-card">
-                    <h3 class="dk-green">Transaction fees</h3>
-                    <p>We charge approximately 25 basis points per trade on the exchange — among the lowest in the industry.</p>
+                <div class="founder-bio">
+                    <h3 class="founder-name">Jason Trost</h3>
+                    <p class="founder-role">Founder &amp; CEO</p>
+                    <p class="dk-block-text">Jason left a trading desk at UBS in 2008 because he thought sports betting and prediction markets were technically crude, overpriced, and conceptually misframed compared with financial markets. The dominant exchange was charging 5% commission with poor UX. He believed he could build a low-margin, high-integrity exchange that treats bets like tradable financial assets rather than entertainment — and offer it at 2% commission with better technology.</p>
+                    <p class="dk-block-text">People said it was crazy to go after a monopoly. It took seven lean years of grinding before the model started to compound. Smarkets has since processed <span data-sm="lifetimeVolume">$47B</span> in volume across sports, politics, and economics — built entirely by an in-house engineering team in London.</p>
                 </div>
-                <div class="dk-biz-card">
-                    <h3 class="dk-green">Where we're headed</h3>
-                    <p>As we expand into new asset classes, we'll add revenue from subscriptions, premium features, and interest on customer deposits.</p>
+            </div>
+            <div class="video-embed fade-in" style="margin-top: 2rem;">
+                <div class="yt-facade" id="yt-facade" role="button" tabindex="0" aria-label="Play video: History of Smarkets — Jason Trost, Founder &amp; CEO">
+                    <img src="https://img.youtube.com/vi/QU3QndInUt8/maxresdefault.jpg" alt="Video thumbnail — Jason Trost, Founder &amp; CEO" loading="lazy">
+                    <div class="yt-play" aria-hidden="true">
+                        <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity="0.8"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+                    </div>
                 </div>
+                <script>
+                (function() {
+                    var f = document.getElementById('yt-facade');
+                    function load() {
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/QU3QndInUt8?autoplay=1';
+                        iframe.title = 'History of Smarkets — Jason Trost, Founder & CEO';
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        f.parentNode.replaceChild(iframe, f);
+                    }
+                    f.addEventListener('click', load);
+                    f.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+                })();
+                </script>
             </div>
         </div>
     </section>
@@ -416,13 +437,13 @@
             <h2 class="dk-heading fade-in"><span class="dk-green">Built by engineers</span></h2>
             <div class="dk-block fade-in">
                 <p class="dk-block-text"><span data-sm="engineeringPct">65%</span> of the company are engineers. We build everything ourselves — the matching engine, the market maker, the risk system, the frontends — because owning the full stack is what lets us move fast and compound our advantage.</p>
-                <p class="dk-block-text">Our exchange infrastructure runs on Rust and C++, our frontends are React, and our market-making algorithms are proprietary. We use Kafka for event streaming, PostgreSQL for persistence, and run everything on Kubernetes. There's no outsourced core — every critical system is written and operated by the team in <span data-sm="hqCity">London</span>.</p>
+                <p class="dk-block-text">Our exchange infrastructure runs on Rust, our frontends are React, and our market-making algorithms are proprietary. We use Kafka for event streaming, PostgreSQL for persistence, and run everything on Kubernetes. There's no outsourced core — every critical system is written and operated by the team in <span data-sm="hqCity">London</span>.</p>
             </div>
             <div class="dk-tech-tags fade-in">
                 <span class="tech-tag">Rust</span>
-                <span class="tech-tag">C++17</span>
                 <span class="tech-tag">Python</span>
                 <span class="tech-tag">React</span>
+                <span class="tech-tag">React Native</span>
                 <span class="tech-tag">Kafka</span>
                 <span class="tech-tag">PostgreSQL</span>
                 <span class="tech-tag">Kubernetes</span>
@@ -442,20 +463,12 @@
                     <div class="dk-metric-lbl">lifetime volume traded</div>
                 </div>
                 <div class="dk-metric">
-                    <div class="dk-metric-num" data-sm="peakMAU">41k</div>
-                    <div class="dk-metric-lbl">peak monthly active users</div>
-                </div>
-                <div class="dk-metric">
-                    <div class="dk-metric-num" data-sm="headcount">100+</div>
-                    <div class="dk-metric-lbl">people across <span data-sm="hqCity">London</span> &amp; Malta</div>
+                    <div class="dk-metric-num" data-sm="grossMargin">79%</div>
+                    <div class="dk-metric-lbl">gross margin</div>
                 </div>
                 <div class="dk-metric">
                     <div class="dk-metric-num" data-sm="engineeringPct">65%</div>
                     <div class="dk-metric-lbl">engineers</div>
-                </div>
-                <div class="dk-metric">
-                    <div class="dk-metric-num" data-sm="grossMargin">79%</div>
-                    <div class="dk-metric-lbl">gross margin</div>
                 </div>
                 <div class="dk-metric">
                     <div class="dk-metric-num" data-sm="founded">2008</div>
@@ -477,7 +490,7 @@
         </div>
     </section>
 
-    <!-- Values (summary — full page at /values) -->
+    <!-- Values -->
     <section id="values" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Our values</span></h2>
@@ -509,39 +522,7 @@
                     <p>Seek out challenges. That's how we grow and how we outperform.</p>
                 </div>
             </div>
-            <p class="dk-block-text fade-in"><a href="../values/" class="accent-link">Read about our values in detail &rarr;</a></p>
-        </div>
-    </section>
-
-    <!-- Founder story -->
-    <section id="origin" class="dk-section">
-        <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">How it started</span></h2>
-            <p class="dk-block-text fade-in">Smarkets founder Jason Trost on why he started the company, what prediction markets get right, and where we're headed.</p>
-            <div class="video-embed fade-in">
-                <div class="yt-facade" id="yt-facade" role="button" tabindex="0" aria-label="Play video: History of Smarkets — Jason Trost, Founder &amp; CEO">
-                    <img src="https://img.youtube.com/vi/QU3QndInUt8/maxresdefault.jpg" alt="Video thumbnail — Jason Trost, Founder &amp; CEO" loading="lazy">
-                    <div class="yt-play" aria-hidden="true">
-                        <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity="0.8"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
-                    </div>
-                </div>
-                <script>
-                (function() {
-                    var f = document.getElementById('yt-facade');
-                    function load() {
-                        var iframe = document.createElement('iframe');
-                        iframe.src = 'https://www.youtube.com/embed/QU3QndInUt8?autoplay=1';
-                        iframe.title = 'History of Smarkets — Jason Trost, Founder & CEO';
-                        iframe.setAttribute('frameborder', '0');
-                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                        iframe.setAttribute('allowfullscreen', '');
-                        f.parentNode.replaceChild(iframe, f);
-                    }
-                    f.addEventListener('click', load);
-                    f.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
-                })();
-                </script>
-            </div>
+            <p class="dk-block-text fade-in"><a href="../careers/" class="accent-link">See how our values shape working at Smarkets &rarr;</a></p>
         </div>
     </section>
 
