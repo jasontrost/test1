@@ -42,6 +42,15 @@ window.SM = {
     lifetimeCustomers:  '1M+',     // lifetime registered, vs 41k peak monthly active
     tradingMargin:      '5%',      // vs industry avg ~12.5%
 
+    // ── Margin comparison (About page chart) ───
+    marginComparison: [
+        { name: 'Smarkets',      margin: 5,    barWidth: '40%', style: 'green' },
+        { name: 'FanDuel',       margin: 7.5,  barWidth: '60%', style: 'dim' },
+        { name: 'DraftKings',    margin: 10.5, barWidth: '84%', style: 'dim' },
+        { name: 'Industry avg',  margin: 12.5, barWidth: '100%', style: 'dim' },
+    ],
+    marginDisclaimer: 'Margins are approximate and based on publicly available data as of 2024. Competitor margins derived from annual filings and industry reports. Smarkets margin reflects exchange commission plus market-making spread.',
+
     // ── Fundraising ──────────────────────────────
     totalEquity:        '$35M',
     investors: [

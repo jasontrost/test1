@@ -2531,6 +2531,192 @@ footer .social-links a:hover {
     line-height: 1.6;
 }
 
+/* ---------- Leader cards ---------- */
+.dk-leaders {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: var(--space-xl);
+}
+
+.dk-leader {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.dk-leader:hover { border-color: var(--accent); }
+
+.dk-leader-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--border);
+}
+
+.dk-leader-info h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.dk-leader-role {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+
+.dk-leader-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ---------- Product shots ---------- */
+.dk-product-shots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: var(--space-xl);
+}
+
+.dk-shot-placeholder {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border);
+    border-radius: 10px;
+    aspect-ratio: 16 / 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.dk-shot-placeholder.dk-shot-wide {
+    aspect-ratio: 21 / 9;
+}
+
+.dk-shot-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.dk-shot-spec {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+}
+
+.dk-product-shot img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+}
+
+/* ---------- Office hero photo ---------- */
+.dk-office-hero {
+    margin-bottom: var(--space-xl);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dk-office-hero img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ---------- Values grid ---------- */
+.dk-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: var(--space-xl);
+}
+
+.dk-value-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: border-color 0.3s ease;
+}
+
+.dk-value-card:hover { border-color: var(--accent); }
+
+.dk-value-num {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.dk-value-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.dk-value-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* ---------- Tech tags ---------- */
+.dk-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: var(--space-md);
+}
+
+/* ---------- YouTube facade ---------- */
+.yt-facade {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.yt-facade img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.yt-facade:hover img { filter: brightness(0.75); }
+
+.yt-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+.yt-facade:hover .yt-play { opacity: 0.9; }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .dk-hero-inner { flex-direction: column; text-align: center; }
@@ -2563,6 +2749,24 @@ footer .social-links a:hover {
     }
 
     .dk-fly-ring { display: none; }
+
+    .dk-values-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .dk-product-shots {
+        grid-template-columns: 1fr;
+    }
+
+    .dk-leader {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dk-leaders {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2581,6 +2785,10 @@ footer .social-links a:hover {
     .dk-margin-tag { margin-top: -0.25rem; }
 
     .dk-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .dk-values-grid {
         grid-template-columns: 1fr;
     }
 }

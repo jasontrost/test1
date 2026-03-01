@@ -213,12 +213,6 @@
                 var controller = new AbortController();
                 var timeoutId = setTimeout(function () { controller.abort(); }, 8000);
 
-                function esc(str) {
-                    var div = document.createElement('div');
-                    div.textContent = str;
-                    return div.innerHTML;
-                }
-
                 fetch(API, { signal: controller.signal })
                     .then(function (r) { return r.json(); })
                     .then(function (data) {

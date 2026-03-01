@@ -69,6 +69,10 @@
 
     <script>
     (() => {
+        // --- Respect reduced-motion preference ---
+        const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const isMobile = window.innerWidth < 768;
+
         // --- Glitch decoder for "uncertain" ---
         const glitchEl = document.getElementById('glitch-word');
         const target = 'uncertain';
@@ -76,8 +80,8 @@
         let revealed = 0, frame = 0, paused = false, pauseTimer = 0;
         function glitchTick() {
             frame++;
-            // Long pause between cycles — show "uncertain" solidly for ~8 seconds
-            if (paused) { pauseTimer--; if (pauseTimer <= 0) { paused = false; revealed = 0; } return; }
+            // Once resolved, stop permanently
+            if (paused) return;
             // Slow scramble: only update every 6th frame (~10fps feel)
             if (frame % 6 !== 0) return;
             let text = '';
@@ -88,7 +92,7 @@
             glitchEl.textContent = text;
             // Reveal one letter every 12th frame (~slow typewriter)
             if (frame % 12 === 0) revealed++;
-            if (revealed > target.length) { glitchEl.textContent = target; paused = true; pauseTimer = 500; }
+            if (revealed > target.length) { glitchEl.textContent = target; paused = true; }
         }
 
         // --- Canvas setup ---
@@ -113,8 +117,9 @@
 
         let t = 0;
 
-        // Constellation nodes
-        const nodes = Array.from({ length: 50 }, () => ({
+        // Constellation nodes — fewer on mobile for performance
+        const nodeCount = isMobile ? 20 : 50;
+        const nodes = Array.from({ length: nodeCount }, () => ({
             x: Math.random(), y: Math.random(),
             vx: (Math.random() - 0.5) * 0.00025,
             vy: (Math.random() - 0.5) * 0.00025,
@@ -269,25 +274,56 @@
             ctx.fillRect(0, 0, W, H);
 
             glitchTick();
-            requestAnimationFrame(render);
+            if (!prefersReduced) requestAnimationFrame(render);
         }
-        render();
+
+        if (prefersReduced) {
+            // Render a single static frame, then show the resolved word
+            glitchEl.textContent = 'uncertain';
+            render();
+        } else {
+            render();
+        }
     })();
     </script>
 
     <!-- What we do -->
-    <section class="dk-section">
+    <section id="what-we-do" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">What we do</span></h2>
             <div class="dk-block fade-in">
                 <p class="dk-block-text">Our exchange lets people trade on the outcomes of real-world events — elections, sports, economics — at prices set by the market, not by a bookmaker. Our sportsbook, SBK, takes the same sharp pricing and wraps it in a simple betting experience.</p>
                 <p class="dk-block-text">Together, the three products serve different audiences with the same underlying engine: a matching platform, a market maker, and a risk system — all built in-house.</p>
             </div>
+            <!-- TODO: Replace with real product screenshots when available.
+                 Spec: 3 images — (1) Smarkets exchange web UI showing an active market with order book,
+                 (2) SBK mobile app showing a live sports market, (3) Hanson dashboard or market-making view.
+                 Format: 16:9 or device-framed, dark background, PNG/WebP, 1200px wide minimum. -->
+            <div class="dk-product-shots fade-in">
+                <div class="dk-product-shot" aria-label="Smarkets exchange interface">
+                    <div class="dk-shot-placeholder">
+                        <span class="dk-shot-label">Smarkets Exchange</span>
+                        <span class="dk-shot-spec">Screenshot needed — active market with order book</span>
+                    </div>
+                </div>
+                <div class="dk-product-shot" aria-label="SBK sportsbook mobile app">
+                    <div class="dk-shot-placeholder">
+                        <span class="dk-shot-label">SBK Sportsbook</span>
+                        <span class="dk-shot-spec">Screenshot needed — mobile app, live sports market</span>
+                    </div>
+                </div>
+                <div class="dk-product-shot" aria-label="Hanson market maker">
+                    <div class="dk-shot-placeholder">
+                        <span class="dk-shot-label">Hanson</span>
+                        <span class="dk-shot-spec">Screenshot needed — institutional market-making view</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Why it matters -->
-    <section class="dk-section">
+    <section id="why-it-matters" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Why it matters</span></h2>
             <div class="dk-block fade-in">
@@ -325,7 +361,7 @@
     </section>
 
     <!-- How we make money -->
-    <section class="dk-section">
+    <section id="business-model" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">How we make money</span></h2>
             <div class="dk-biz fade-in">
@@ -346,14 +382,14 @@
     </section>
 
     <!-- How the flywheel works -->
-    <section class="dk-section">
+    <section id="flywheel" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">How the flywheel works</span></h2>
             <p class="dk-block-text fade-in">Better prices attract more customers. More customers create more volume. More volume makes our market maker more efficient. And higher efficiency means we can reinvest in even better prices. This cycle has been compounding since 2008.</p>
             <div class="dk-flywheel fade-in" role="img" aria-label="Flywheel cycle: Better prices attract customers, who create volume, which improves efficiency, which funds reinvestment into better prices">
                 <div class="dk-fly-item dk-fly-top">
                     <h3>Better prices</h3>
-                    <p>Industry-best odds attract customers organically</p>
+                    <p>Consistently lower margins attract customers organically</p>
                 </div>
                 <div class="dk-fly-item dk-fly-right">
                     <h3>More volume</h3>
@@ -384,8 +420,30 @@
         </div>
     </section>
 
+    <!-- Built by engineers -->
+    <section id="technology" class="dk-section">
+        <div class="dk-inner">
+            <h2 class="dk-heading fade-in"><span class="dk-green">Built by engineers</span></h2>
+            <div class="dk-block fade-in">
+                <p class="dk-block-text"><span data-sm="engineeringPct">65%</span> of the company are engineers. We build everything ourselves — the matching engine, the market maker, the risk system, the frontends — because owning the full stack is what lets us move fast and compound our advantage.</p>
+                <p class="dk-block-text">Our exchange infrastructure runs on Rust and C++, our frontends are React, and our market-making algorithms are proprietary. We use Kafka for event streaming, PostgreSQL for persistence, and run everything on Kubernetes. There's no outsourced core — every critical system is written and operated by the team in London.</p>
+            </div>
+            <div class="dk-tech-tags fade-in">
+                <span class="tech-tag">Rust</span>
+                <span class="tech-tag">C++17</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">Kafka</span>
+                <span class="tech-tag">PostgreSQL</span>
+                <span class="tech-tag">Kubernetes</span>
+                <span class="tech-tag">Docker</span>
+            </div>
+            <p class="dk-block-text fade-in" style="margin-top: var(--space-lg);"><a href="/careers" class="accent-link">See what we're building &rarr;</a></p>
+        </div>
+    </section>
+
     <!-- Snapshot -->
-    <section class="dk-section">
+    <section id="snapshot" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Smarkets at a glance</span></h2>
             <div class="dk-metrics fade-in">
@@ -402,12 +460,12 @@
                     <div class="dk-metric-lbl">people across London &amp; Malta</div>
                 </div>
                 <div class="dk-metric">
-                    <div class="dk-metric-num" data-sm="grossMargin">79%</div>
-                    <div class="dk-metric-lbl">gross margin</div>
+                    <div class="dk-metric-num" data-sm="engineeringPct">65%</div>
+                    <div class="dk-metric-lbl">engineers</div>
                 </div>
                 <div class="dk-metric">
-                    <div class="dk-metric-num" data-sm="jurisdictions">5</div>
-                    <div class="dk-metric-lbl">jurisdictions licensed</div>
+                    <div class="dk-metric-num" data-sm="grossMargin">79%</div>
+                    <div class="dk-metric-lbl">gross margin</div>
                 </div>
                 <div class="dk-metric">
                     <div class="dk-metric-num" data-sm="founded">2008</div>
@@ -418,100 +476,87 @@
         </div>
     </section>
 
-    <!-- Product CTA -->
-    <section class="dk-section">
+    <!-- Press & media -->
+    <section id="press" class="dk-section">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Try the product</span></h2>
-            <p class="dk-block-text fade-in">See what we've built. The Smarkets exchange and SBK sportsbook are both available on iOS.</p>
-            <div class="app-store-cta fade-in">
-                <a href="https://apps.apple.com/gb/app/smarkets-betting-exchange/id1155643579" target="_blank" rel="noopener noreferrer" class="app-store-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    <span><strong>Smarkets</strong> Exchange</span>
-                </a>
-                <a href="https://apps.apple.com/gb/app/sbk-sports-betting-online/id1371054563" target="_blank" rel="noopener noreferrer" class="app-store-btn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                    <span><strong>SBK</strong> Sportsbook</span>
-                </a>
+            <h2 class="dk-heading fade-in"><span class="dk-green">Press &amp; media</span></h2>
+            <div class="dk-block fade-in">
+                <p class="dk-block-text">For press enquiries, interviews, or commentary on prediction markets, contact <a href="mailto:press@smarkets.com" class="accent-link">press@smarkets.com</a>. For recent coverage and announcements, visit the <a href="/newsroom" class="accent-link">Newsroom</a>.</p>
+                <p class="dk-block-text">Brand assets, logos, and executive headshots are available in our <a href="/logos" class="accent-link">brand kit</a>.</p>
             </div>
         </div>
     </section>
 
     <!-- Values (summary — full page at /values) -->
-    <section class="dk-section">
+    <section id="values" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">Our values</span></h2>
-            <p class="dk-block-text fade-in">Five values drive how we hire, give feedback, and make decisions: <strong>Give a Shit</strong>, <strong>Make Others Better</strong>, <strong>Be a Pro</strong>, <strong>Bring the Energy</strong>, and <strong>Push to Win</strong>. These aren't aspirational — they're how we actually operate.</p>
+            <p class="dk-block-text fade-in">Five values drive how we hire, give feedback, and make decisions. These aren't aspirational — they're how we actually operate.</p>
+            <div class="dk-values-grid fade-in">
+                <div class="dk-value-card">
+                    <span class="dk-value-num">01</span>
+                    <h3>Give a Shit</h3>
+                    <p>Care about the organisation beyond your daily remit.</p>
+                </div>
+                <div class="dk-value-card">
+                    <span class="dk-value-num">02</span>
+                    <h3>Make Others Better</h3>
+                    <p>The best teams aren't solo stars — they make everyone around them better.</p>
+                </div>
+                <div class="dk-value-card">
+                    <span class="dk-value-num">03</span>
+                    <h3>Be a Pro</h3>
+                    <p>High performance and continuous focused training. Set and maintain high standards.</p>
+                </div>
+                <div class="dk-value-card">
+                    <span class="dk-value-num">04</span>
+                    <h3>Bring the Energy</h3>
+                    <p>Positive environments enable better achievements. Energy drives collaboration.</p>
+                </div>
+                <div class="dk-value-card">
+                    <span class="dk-value-num">05</span>
+                    <h3>Push to Win</h3>
+                    <p>Seek out challenges. That's how we grow and how we outperform.</p>
+                </div>
+            </div>
             <p class="dk-block-text fade-in"><a href="/values" class="accent-link">Read about our values in detail &rarr;</a></p>
         </div>
     </section>
 
     <!-- Founder story -->
-    <section class="dk-section">
+    <section id="origin" class="dk-section">
         <div class="dk-inner">
             <h2 class="dk-heading fade-in"><span class="dk-green">How it started</span></h2>
             <p class="dk-block-text fade-in">Smarkets founder Jason Trost on why he started the company, what prediction markets get right, and where we're headed.</p>
             <div class="video-embed fade-in">
-                <iframe src="https://www.youtube.com/embed/QU3QndInUt8" title="History of Smarkets — Jason Trost, Founder &amp; CEO" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Regulation -->
-    <section class="dk-section">
-        <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Licensing &amp; regulation</span></h2>
-            <p class="dk-block-text fade-in">We're licensed in five jurisdictions. Regulation is core to how we operate — not a box-ticking exercise.</p>
-            <div class="dk-reg fade-in">
-                <div class="dk-reg-card">
-                    <h3>UK Gambling Commission</h3>
-                    <p>Our primary licence covering the UK market, ensuring player protection and operational standards.</p>
-                    <a href="https://www.gamblingcommission.gov.uk/public-register" target="_blank" rel="noopener noreferrer" class="btn-link">UKGC public register &rarr;</a>
+                <div class="yt-facade" id="yt-facade" role="button" tabindex="0" aria-label="Play video: History of Smarkets — Jason Trost, Founder &amp; CEO">
+                    <img src="https://img.youtube.com/vi/QU3QndInUt8/maxresdefault.jpg" alt="Video thumbnail — Jason Trost, Founder &amp; CEO" loading="lazy">
+                    <div class="yt-play" aria-hidden="true">
+                        <svg width="68" height="48" viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" fill-opacity="0.8"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+                    </div>
                 </div>
-                <div class="dk-reg-card">
-                    <h3>Malta Gaming Authority</h3>
-                    <p>Covers European markets including Ireland and Sweden.</p>
-                    <a href="https://www.mga.org.mt/licensee-register/" target="_blank" rel="noopener noreferrer" class="btn-link">MGA licensee register &rarr;</a>
-                </div>
-                <div class="dk-reg-card">
-                    <h3>US — Indiana</h3>
-                    <p>State licence for US operations, with CFTC approval pending for broader market access.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership & governance -->
-    <section class="dk-section">
-        <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Leadership &amp; governance</span></h2>
-            <div class="dk-block fade-in">
-                <p class="dk-block-text">Smarkets is led by founder and CEO <strong>Jason Trost</strong>, who started the company in 2008 with the thesis that exchange-based pricing could outperform traditional bookmaking. COO <strong>William Chambers</strong> runs day-to-day operations across product, compliance, and growth. Learn more on the <a href="/team" class="accent-link">Team page</a>.</p>
-                <p class="dk-block-text">We operate under gambling licences in five jurisdictions, with dedicated compliance teams in London and Malta. Anti-money-laundering controls, responsible gambling tools, and customer fund segregation are built into the platform — not bolted on. Our primary regulators include the <a href="https://www.gamblingcommission.gov.uk/public-register" target="_blank" rel="noopener noreferrer" class="accent-link">UK Gambling Commission</a> and the <a href="https://www.mga.org.mt/licensee-register/" target="_blank" rel="noopener noreferrer" class="accent-link">Malta Gaming Authority</a>.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Where we work -->
-    <section class="dk-section">
-        <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Where we work</span></h2>
-            <div class="dk-offices fade-in">
-                <div class="dk-office">
-                    <h3>London, UK</h3>
-                    <span class="dk-office-tag">Headquarters</span>
-                    <p>St. Katharine Docks, next to Tower Bridge. Where it started and where our culture lives.</p>
-                </div>
-                <div class="dk-office">
-                    <h3>Malta</h3>
-                    <span class="dk-office-tag">Operations</span>
-                    <p>Our regulatory and operations hub, supporting compliance and growth across European markets.</p>
-                </div>
+                <script>
+                (function() {
+                    var f = document.getElementById('yt-facade');
+                    function load() {
+                        var iframe = document.createElement('iframe');
+                        iframe.src = 'https://www.youtube.com/embed/QU3QndInUt8?autoplay=1';
+                        iframe.title = 'History of Smarkets — Jason Trost, Founder & CEO';
+                        iframe.setAttribute('frameborder', '0');
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+                        iframe.setAttribute('allowfullscreen', '');
+                        f.parentNode.replaceChild(iframe, f);
+                    }
+                    f.addEventListener('click', load);
+                    f.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+                })();
+                </script>
             </div>
         </div>
     </section>
 
     <!-- CTAs -->
-    <section class="dk-section">
+    <section id="contact" class="dk-section">
         <div class="dk-inner">
             <div class="cta-grid fade-in">
                 <div class="cta-card">
