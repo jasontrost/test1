@@ -748,45 +748,11 @@ section {
 /* ============================================
    Page-Specific: About
    ============================================ */
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.value-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: all 0.3s ease;
-}
-
-.value-card:hover {
-    border-color: var(--accent);
-    background: var(--bg-tertiary);
-    transform: translateY(-5px);
-}
-
-.value-card h3 {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-}
-
-.value-card p {
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-}
-
 .metrics-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
 }
-
-.office-location { color: var(--accent); font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; }
 
 /* ============================================
    Page-Specific: Team
@@ -1135,7 +1101,6 @@ footer .social-links a:hover {
         grid-template-columns: 1fr;
     }
 
-    .values-grid,
     .metrics-grid {
         grid-template-columns: 1fr;
     }
@@ -1230,7 +1195,7 @@ footer .social-links a:hover {
     .hero::before { display: none; }
 
     .card, .metric-item, .member-card,
-    .value-card, .culture-item,
+    .culture-item,
     .investor-card, .why-item, .milestone {
         break-inside: avoid;
         border-color: #ccc;
