@@ -1609,15 +1609,13 @@ footer .social-links a:hover {
 
 
 /* ---------- Values ---------- */
-}
-
 
 
 /* ---------- Product shots ---------- */
 .dk-product-shots {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: var(--space-xl);
 }
 
@@ -1647,10 +1645,36 @@ footer .social-links a:hover {
     font-style: italic;
 }
 
+.dk-product-shot {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    min-width: 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dk-product-shot:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
 .dk-product-shot img {
     width: 100%;
-    border-radius: 10px;
-    border: 1px solid var(--border);
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+}
+.dk-product-shot .dk-shot-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.75rem 0.5rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
 }
 
 
@@ -2416,6 +2440,15 @@ a.accent-link { color: var(--accent, #00CE8F); }
     margin: 0 auto 1rem;
     font-size: 1.5rem;
     color: var(--text-tertiary);
+}
+.person-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    margin: 0 auto 1rem;
+    display: block;
 }
 .person-card h3 {
     color: var(--text-primary);
