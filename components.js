@@ -6,6 +6,18 @@
 (function () {
     'use strict';
 
+    // ── Base path detection ───────────────────
+    // Detect relative prefix from how components.js is referenced.
+    // Root pages use "components.js" → prefix "", subdir pages use "../components.js" → prefix "../"
+    const scriptEl = document.querySelector('script[src$="components.js"]');
+    const srcAttr = scriptEl ? scriptEl.getAttribute('src') : '';
+    const prefix = srcAttr.replace(/components\.js$/, '');
+    // Helper: make internal paths relative (strips leading "/" and prepends prefix)
+    function bp(path) {
+        const rel = prefix + path.replace(/^\//, '');
+        return rel || './';
+    }
+
     // Determine current page from URL
     // Handles: /about, /about/, /about/index.html, /about.html
     const cleanPath = window.location.pathname
@@ -30,36 +42,36 @@
     }
 
     // ── Smarkets Logo ───────────────────────────
-    const logoIMG = `<img src="/smarkets-white-wordmark-no-padding.svg" alt="Smarkets" class="nav-logo">`;
+    const logoIMG = `<img src="${bp('/smarkets-white-wordmark-no-padding.svg')}" alt="Smarkets" class="nav-logo">`;
 
     // ── Navigation ──────────────────────────────
     const navHTML = `
-        <a href="/" class="nav-brand">
+        <a href="${bp('/')}" class="nav-brand">
             ${logoIMG}
         </a>
         <ul class="nav-links">
-            <li><a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
-            <li><a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
-            <li><a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a></li>
-            <li><a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
-            <li><a href="/office" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
-            <li><a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
-            <li><a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
-            <li><a href="/investors" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a></li>
+            <li><a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
+            <li><a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
+            <li><a href="${bp('/values')}" class="${isActive('values')}"${ariaCurrent('values')}>Values</a></li>
+            <li><a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
+            <li><a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
+            <li><a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
+            <li><a href="${bp('/newsroom')}" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
+            <li><a href="${bp('/investors')}" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a></li>
         </ul>
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
     `;
 
     const mobileNavHTML = `
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-            <a href="/about" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
-            <a href="/team" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
-            <a href="/values" class="${isActive('values')}"${ariaCurrent('values')}>Values</a>
-            <a href="/careers" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
-            <a href="/office" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
-            <a href="/partnerships" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
-            <a href="/newsroom" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
-            <a href="/investors" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a>
+            <a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
+            <a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
+            <a href="${bp('/values')}" class="${isActive('values')}"${ariaCurrent('values')}>Values</a>
+            <a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
+            <a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
+            <a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
+            <a href="${bp('/newsroom')}" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
+            <a href="${bp('/investors')}" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a>
         </div>
     `;
 
@@ -156,14 +168,14 @@
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/team">Team</a></li>
-                    <li><a href="/values">Values</a></li>
-                    <li><a href="/office">Office</a></li>
-                    <li><a href="/careers">Careers</a></li>
-                    <li><a href="/newsroom">Newsroom</a></li>
-                    <li><a href="/partnerships">Partnerships</a></li>
-                    <li><a href="/investors">Investors</a></li>
+                    <li><a href="${bp('/about')}">About</a></li>
+                    <li><a href="${bp('/team')}">Team</a></li>
+                    <li><a href="${bp('/values')}">Values</a></li>
+                    <li><a href="${bp('/office')}">Office</a></li>
+                    <li><a href="${bp('/careers')}">Careers</a></li>
+                    <li><a href="${bp('/newsroom')}">Newsroom</a></li>
+                    <li><a href="${bp('/partnerships')}">Partnerships</a></li>
+                    <li><a href="${bp('/investors')}">Investors</a></li>
                 </ul>
             </div>
             <div class="footer-col">
