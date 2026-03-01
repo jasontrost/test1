@@ -297,16 +297,6 @@ nav {
     line-height: 1.8;
 }
 
-.hero-label {
-    display: inline-block;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-}
-
 /* ============================================
    Sections
    ============================================ */
@@ -640,6 +630,12 @@ section {
 /* ============================================
    Partnership Cards
    ============================================ */
+.featured-partnerships {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
 .featured-partnership {
     background: var(--bg-secondary);
     border: 1px solid var(--border);
@@ -676,6 +672,17 @@ section {
 .featured-partnership-content .card-tag {
     display: block;
     margin-bottom: 1.5rem;
+}
+
+.source-link {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.source-link:hover {
+    color: var(--text-primary);
 }
 
 .featured-partnership-visual {
@@ -1374,11 +1381,6 @@ footer .social-links a:hover {
     z-index: 2;
 }
 
-.dk-hero-canvas .dk-rule {
-    position: relative;
-    z-index: 2;
-}
-
 #glitch-word {
     display: inline;
     font-family: inherit;
@@ -1393,6 +1395,10 @@ footer .social-links a:hover {
     align-items: center;
     justify-content: space-between;
     gap: var(--space-2xl);
+}
+
+.dk-hero-text {
+    max-width: 720px;
 }
 
 .dk-hero h1 {
@@ -1553,6 +1559,11 @@ footer .social-links a:hover {
     font-weight: 500;
 }
 
+.dk-fly-top    { grid-area: 1 / 1; }
+.dk-fly-right  { grid-area: 1 / 2; }
+.dk-fly-bottom { grid-area: 2 / 2; }
+.dk-fly-left   { grid-area: 2 / 1; }
+
 .dk-fly-ring {
     position: absolute;
     top: 50%;
@@ -1598,20 +1609,6 @@ footer .social-links a:hover {
 
 
 /* ---------- Values ---------- */
-.dk-val {
-    border-inline-start: 3px solid var(--accent);
-    padding: var(--space-lg);
-    background: var(--accent-dim);
-}
-.dk-val h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-}
-.dk-val p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
 }
 
 
@@ -1741,7 +1738,6 @@ footer .social-links a:hover {
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
     .dk-hero-inner { flex-direction: column; text-align: center; }
-    .dk-rule { margin: var(--space-xl) var(--space-lg) 0; padding: 0; }
     .dk-inner { padding-inline: var(--space-lg); }
 
     .dk-margin-row {
@@ -1777,7 +1773,6 @@ footer .social-links a:hover {
         gap: 0.25rem;
     }
     .dk-margin-co { text-align: start; }
-    .dk-margin-tag { margin-top: -0.25rem; }
 
     .dk-metrics {
         grid-template-columns: 1fr;
@@ -2451,6 +2446,9 @@ a.accent-link { color: var(--accent, #00CE8F); }
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+}
+.global-stat {
+    min-width: 120px;
 }
 .global-stat-num {
     color: var(--accent);
