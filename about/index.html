@@ -258,18 +258,18 @@
             }
             if (Math.random() < 0.005) triggerFlash(W);
 
-            // Scanlines - lighter so they don't darken everything
+            // Scanlines - subtle on light background
             for (let y = 0; y < H; y += 4) {
-                ctx.fillStyle = 'rgba(0,0,0,0.03)';
+                ctx.fillStyle = 'rgba(255,255,255,0.04)';
                 ctx.fillRect(0, y, W, 1);
             }
 
-            // Vignette - softer center, so graphics show through more
+            // Vignette - white edges to blend into page
             const pulse = 0.45 + 0.06 * Math.sin(t * 1.5);
             const vig = ctx.createRadialGradient(W / 2, H * 0.45, W * 0.2, W / 2, H * 0.45, W * 0.75);
-            vig.addColorStop(0, 'rgba(0,0,0,0)');
-            vig.addColorStop(0.6, `rgba(0,0,0,${pulse * 0.3})`);
-            vig.addColorStop(1, `rgba(0,0,0,${pulse * 0.75})`);
+            vig.addColorStop(0, 'rgba(255,255,255,0)');
+            vig.addColorStop(0.6, `rgba(255,255,255,${pulse * 0.25})`);
+            vig.addColorStop(1, `rgba(255,255,255,${pulse * 0.6})`);
             ctx.fillStyle = vig;
             ctx.fillRect(0, 0, W, H);
 

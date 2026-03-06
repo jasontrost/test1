@@ -42,7 +42,7 @@
     }
 
     // ── Smarkets Logo ───────────────────────────
-    const logoIMG = `<img src="${bp('/smarkets-white-wordmark-no-padding.svg')}" alt="Smarkets" class="nav-logo">`;
+    const logoIMG = `<img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="nav-logo">`;
 
     // ── Navigation ──────────────────────────────
     const navHTML = `
