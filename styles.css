@@ -246,7 +246,11 @@ nav {
     justify-content: center;
     align-items: center;
     min-height: min(50vh, 500px);
-    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+    background:
+        linear-gradient(to right, rgba(12,205,147,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(12,205,147,0.04) 1px, transparent 1px),
+        linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+    background-size: 55px 55px, 55px 55px, 100% 100%;
     position: relative;
     overflow: hidden;
 }
@@ -261,6 +265,14 @@ nav {
     top: -200px;
     right: -200px;
     animation: float 8s ease-in-out infinite;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 50%, transparent 40%, var(--bg-primary) 100%);
+    pointer-events: none;
 }
 
 @keyframes float {
@@ -1662,6 +1674,48 @@ footer .social-links a:hover {
     line-height: 1.5;
 }
 
+/* ---------- Instagram embeds ---------- */
+.instagram-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.instagram-embed {
+    text-align: center;
+}
+.instagram-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.instagram-header a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+.instagram-header a:hover { color: var(--accent); }
+.instagram-native-embed {
+    margin-bottom: 1.5rem;
+}
+.instagram-native-embed iframe {
+    border-radius: 12px !important;
+}
+.instagram-follow {
+    display: inline-block;
+}
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 /* ---------- Tech tags ---------- */
 .dk-tech-stack {
     display: grid;
@@ -1795,6 +1849,10 @@ footer .social-links a:hover {
 
     .dk-values-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .instagram-grid {
+        grid-template-columns: 1fr;
     }
 
     .dk-product-shots {
@@ -2576,8 +2634,123 @@ a.accent-link { color: var(--accent, #00CE8F); }
 }
 
 
+/* Team card photos */
+.team-card-photo {
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    aspect-ratio: 16 / 10;
+}
+.team-card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.team-card-v2:hover .team-card-photo img {
+    transform: scale(1.03);
+}
+
+/* Office food photo grid */
+.photo-grid-food {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 960px;
+    margin: 1.5rem auto 2rem;
+}
+.photo-grid-food-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 3 / 2;
+}
+.photo-grid-food-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.photo-grid-food-item:hover img {
+    transform: scale(1.03);
+}
+
+/* Careers "How we play" photo grid */
+.play-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 960px;
+    margin: 1.5rem auto 0;
+}
+.play-photo {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+}
+.play-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+.play-photo:hover img {
+    transform: scale(1.03);
+}
+
+/* About page product feature row (phone screenshots) */
+.dk-product-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.dk-product-feature {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    text-align: center;
+    padding: 1.5rem 1rem 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dk-product-feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+.dk-product-feature img {
+    max-height: 400px;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto 1rem;
+    border-radius: 8px;
+}
+.dk-product-feature .dk-shot-label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+.dk-product-feature .dk-shot-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .photo-grid-food { grid-template-columns: 1fr; }
+    .play-photo-grid { grid-template-columns: repeat(2, 1fr); }
+    .dk-product-features { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+}
+
 @media (max-width: 600px) {
     .spotlight-card { flex-direction: column; align-items: center; text-align: center; }
     .teams-grid-v2 { grid-template-columns: 1fr; }
     .benefits-categories { grid-template-columns: 1fr; }
+    .play-photo-grid { grid-template-columns: 1fr; }
 }
