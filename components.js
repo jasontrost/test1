@@ -20,17 +20,34 @@
 
     // Determine current page from URL
     // Handles: /about, /about/, /about/index.html, /about.html
+    // Also handles sub-paths: /careers/life → "life" with parent "careers"
     const cleanPath = window.location.pathname
         .replace(/\/+$/, '')
         .replace(/\/index(?:\.html?)?$/, '')
         .replace(/\.html?$/, '');
-    const currentPage = cleanPath.substring(cleanPath.lastIndexOf('/') + 1) || 'index';
+    const pathSegments = cleanPath.split('/').filter(Boolean);
+    const currentPage = pathSegments[pathSegments.length - 1] || 'index';
+
+    // Careers section detection — careers, careers/life, and office all belong here
+    const careersPages = ['careers', 'life', 'office'];
+    const isInCareersSection = careersPages.includes(currentPage);
 
     function isActive(page) {
+        // Special case: "careers" in the primary nav should be active for all careers sub-pages
+        if (page === 'careers' && isInCareersSection) return 'active';
         return currentPage === page ? 'active' : '';
     }
 
     function ariaCurrent(page) {
+        if (page === 'careers' && isInCareersSection && currentPage !== 'careers') return '';
+        return currentPage === page ? ' aria-current="page"' : '';
+    }
+
+    function subActive(page) {
+        return currentPage === page ? 'active' : '';
+    }
+
+    function subAriaCurrent(page) {
         return currentPage === page ? ' aria-current="page"' : '';
     }
 
@@ -54,9 +71,6 @@
             <li><a href="${bp('/technology')}" class="${isActive('technology')}"${ariaCurrent('technology')}>Technology</a></li>
             <li><a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
             <li><a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
-            <li><a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
-            <li><a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a></li>
-            <li><a href="${bp('/newsroom')}" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a></li>
             <li><a href="${bp('/investors')}" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a></li>
         </ul>
         <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-nav">&#9776;</button>
@@ -68,19 +82,37 @@
             <a href="${bp('/technology')}" class="${isActive('technology')}"${ariaCurrent('technology')}>Technology</a>
             <a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
             <a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
-            <a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
-            <a href="${bp('/partnerships')}" class="${isActive('partnerships')}"${ariaCurrent('partnerships')}>Partnerships</a>
-            <a href="${bp('/newsroom')}" class="${isActive('newsroom')}"${ariaCurrent('newsroom')}>Newsroom</a>
+            ${isInCareersSection ? `
+            <a href="${bp('/careers')}" class="mobile-nav-sub ${subActive('careers')}"${subAriaCurrent('careers')}>Open Roles</a>
+            <a href="${bp('/careers/life')}" class="mobile-nav-sub ${subActive('life')}"${subAriaCurrent('life')}>Life at Smarkets</a>
+            <a href="${bp('/office')}" class="mobile-nav-sub ${subActive('office')}"${subAriaCurrent('office')}>Office</a>
+            ` : ''}
             <a href="${bp('/investors')}" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a>
         </div>
     `;
+
+    // ── Secondary Nav (Careers section) ─────────
+    const subNavHTML = isInCareersSection ? `
+        <div class="sub-nav" role="navigation" aria-label="Careers section navigation">
+            <div class="sub-nav-inner">
+                <a href="${bp('/careers')}" class="${subActive('careers')}"${subAriaCurrent('careers')}>Open Roles</a>
+                <a href="${bp('/careers/life')}" class="${subActive('life')}"${subAriaCurrent('life')}>Life at Smarkets</a>
+                <a href="${bp('/office')}" class="${subActive('office')}"${subAriaCurrent('office')}>Office</a>
+            </div>
+        </div>
+    ` : '';
 
     const nav = document.querySelector('nav');
     if (nav) {
         nav.setAttribute('role', 'navigation');
         nav.setAttribute('aria-label', 'Main navigation');
         nav.innerHTML = navHTML;
-        nav.insertAdjacentHTML('afterend', mobileNavHTML);
+        nav.insertAdjacentHTML('afterend', subNavHTML + mobileNavHTML);
+
+        // Add class to body so pages in careers section can adjust padding
+        if (isInCareersSection) {
+            document.body.classList.add('has-sub-nav');
+        }
 
         // Mobile menu toggle
         const toggle = nav.querySelector('.mobile-menu-toggle');
@@ -195,11 +227,15 @@
                     <li><a href="${bp('/about')}">About</a></li>
                     <li><a href="${bp('/technology')}">Technology</a></li>
                     <li><a href="${bp('/team')}">Team</a></li>
-                    <li><a href="${bp('/office')}">Office</a></li>
                     <li><a href="${bp('/careers')}">Careers</a></li>
+                    <li><a href="${bp('/investors')}">Investors</a></li>
+                </ul>
+                <h4 class="footer-subheading">Explore</h4>
+                <ul>
+                    <li><a href="${bp('/careers/life')}">Life at Smarkets</a></li>
+                    <li><a href="${bp('/office')}">Office</a></li>
                     <li><a href="${bp('/newsroom')}">Newsroom</a></li>
                     <li><a href="${bp('/partnerships')}">Partnerships</a></li>
-                    <li><a href="${bp('/investors')}">Investors</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -208,7 +244,7 @@
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" rel="noopener noreferrer">Terms of Service</a></li>
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" rel="noopener noreferrer">Privacy Policy</a></li>
                     <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Gambling</a></li>
-                    <li><a href="https://smarkets.com/about/licensing/" rel="noopener noreferrer">Licensing</a></li>
+                    <li><a href="${bp('/licensing')}">Licensing</a></li>
                 </ul>
             </div>
             <div class="footer-col">

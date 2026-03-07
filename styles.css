@@ -234,6 +234,83 @@ nav {
 .mobile-nav a:hover { color: var(--accent); }
 .mobile-nav a.active { color: var(--accent); }
 
+/* Mobile sub-nav items (indented) */
+.mobile-nav-sub {
+    padding-left: 1.5rem !important;
+    font-size: 0.9rem !important;
+    color: var(--text-tertiary) !important;
+    border-bottom-style: dashed !important;
+}
+.mobile-nav-sub.active { color: var(--accent) !important; }
+
+/* ============================================
+   Secondary Nav (sub-page bar)
+   ============================================ */
+.sub-nav {
+    position: fixed;
+    top: var(--nav-height);
+    inset-inline: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    z-index: 999;
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.sub-nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: var(--space-xl);
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.sub-nav a {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.sub-nav a:hover { color: var(--text-primary); }
+
+.sub-nav a.active {
+    color: var(--accent);
+}
+
+.sub-nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+}
+
+/* Adjust hero padding when sub-nav is present */
+body.has-sub-nav .hero {
+    padding-top: 158px;
+}
+
+body.has-sub-nav .dk-hero {
+    padding-top: 178px;
+}
+
+@media (max-width: 768px) {
+    .sub-nav { display: none; }
+    body.has-sub-nav .hero { padding-top: 120px; }
+}
+
 /* ============================================
    Hero
    ============================================ */
@@ -288,6 +365,15 @@ nav {
     padding: 0 2rem;
 }
 
+.hero-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
 .hero h1 {
     font-size: 3.5rem;
     font-weight: 800;
@@ -309,6 +395,35 @@ nav {
     font-size: 1.25rem;
     color: var(--text-secondary);
     line-height: 1.8;
+}
+
+/* Compact hero — for sub-pages & utility pages */
+.hero-compact {
+    padding-top: 100px;
+    padding-bottom: 40px;
+    min-height: auto;
+}
+.hero-compact h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+.hero-compact p {
+    font-size: 1.1rem;
+}
+body.has-sub-nav .hero-compact {
+    padding-top: 130px;
+}
+@media (max-width: 768px) {
+    .hero-compact {
+        padding-top: 90px;
+        padding-bottom: 30px;
+    }
+    .hero-compact h1 {
+        font-size: 2rem;
+    }
+    body.has-sub-nav .hero-compact {
+        padding-top: 90px;
+    }
 }
 
 /* ============================================
@@ -336,6 +451,18 @@ section {
     margin-left: auto;
     margin-right: auto;
 }
+
+.section-body {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+.section-body p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+.section-body p:last-child { margin-bottom: 0; }
 
 /* ============================================
    Cards (generic)
@@ -1049,6 +1176,10 @@ footer {
     color: var(--text-secondary);
 }
 
+.footer-subheading {
+    margin-top: 1.25rem;
+}
+
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 0.5rem; }
 
@@ -1469,6 +1600,18 @@ footer .social-links a:hover {
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
+}
+
+.investor-rep-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.investor-rep-card .social-links {
+    margin-top: 0.75rem;
 }
 
 .investor-rep-card h3 {
@@ -1942,6 +2085,12 @@ footer .social-links a:hover {
     font-weight: 600;
 }
 
+.dk-license-number {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    font-family: monospace;
+}
+
 .dk-license-scope {
     font-size: 0.75rem;
     color: var(--text-secondary);
@@ -1956,6 +2105,128 @@ footer .social-links a:hover {
     color: var(--text-secondary);
 }
 
+/* ---------- Licensing page detail rows ---------- */
+.license-row {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.license-row-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.license-flag {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.license-row-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.15rem;
+}
+
+.license-regulator {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.license-row-body {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.license-detail {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    font-size: 0.95rem;
+}
+
+.license-detail-label {
+    flex-shrink: 0;
+    width: 130px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+}
+
+.license-mono {
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+.license-row-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.license-entities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.license-entity {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.license-entity h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.license-entity p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+}
+
+.license-entity p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .license-row {
+        padding: 1.25rem;
+    }
+
+    .license-detail {
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    .license-detail-label {
+        width: auto;
+    }
+
+    .license-row-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
 
 /* ---------- Values grid ---------- */
 .dk-values-grid {
