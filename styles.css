@@ -1981,6 +1981,11 @@ a.accent-link { color: var(--accent, #00CE8F); }
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.cta-card .btn {
+    margin-top: auto;
 }
 .cta-card h3 {
     color: var(--text-primary);
@@ -2349,6 +2354,12 @@ a.accent-link { color: var(--accent, #00CE8F); }
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.person-card .social-links {
+    margin-top: auto;
+    padding-top: 0.75rem;
 }
 .person-photo {
     width: 80px;
@@ -2740,6 +2751,25 @@ a.accent-link { color: var(--accent, #00CE8F); }
     display: block;
     font-size: 0.78rem;
     color: var(--text-secondary);
+}
+
+/* Founder quote */
+.founder-quote {
+    font-style: italic;
+    border-left: 3px solid var(--accent);
+    padding-left: 1.25rem;
+    margin: 0;
+}
+
+/* Person photo placeholder (for team members without photos yet) */
+.person-photo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    border: 2px solid var(--border);
+    margin: 0 auto 1rem;
+    display: block;
 }
 
 @media (max-width: 768px) {
