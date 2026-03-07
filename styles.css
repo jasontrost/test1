@@ -2672,3 +2672,38 @@ a.accent-link {
     grid-template-columns: 1fr;
   }
 }
+
+/* Annual Reports Grid */
+.annual-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.annual-report-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+.annual-report-card:hover {
+  transform: translateY(-4px);
+}
+.annual-report-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+.annual-report-card:hover img {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+.annual-report-year {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
