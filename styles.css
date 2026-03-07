@@ -19,7 +19,7 @@
     --accent-dim: rgba(12, 205, 147, 0.08);
     --text-primary: #1a1a1a;
     --text-secondary: #555555;
-    --text-tertiary: #888888;
+    --text-tertiary: #717171;
     --border: #d8d8d8;
     --border-hover: #bbb;
     --text-on-accent: #fff;
@@ -573,7 +573,7 @@ section {
 .metric-value {
     font-size: 2.5rem;
     font-weight: 800;
-    color: var(--accent);
+    color: var(--accent-dark);
     margin-bottom: 0.5rem;
 }
 
@@ -985,10 +985,10 @@ footer {
 .footer-cta {
     font-size: 0.9rem;
     font-weight: 600;
-    color: var(--accent);
+    color: var(--accent-darker);
     text-decoration: none;
     padding: 0.5rem 1.25rem;
-    border: 1px solid var(--accent);
+    border: 1px solid var(--accent-darker);
     border-radius: 6px;
     transition: all 0.3s ease;
 }
@@ -2159,7 +2159,7 @@ footer .social-links a:hover {
 .btn-link:hover { text-decoration: underline; }
 
 /* Links that inherit the accent colour */
-a.accent-link { color: var(--accent, #00CE8F); }
+a.accent-link { color: var(--accent-darker, #0F9266); }
 
 /* Secondary CTA row below a primary button */
 .cta-secondary { margin-top: 1rem; }

@@ -59,7 +59,7 @@
     }
 
     // ── Smarkets Logo ───────────────────────────
-    const logoIMG = `<img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="nav-logo">`;
+    const logoIMG = `<img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="nav-logo" width="378" height="84">`;
 
     // ── Navigation ──────────────────────────────
     const navHTML = `
@@ -187,7 +187,7 @@
     const footerHTML = `
         <div class="footer-top">
             <a href="${bp('/')}" class="footer-brand" aria-label="Smarkets home">
-                <img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="footer-logo">
+                <img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="footer-logo" width="378" height="84">
             </a>
             <a href="${bp('/careers')}#open-roles" class="footer-cta">View open roles &rarr;</a>
         </div>
