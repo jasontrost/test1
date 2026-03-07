@@ -539,7 +539,7 @@ section {
 .tech-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.75rem 1.25rem;
 }
 
 .tech-pill {
@@ -550,6 +550,14 @@ section {
     font-size: 1rem;
     font-weight: 500;
     cursor: default;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.tech-pill img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
 }
 
 /* ============================================
@@ -2608,10 +2616,6 @@ a.accent-link { color: var(--accent, #00CE8F); }
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.75rem;
-    transition: border-color 0.2s;
-}
-.team-card-v2:hover {
-    border-color: var(--accent);
 }
 .team-card-icon {
     font-size: 1.5rem;
@@ -2657,10 +2661,6 @@ a.accent-link { color: var(--accent, #00CE8F); }
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
-}
-.team-card-v2:hover .team-card-photo img {
-    transform: scale(1.03);
 }
 
 /* Office food photo grid */
