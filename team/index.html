@@ -27,6 +27,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Team — Smarkets",
+        "description": "Meet the leadership team behind Smarkets. 100+ people across London and Malta building prediction market technology.",
+        "url": "https://company.smarkets.com/team",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Smarkets",
+            "url": "https://smarkets.com",
+            "foundingDate": "2008",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 100 }
+        }
+    }
+    </script>
 </head>
 <body class="no-js">
     <!-- SVG icon sprite — define once, reference with <use> -->
@@ -106,6 +124,29 @@
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/adam-baylis-16772249/" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-linkedin"/></svg><span class="sr-only">LinkedIn</span></a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Investor Representatives -->
+    <section>
+        <h2 class="section-title">Investor Representatives</h2>
+        <p class="section-subtitle fade-in">Representatives from our major institutional investors who participate in key governance decisions.</p>
+        <div class="investor-rep-grid fade-in">
+            <div class="investor-rep-card">
+                <h3>[Name]</h3>
+                <div class="investor-rep-role">Investor Representative</div>
+                <div class="investor-rep-firm">Susquehanna Growth Equity</div>
+            </div>
+            <div class="investor-rep-card">
+                <h3>[Name]</h3>
+                <div class="investor-rep-role">Investor Representative</div>
+                <div class="investor-rep-firm">Passion Capital</div>
+            </div>
+            <div class="investor-rep-card">
+                <h3>[Name]</h3>
+                <div class="investor-rep-role">Investor Representative</div>
+                <div class="investor-rep-firm">DTCP</div>
             </div>
         </div>
     </section>

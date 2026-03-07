@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smarkets | Technology</title>
+    <meta name="description" content="Smarkets builds exchange infrastructure in-house: a matching engine in Rust with sub-100ms latency, proprietary market-making algorithms, and real-time risk systems processing $47B in lifetime volume.">
+    <link rel="canonical" href="https://company.smarkets.com/technology">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smarkets | Technology">
+    <meta property="og:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $47B lifetime volume.">
+    <meta property="og:url" content="https://company.smarkets.com/technology">
+    <meta property="og:site_name" content="Smarkets">
+    <meta property="og:image" content="https://company.smarkets.com/01049-SGP26-SMarkets-announcement-16x9-v3B.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@smarkets">
+    <meta name="twitter:title" content="Smarkets | Technology">
+    <meta name="twitter:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $47B lifetime volume.">
+    <meta name="twitter:image" content="https://company.smarkets.com/01049-SGP26-SMarkets-announcement-16x9-v3B.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Technology — Smarkets",
+        "description": "Smarkets builds exchange infrastructure in-house: matching engine, market maker, risk system, and real-time frontends.",
+        "url": "https://company.smarkets.com/technology",
+        "mainEntity": {
+            "@type": "Organization",
+            "name": "Smarkets",
+            "url": "https://smarkets.com",
+            "foundingDate": "2008",
+            "numberOfEmployees": { "@type": "QuantitativeValue", "minValue": 100 }
+        }
+    }
+    </script>
+</head>
+<body class="no-js">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav><noscript><div class="noscript-nav" role="navigation" aria-label="Main navigation"><a href="../">Home</a> <a href="../about/">About</a> <a href="../technology/">Technology</a> <a href="../team/">Team</a> <a href="../careers/">Careers</a> <a href="../office/">Office</a> <a href="../partnerships/">Partnerships</a> <a href="../newsroom/">Newsroom</a> <a href="../investors/">Investors</a></div></noscript></nav>
+
+    <main id="main-content">
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Built from scratch. Owned end-to-end.</h1>
+            <p>Every component of the Smarkets platform &mdash; matching engine, market maker, risk system, frontends &mdash; is designed, built, and operated in-house by our engineering team.</p>
+        </div>
+    </section>
+
+    <!-- Numbers -->
+    <section>
+        <div class="global-stats fade-in">
+            <div class="global-stat">
+                <div class="global-stat-num">&lt;100ms</div>
+                <div class="global-stat-lbl">order-to-confirmation latency</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num" data-sm="lifetimeVolume">$47B</div>
+                <div class="global-stat-lbl">lifetime volume processed</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num">100%</div>
+                <div class="global-stat-lbl">in-house tech stack</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num" data-sm="engineeringPct">65%</div>
+                <div class="global-stat-lbl">of team are engineers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Systems -->
+    <section>
+        <h2 class="section-title">Core systems</h2>
+        <p class="section-subtitle fade-in">Four interconnected systems that power every trade on the platform.</p>
+        <div class="why-smarkets">
+            <div class="why-item fade-in">
+                <h3>Matching engine</h3>
+                <p>The heart of the exchange. Written in Rust for performance and memory safety. Processes orders with sub-100ms latency end-to-end, handles concurrent markets across sports, politics, and economics, and maintains strict price-time priority ordering. Designed for correctness first, speed second &mdash; because in financial systems, getting the answer wrong fast is worse than getting it right slowly.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Market maker</h3>
+                <p>Our proprietary market-making system (Hanson) provides continuous liquidity across thousands of markets simultaneously. It quotes competitive two-way prices, manages inventory risk in real-time, and adapts to market conditions algorithmically. This is what makes the exchange usable &mdash; without a market maker, an order book is just an empty shell.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Risk system</h3>
+                <p>Every trade, every position, every customer balance is monitored in real-time. The risk system enforces exposure limits, detects anomalous trading patterns, and manages settlement across all markets. It's integrated directly into the matching engine &mdash; risk checks happen pre-trade, not after the fact.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Payments &amp; settlement</h3>
+                <p>Deposits, withdrawals, and settlement across six jurisdictions with different regulatory requirements. Built to handle the complexity of multi-currency, multi-regulator operations without manual intervention. Every penny is accounted for in real-time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section>
+        <h2 class="section-title">How it fits together</h2>
+        <p class="section-subtitle fade-in">Two products, one engine. Both Smarkets (the exchange) and SBK (the sportsbook) run on the same underlying infrastructure.</p>
+        <div class="tech-architecture fade-in">
+            <div class="tech-arch-layer">
+                <div class="tech-arch-label">Products</div>
+                <div class="tech-arch-items">
+                    <span class="tech-arch-item">Smarkets Exchange</span>
+                    <span class="tech-arch-item">SBK Sportsbook</span>
+                    <span class="tech-arch-item">API</span>
+                </div>
+            </div>
+            <div class="tech-arch-connector">&darr;</div>
+            <div class="tech-arch-layer">
+                <div class="tech-arch-label">Platform</div>
+                <div class="tech-arch-items">
+                    <span class="tech-arch-item tech-arch-core">Matching Engine</span>
+                    <span class="tech-arch-item tech-arch-core">Market Maker</span>
+                    <span class="tech-arch-item tech-arch-core">Risk System</span>
+                </div>
+            </div>
+            <div class="tech-arch-connector">&darr;</div>
+            <div class="tech-arch-layer">
+                <div class="tech-arch-label">Infrastructure</div>
+                <div class="tech-arch-items">
+                    <span class="tech-arch-item">Payments</span>
+                    <span class="tech-arch-item">Data Pipeline</span>
+                    <span class="tech-arch-item">Compliance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack -->
+    <section>
+        <h2 class="section-title">Stack</h2>
+        <p class="section-subtitle fade-in">We pick tools for longevity and performance, not hype cycles.</p>
+        <div class="tech-stack-grid fade-in">
+            <div class="tech-category">
+                <h4>Core</h4>
+                <div class="tech-pills">
+                    <span class="tech-pill">Rust</span>
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">PostgreSQL</span>
+                </div>
+            </div>
+            <div class="tech-category">
+                <h4>Frontend</h4>
+                <div class="tech-pills">
+                    <span class="tech-pill">React</span>
+                    <span class="tech-pill">React Native</span>
+                    <span class="tech-pill">TypeScript</span>
+                </div>
+            </div>
+            <div class="tech-category">
+                <h4>Infrastructure</h4>
+                <div class="tech-pills">
+                    <span class="tech-pill">Kafka</span>
+                    <span class="tech-pill">Docker</span>
+                    <span class="tech-pill">AWS</span>
+                </div>
+            </div>
+            <div class="tech-category">
+                <h4>Data</h4>
+                <div class="tech-pills">
+                    <span class="tech-pill">Real-time streaming</span>
+                    <span class="tech-pill">BI dashboards</span>
+                    <span class="tech-pill">ML pricing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why it matters -->
+    <section>
+        <h2 class="section-title">Why we build everything ourselves</h2>
+        <div class="why-smarkets">
+            <div class="why-item fade-in">
+                <h3>Speed of iteration</h3>
+                <p>When you own the full stack, you can ship a pricing change, a new market type, or a risk adjustment without waiting for a vendor. Our matching engine and market maker are deployed multiple times a week.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Compounding advantage</h3>
+                <p>Every improvement to the matching engine benefits both the exchange and the sportsbook simultaneously. Every optimisation to the market maker improves pricing for every customer. The shared infrastructure creates a flywheel that gets stronger with every iteration.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Regulatory control</h3>
+                <p>Operating in six jurisdictions means compliance isn't something you bolt on &mdash; it has to be woven into the platform. Owning the full stack lets us implement jurisdiction-specific rules at the infrastructure level, not as afterthoughts.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section>
+        <div class="cta-section fade-in">
+            <h3>Build with us</h3>
+            <p><span data-sm="engineeringPct">65%</span> of our team are engineers. If you want to work on systems where correctness matters and every millisecond counts, we should talk.</p>
+            <a href="../careers/" class="btn">View engineering roles &rarr;</a>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer><noscript><div class="noscript-footer"><p>&copy; Smarkets Limited &middot; Commodity Quay, St Katharine Docks, London E1W 1AZ</p><p><a href="../about/">About</a> | <a href="../team/">Team</a> | <a href="../careers/">Careers</a> | <a href="../newsroom/">Newsroom</a> | <a href="../partnerships/">Partnerships</a> | <a href="mailto:press@smarkets.com">Press</a></p><p style="font-size:0.75rem;margin-top:0.5rem;">Licensed by the UK Gambling Commission &amp; Malta Gaming Authority. 18+.</p></div></noscript></footer>
+
+    <script src="../company-data.js" defer></script>
+    <script src="../components.js" defer></script>
+</body>
+</html>

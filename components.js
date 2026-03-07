@@ -51,6 +51,7 @@
         </a>
         <ul class="nav-links">
             <li><a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a></li>
+            <li><a href="${bp('/technology')}" class="${isActive('technology')}"${ariaCurrent('technology')}>Technology</a></li>
             <li><a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a></li>
             <li><a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a></li>
             <li><a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a></li>
@@ -64,6 +65,7 @@
     const mobileNavHTML = `
         <div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
             <a href="${bp('/about')}" class="${isActive('about')}"${ariaCurrent('about')}>About</a>
+            <a href="${bp('/technology')}" class="${isActive('technology')}"${ariaCurrent('technology')}>Technology</a>
             <a href="${bp('/team')}" class="${isActive('team')}"${ariaCurrent('team')}>Team</a>
             <a href="${bp('/careers')}" class="${isActive('careers')}"${ariaCurrent('careers')}>Careers</a>
             <a href="${bp('/office')}" class="${isActive('office')}"${ariaCurrent('office')}>Office</a>
@@ -191,6 +193,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="${bp('/about')}">About</a></li>
+                    <li><a href="${bp('/technology')}">Technology</a></li>
                     <li><a href="${bp('/team')}">Team</a></li>
                     <li><a href="${bp('/office')}">Office</a></li>
                     <li><a href="${bp('/careers')}">Careers</a></li>
