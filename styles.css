@@ -13,7 +13,7 @@
   --accent-dim: rgba(12, 205, 147, 0.08);
   --text-primary: #1a1a1a;
   --text-secondary: #555555;
-  --text-tertiary: #717171;
+  --text-tertiary: #666666;
   --border: #d8d8d8;
   --border-hover: #bbb;
   --text-on-accent: #fff;
@@ -2371,7 +2371,7 @@ a.accent-link {
   min-width: 120px;
 }
 .global-stat-num {
-  color: var(--accent);
+  color: var(--accent-dark);
   font-size: 2.5rem;
   font-weight: 800;
   line-height: 1;
