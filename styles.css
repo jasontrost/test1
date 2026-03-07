@@ -1180,6 +1180,12 @@ footer {
     margin-top: 1.25rem;
 }
 
+.footer-status-link {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-top: 0.75rem;
+}
+
 .footer-col ul { list-style: none; }
 .footer-col ul li { margin-bottom: 0.5rem; }
 
@@ -1742,7 +1748,19 @@ footer .social-links a:hover {
     z-index: 2;
 }
 
+.glitch-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.glitch-sizer {
+    visibility: hidden;
+}
+
 #glitch-word {
+    position: absolute;
+    left: 0;
+    top: 0;
     display: inline;
     font-family: inherit;
     letter-spacing: inherit;
