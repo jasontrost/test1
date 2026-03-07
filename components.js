@@ -151,17 +151,41 @@
 
     // ── Footer ──────────────────────────────────
     const footerHTML = `
+        <div class="footer-top">
+            <a href="${bp('/')}" class="footer-brand" aria-label="Smarkets home">
+                <img src="${bp('/Smarkets_logo.png')}" alt="Smarkets" class="footer-logo">
+            </a>
+            <a href="${bp('/careers')}#open-roles" class="footer-cta">View open roles &rarr;</a>
+        </div>
         <div class="footer-content">
             <div class="footer-col">
-                <h4>Product</h4>
+                <h4>Products</h4>
                 <ul>
                     <li><a href="https://smarkets.com" rel="noopener noreferrer">Exchange</a></li>
-                    <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK</a></li>
+                    <li><a href="https://betsbk.com" rel="noopener noreferrer">SBK Sportsbook</a></li>
                     <li><a href="https://hanson.as" rel="noopener noreferrer">Hanson</a></li>
-                    <li><a href="https://apps.apple.com/gb/app/smarkets-betting-exchange/id1155643579" rel="noopener noreferrer">Smarkets on App Store</a></li>
-                    <li><a href="https://apps.apple.com/gb/app/sbk-sports-betting-online/id1371054563" rel="noopener noreferrer">SBK on App Store</a></li>
                     <li><a href="https://docs.smarkets.com" rel="noopener noreferrer">API</a></li>
                 </ul>
+                <div class="footer-app-links">
+                    <div class="footer-app-group">
+                        <span class="footer-app-label">Smarkets</span>
+                        <a href="https://apps.apple.com/gb/app/smarkets-betting-exchange/id1155643579" rel="noopener noreferrer" aria-label="Smarkets on the App Store">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.smarkets" rel="noopener noreferrer" aria-label="Smarkets on Google Play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.808 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.3 2.3-8.636-8.632z"/></svg>
+                        </a>
+                    </div>
+                    <div class="footer-app-group">
+                        <span class="footer-app-label">SBK</span>
+                        <a href="https://apps.apple.com/gb/app/sbk-sports-betting-online/id1371054563" rel="noopener noreferrer" aria-label="SBK on the App Store">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.smarkets.sbk" rel="noopener noreferrer" aria-label="SBK on Google Play">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.807 1.626a1 1 0 010 1.732l-2.808 1.626L15.206 12l2.492-2.492zM5.864 2.658L16.8 8.99l-2.3 2.3-8.636-8.632z"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="footer-col">
                 <h4>Company</h4>
@@ -180,7 +204,8 @@
                 <ul>
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" rel="noopener noreferrer">Terms of Service</a></li>
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" rel="noopener noreferrer">Privacy Policy</a></li>
-                    <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Trading</a></li>
+                    <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" rel="noopener noreferrer">Responsible Gambling</a></li>
+                    <li><a href="https://smarkets.com/about/licensing/" rel="noopener noreferrer">Licensing</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -199,7 +224,9 @@
                         <span class="sr-only">Instagram</span>
                     </a>
                 </div>
-                <p class="footer-press-email">press@smarkets.com</p>
+                <p class="footer-contact"><strong>Press</strong> <a href="mailto:press@smarkets.com">press@smarkets.com</a></p>
+                <p class="footer-contact"><strong>General</strong> <a href="mailto:support@smarkets.com">support@smarkets.com</a></p>
+                <p class="footer-address">Smarkets Limited &middot; Commodity Quay, St Katharine Docks, London E1W 1AZ</p>
                 <p class="footer-copyright">&copy; ${new Date().getFullYear()} Smarkets. All rights reserved.</p>
             </div>
         </div>

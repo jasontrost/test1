@@ -988,17 +988,56 @@ section {
 footer {
     background: var(--bg-secondary);
     border-top: 1px solid var(--border);
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 1.5rem;
     margin-top: 2rem;
 }
 
+/* Footer top bar: logo + careers CTA */
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.footer-brand { display: inline-block; }
+
+.footer-logo {
+    height: 28px;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.footer-brand:hover .footer-logo { opacity: 1; }
+
+.footer-cta {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--accent);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.footer-cta:hover {
+    background: var(--accent);
+    color: var(--text-on-accent);
+}
+
+/* Footer columns */
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 3rem;
-    margin-bottom: 1.5rem;
+    gap: 2rem;
+    margin-bottom: 0;
 }
 
 .footer-col h4 {
@@ -1006,12 +1045,12 @@ footer {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--text-secondary);
 }
 
 .footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.75rem; }
+.footer-col ul li { margin-bottom: 0.5rem; }
 
 .footer-col a {
     color: var(--text-tertiary);
@@ -1022,11 +1061,48 @@ footer {
 
 .footer-col a:hover { color: var(--accent); }
 
+/* App download links */
+.footer-app-links {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-app-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-app-label {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    min-width: 60px;
+}
+
+.footer-app-group a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    color: var(--text-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.footer-app-group a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
 /* Footer social links — scoped to avoid page conflicts */
 footer .social-links {
     display: flex;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
 }
 
 footer .social-links a {
@@ -1051,14 +1127,37 @@ footer .social-links a:hover {
     color: var(--text-on-accent);
 }
 
-.footer-copyright {
-    font-size: 0.75rem;
+/* Contact links */
+.footer-contact {
+    font-size: 0.85rem;
     color: var(--text-tertiary);
-    margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.footer-press-email {
-    font-size: 0.85rem;
+.footer-contact strong {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-right: 0.25rem;
+}
+
+.footer-contact a {
+    color: var(--text-tertiary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover { color: var(--accent); }
+
+/* Footer address & copyright — inside Connect column */
+.footer-address {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-top: 0.75rem;
+    margin-bottom: 0.15rem;
+}
+
+.footer-copyright {
+    font-size: 0.75rem;
     color: var(--text-tertiary);
 }
 
@@ -1102,6 +1201,45 @@ footer .social-links a:hover {
 }
 
 /* ============================================
+   Partner Logo Strip
+   ============================================ */
+.partner-logos-section {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.partner-logos-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.partner-logo-item {
+    display: inline-flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.partner-logo-item:hover {
+    opacity: 0.85;
+}
+
+.partner-logo-item img {
+    height: 50px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+}
+
+/* ============================================
    Responsive
    ============================================ */
 @media (max-width: 768px) {
@@ -1138,6 +1276,18 @@ footer .social-links a:hover {
     }
 
     .milestone { gap: 1rem; }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -1160,6 +1310,11 @@ footer .social-links a:hover {
 
     .metrics-grid { grid-template-columns: 1fr; }
     .metric-value { font-size: 1.5rem; }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
 
     section h2 { font-size: 1.5rem; }
 }
