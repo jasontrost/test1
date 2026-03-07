@@ -66,7 +66,7 @@ body.no-js nav {
   font-weight: 600;
 }
 .noscript-nav a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .noscript-footer {
   text-align: center;
@@ -80,7 +80,7 @@ body.no-js nav {
   text-decoration: none;
 }
 .noscript-footer a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 body.nav-open {
   overflow: hidden;
@@ -156,7 +156,7 @@ nav {
   position: relative;
 }
 .nav-links a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .nav-links a::after {
   content: "";
@@ -172,7 +172,7 @@ nav {
   width: 100%;
 }
 .nav-links a.active {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .nav-links a.active::after {
   width: 100%;
@@ -217,10 +217,10 @@ nav {
   border-bottom: none;
 }
 .mobile-nav a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .mobile-nav a.active {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .mobile-nav-sub {
   padding-left: 1.5rem !important;
@@ -229,7 +229,7 @@ nav {
   border-bottom-style: dashed !important;
 }
 .mobile-nav-sub.active {
-  color: var(--accent) !important;
+  color: var(--accent-darker) !important;
 }
 .sub-nav {
   position: fixed;
@@ -267,12 +267,13 @@ nav {
   color: var(--text-primary);
 }
 .sub-nav a.active {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .sub-nav a.active::after {
   content: "";
   position: absolute;
   bottom: -1px;
+
   left: 0;
   width: 100%;
   height: 2px;
@@ -463,7 +464,7 @@ section {
 }
 .card-tag {
   display: inline-block;
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -549,7 +550,7 @@ section {
 }
 .tech-tag:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .btn {
   display: inline-block;
@@ -581,7 +582,7 @@ section {
 }
 .tech-category h3,
 .tech-category h4 {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.85rem;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -648,7 +649,7 @@ section {
   margin-bottom: 1.5rem;
 }
 .source-link {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -703,7 +704,7 @@ section {
   margin-right: auto;
 }
 .cta-email {
-  color: var(--accent);
+  color: var(--accent-darker);
   text-decoration: none;
   font-weight: 600;
 }
@@ -818,7 +819,7 @@ section {
   border-radius: 50%;
 }
 .milestone-date {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 600;
   min-width: 150px;
 }
@@ -848,7 +849,7 @@ section {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--accent-darker);
   margin-bottom: 1rem;
 }
 footer {
@@ -929,7 +930,7 @@ footer {
   transition: color 0.3s ease;
 }
 .footer-col a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .footer-app-links {
   margin-top: 1.25rem;
@@ -959,7 +960,7 @@ footer {
   transition: all 0.3s ease;
 }
 .footer-app-group a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
   border-color: var(--accent);
 }
 footer .social-links {
@@ -1003,7 +1004,7 @@ footer .social-links a:hover {
   transition: color 0.3s ease;
 }
 .footer-contact a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .footer-address {
   font-size: 0.8rem;
@@ -1214,7 +1215,7 @@ footer .social-links a:hover {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent);
+  color: var(--accent-darker);
   margin-bottom: 0.75rem;
 }
 .tech-arch-items {
@@ -1234,7 +1235,7 @@ footer .social-links a:hover {
 }
 .tech-arch-item.tech-arch-core {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-darker);
   background: var(--accent-dim);
 }
 .tech-arch-note {
@@ -1318,7 +1319,7 @@ footer .social-links a:hover {
 }
 .investor-rep-role {
   font-size: 0.85rem;
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
@@ -1384,7 +1385,7 @@ footer .social-links a:hover {
   }
 }
 .dk-green {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .dk-white {
   color: var(--text-primary);
@@ -1512,7 +1513,7 @@ footer .social-links a:hover {
 }
 .founder-role {
   font-size: 0.95rem;
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 500;
   margin-bottom: 1.25rem;
 }
@@ -1627,7 +1628,7 @@ footer .social-links a:hover {
   text-decoration: none;
 }
 .dk-product-shot .dk-shot-label a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .dk-product-shot .dk-shot-desc {
   padding: 0.15rem 0.75rem 0.6rem;
@@ -1702,7 +1703,7 @@ footer .social-links a:hover {
 }
 .license-regulator {
   font-size: 0.9rem;
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 600;
 }
 .license-row-body {
@@ -1801,7 +1802,7 @@ footer .social-links a:hover {
   font-weight: 600;
 }
 .instagram-header a:hover {
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .instagram-native-embed {
   margin-bottom: 1.5rem;
@@ -1819,7 +1820,7 @@ footer .social-links a:hover {
 }
 .btn-outline:hover {
   border-color: var(--accent);
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .yt-facade {
   position: relative;
@@ -2055,7 +2056,7 @@ a.accent-link {
   margin-bottom: 2rem;
 }
 .ashby-dept-title {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2094,7 +2095,7 @@ a.accent-link {
   font-size: 0.9rem;
 }
 .ashby-role-arrow {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 1.1rem;
 }
 .press-kit {
@@ -2115,7 +2116,7 @@ a.accent-link {
   padding: 1.5rem;
 }
 .press-kit-card h3 {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2293,7 +2294,7 @@ a.accent-link {
   content: "\2713";
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--accent-darker);
   font-weight: 700;
   font-size: 1rem;
 }
@@ -2345,7 +2346,7 @@ a.accent-link {
   margin-bottom: 0.25rem;
 }
 .person-role {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -2459,7 +2460,7 @@ a.accent-link {
   justify-content: center;
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--accent);
+  color: var(--accent-darker);
 }
 .spotlight-content h3 {
   color: var(--text-primary);
@@ -2521,7 +2522,7 @@ a.accent-link {
   padding: 1.75rem;
 }
 .benefit-category-title {
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -2578,7 +2579,7 @@ a.accent-link {
 }
 .team-card-tags span {
   background: var(--accent-dim);
-  color: var(--accent);
+  color: var(--accent-darker);
   font-size: 0.7rem;
   font-weight: 600;
   padding: 0.2rem 0.6rem;
