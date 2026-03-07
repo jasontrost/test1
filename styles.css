@@ -728,7 +728,7 @@ section {
   border-radius: 12px;
   padding: 2rem;
 }
-.culture-item h4 {
+.culture-item h3 {
   color: var(--text-primary);
   margin-bottom: 0.75rem;
   font-weight: 700;
