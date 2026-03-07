@@ -1277,6 +1277,18 @@ footer .social-links a:hover {
 
     .milestone { gap: 1rem; }
 
+    .partner-logos-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        justify-items: center;
+    }
+
+    .partner-logo-item img {
+        height: 40px;
+        max-width: 140px;
+    }
+
     .footer-top {
         flex-direction: column;
         gap: 1rem;
@@ -1314,6 +1326,11 @@ footer .social-links a:hover {
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .partner-logo-item img {
+        height: 35px;
+        max-width: 120px;
     }
 
     section h2 { font-size: 1.5rem; }
