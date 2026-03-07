@@ -95,7 +95,7 @@
             </div>
             <div class="why-item fade-in">
                 <h3>Market maker</h3>
-                <p>Our proprietary market-making system (Hanson) provides continuous liquidity across thousands of markets simultaneously. It quotes competitive two-way prices, manages inventory risk in real-time, and adapts to market conditions algorithmically. This is what makes the exchange usable &mdash; without a market maker, an order book is just an empty shell.</p>
+                <p>Our proprietary market-making system provides continuous liquidity across thousands of markets simultaneously. It quotes competitive two-way prices, manages inventory risk in real-time, and adapts to market conditions algorithmically. This is what makes the exchange usable &mdash; without a market maker, an order book is just an empty shell. We call it Hanson &mdash; and it's significant enough to warrant <a href="#hanson" class="accent-link">its own section below</a>.</p>
             </div>
             <div class="why-item fade-in">
                 <h3>Risk system</h3>
@@ -111,32 +111,31 @@
     <!-- Architecture -->
     <section>
         <h2 class="section-title">How it fits together</h2>
-        <p class="section-subtitle fade-in">Two products, one engine. Both Smarkets (the exchange) and SBK (the sportsbook) run on the same underlying infrastructure.</p>
+        <p class="section-subtitle fade-in">Three products, one architecture. SBK builds retail order flow. The exchange builds professional order flow. Hanson prices both and captures the edge.</p>
         <div class="tech-architecture fade-in">
             <div class="tech-arch-layer">
-                <div class="tech-arch-label">Products</div>
+                <div class="tech-arch-label">Intelligence layer</div>
                 <div class="tech-arch-items">
-                    <span class="tech-arch-item">Smarkets Exchange</span>
-                    <span class="tech-arch-item">SBK Sportsbook</span>
+                    <span class="tech-arch-item tech-arch-core">Hanson Applied Sciences</span>
+                </div>
+                <div class="tech-arch-note">Proprietary market maker &mdash; prices everything, trades on multiple platforms</div>
+            </div>
+            <div class="tech-arch-connector">&darr;</div>
+            <div class="tech-arch-layer">
+                <div class="tech-arch-label">Order flow layer</div>
+                <div class="tech-arch-items">
+                    <span class="tech-arch-item">SBK (retail)</span>
+                    <span class="tech-arch-item">Smarkets Exchange (professional)</span>
                     <span class="tech-arch-item">API</span>
                 </div>
             </div>
             <div class="tech-arch-connector">&darr;</div>
             <div class="tech-arch-layer">
-                <div class="tech-arch-label">Platform</div>
+                <div class="tech-arch-label">Infrastructure layer</div>
                 <div class="tech-arch-items">
-                    <span class="tech-arch-item tech-arch-core">Matching Engine</span>
-                    <span class="tech-arch-item tech-arch-core">Market Maker</span>
-                    <span class="tech-arch-item tech-arch-core">Risk System</span>
-                </div>
-            </div>
-            <div class="tech-arch-connector">&darr;</div>
-            <div class="tech-arch-layer">
-                <div class="tech-arch-label">Infrastructure</div>
-                <div class="tech-arch-items">
-                    <span class="tech-arch-item">Payments</span>
-                    <span class="tech-arch-item">Data Pipeline</span>
-                    <span class="tech-arch-item">Compliance</span>
+                    <span class="tech-arch-item">Matching Engine</span>
+                    <span class="tech-arch-item">Risk System</span>
+                    <span class="tech-arch-item">Payments &amp; Compliance</span>
                 </div>
             </div>
         </div>
@@ -179,6 +178,55 @@
                     <span class="tech-pill">ML pricing</span>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Hanson Applied Sciences -->
+    <section id="hanson">
+        <h2 class="section-title">Hanson Applied Sciences</h2>
+        <p class="section-subtitle fade-in">Our proprietary market-making engine. Built from scratch over 11 years. Platform-agnostic by design.</p>
+
+        <div class="global-stats fade-in">
+            <div class="global-stat">
+                <div class="global-stat-num">50k+</div>
+                <div class="global-stat-lbl">contracts priced daily</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num">30</div>
+                <div class="global-stat-lbl">sports covered</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num">1,000+</div>
+                <div class="global-stat-lbl">market types</div>
+            </div>
+            <div class="global-stat">
+                <div class="global-stat-num">24/7</div>
+                <div class="global-stat-lbl">continuous operation</div>
+            </div>
+        </div>
+
+        <div class="why-smarkets">
+            <div class="why-item fade-in">
+                <h3>What it does</h3>
+                <p>Hanson quotes competitive two-way prices across every market on the Smarkets exchange and SBK sportsbook simultaneously. It manages inventory risk in real-time, adapts to live in-play events algorithmically, and provides the liquidity that makes both products usable. Without Hanson, the exchange is an empty order book and the sportsbook has no pricing engine.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>The flywheel</h3>
+                <p>Better pricing attracts more order flow. More order flow creates deeper liquidity. Deeper liquidity enables tighter pricing. This cycle compounds &mdash; and because Hanson improves with every trade it processes, the advantage widens over time. The same pricing engine serves retail sportsbook customers and professional exchange traders, so each side of the business reinforces the other.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Platform-agnostic</h3>
+                <p>Hanson isn't locked to the Smarkets exchange. It operates on third-party platforms, generating revenue wherever there are markets to price. When other venues grow, Hanson can participate in that growth without requiring separate licenses, marketing spend, or local teams. This turns competitor success into an additional revenue stream.</p>
+            </div>
+            <div class="why-item fade-in">
+                <h3>Why it's hard to replicate</h3>
+                <p>Sports and event pricing has no standardised instruments, limited historical data for one-off events, and the complexity of live in-play markets where conditions change by the second. Hanson has been refined through 11 years of continuous operation and billions of dollars in traded volume. Building something equivalent requires deep domain expertise, proprietary data, and years of iteration &mdash; not just capital.</p>
+            </div>
+        </div>
+
+        <div class="cta-section fade-in">
+            <p>Hanson has its own site with more detail on the team, the technology, and the approach.</p>
+            <a href="https://hanson.as" target="_blank" rel="noopener noreferrer" class="btn">Visit hanson.as &rarr;</a>
         </div>
     </section>
 

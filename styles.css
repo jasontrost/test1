@@ -1375,6 +1375,13 @@ footer .social-links a:hover {
     background: var(--accent-dim);
 }
 
+.tech-arch-note {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
 .tech-arch-connector {
     font-size: 1.5rem;
     color: var(--text-tertiary);
