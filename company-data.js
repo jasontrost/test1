@@ -36,7 +36,7 @@ window.SM = {
     totalEquity:        '$35M',
 
     // ── Licensing ────────────────────────────────
-    jurisdictions:      6,
+    jurisdictions:      5,
 
     // ── Partnerships ─────────────────────────────
     sailgpDeal:         '3-year',

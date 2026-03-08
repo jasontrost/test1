@@ -324,7 +324,7 @@
     <script src="../../company-data.js" defer></script>
     <script src="../../components.js" defer></script>
     <script>
-    (function(){var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){var s=document.createElement('script');s.src='https://www.instagram.com/embed.js';s.async=true;document.body.appendChild(s);o.disconnect()}})},{rootMargin:'200px'});var t=document.querySelector('.instagram-grid');if(t)o.observe(t)})();
+    (function(){if(!('IntersectionObserver' in window)){var s=document.createElement('script');s.src='https://www.instagram.com/embed.js';s.async=true;document.body.appendChild(s);return}var o=new IntersectionObserver(function(e){e.forEach(function(entry){if(entry.isIntersecting){var s=document.createElement('script');s.src='https://www.instagram.com/embed.js';s.async=true;document.body.appendChild(s);o.disconnect()}})},{rootMargin:'200px'});var t=document.querySelector('.instagram-grid');if(t)o.observe(t)})();
     </script>
 </body>
 </html>
