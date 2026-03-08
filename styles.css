@@ -2054,6 +2054,40 @@ a.accent-link {
   text-align: center;
   padding: 2rem 0;
 }
+/* Skeleton loading state */
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+.ashby-skeleton-dept { margin-bottom: 2rem; }
+.ashby-skeleton-dept:last-child { margin-bottom: 0; }
+.skeleton-bar {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border) 50%, var(--bg-tertiary) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 4px;
+}
+.skeleton-dept-bar {
+  width: 120px;
+  height: 14px;
+  margin-bottom: 1rem;
+}
+.ashby-skeleton-role {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.skeleton-title-bar {
+  flex: 1;
+  height: 18px;
+  max-width: 280px;
+}
+.skeleton-loc-bar {
+  width: 80px;
+  height: 14px;
+}
 .ashby-fallback {
   text-align: center;
   padding: 2rem 0;
@@ -2183,6 +2217,121 @@ a.accent-link {
   color: var(--text-tertiary);
   margin-top: 0.75rem;
 }
+
+/* Extended logos text line */
+.press-logos-extended {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+/* Coverage list (linked article list) */
+.coverage-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+.coverage-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.coverage-list li {
+  border-bottom: 1px solid var(--border);
+}
+.coverage-list a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: inherit;
+  gap: 1.5rem;
+  transition: padding 0.15s, margin 0.15s;
+}
+.coverage-list a:hover {
+  background: var(--bg-secondary);
+  margin: 0 -0.75rem;
+  padding: 1rem 0.75rem;
+  border-radius: 6px;
+}
+.coverage-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+.coverage-source {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.coverage-list a:hover .coverage-source {
+  color: var(--accent-darker);
+}
+
+/* Accolades */
+.accolades-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+}
+.accolades-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.accolade-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+a.accolade-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.accolade-rank {
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--accent-darker);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.accolade-list-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.25rem;
+}
+.accolade-org {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 600px) {
+  .coverage-list a {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .accolades-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .video-embed {
   position: relative;
   padding-bottom: 56.25%;
@@ -2925,12 +3074,15 @@ a.accent-link {
 }
 
 /* News feed (investor-focused press releases) */
+.news-feed-section {
+  padding-top: 1rem;
+}
 .news-feed {
   max-width: 800px;
   margin: 0 auto;
 }
 .news-item {
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   border-bottom: 1px solid var(--border);
 }
 .news-item:first-child {
@@ -2939,8 +3091,8 @@ a.accent-link {
 .news-item .news-meta {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
 }
 .news-item .news-date {
   font-size: 0.8rem;
@@ -2948,9 +3100,9 @@ a.accent-link {
   color: var(--text-tertiary);
 }
 .news-item h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 .news-item h3 a {
   color: var(--text-primary);
@@ -2960,9 +3112,9 @@ a.accent-link {
   color: var(--accent-darker);
 }
 .news-item p {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  line-height: 1.55;
 }
 
 /* Section divider (used between governance sections) */

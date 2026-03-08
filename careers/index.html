@@ -24,6 +24,9 @@
     <meta name="twitter:description" content="Join the team building the future of prediction markets. Radical transparency and world-class engineering culture.">
     <meta name="twitter:image" content="https://smarkets.com/photos/company-event-audience.jpg">
 
+    <!-- Preconnect to Ashby API for faster role loading -->
+    <link rel="preconnect" href="https://api.ashbyhq.com">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -110,8 +113,21 @@
         <!-- Open Roles (dynamic from Ashby) -->
         <section id="open-roles" aria-labelledby="heading-open-roles">
             <h2 id="heading-open-roles" class="section-title">Open Roles</h2>
-            <div id="ashby-jobs" class="ashby-embed fade-in">
-                <p class="ashby-loading">Loading open roles&hellip;</p>
+            <div id="ashby-jobs" class="ashby-embed fade-in" aria-live="polite" aria-busy="true">
+                <div class="ashby-skeleton" aria-hidden="true">
+                    <div class="ashby-skeleton-dept">
+                        <div class="skeleton-bar skeleton-dept-bar"></div>
+                        <div class="ashby-skeleton-role"><div class="skeleton-bar skeleton-title-bar"></div><div class="skeleton-bar skeleton-loc-bar"></div></div>
+                        <div class="ashby-skeleton-role"><div class="skeleton-bar skeleton-title-bar"></div><div class="skeleton-bar skeleton-loc-bar"></div></div>
+                        <div class="ashby-skeleton-role"><div class="skeleton-bar skeleton-title-bar"></div><div class="skeleton-bar skeleton-loc-bar"></div></div>
+                    </div>
+                    <div class="ashby-skeleton-dept">
+                        <div class="skeleton-bar skeleton-dept-bar"></div>
+                        <div class="ashby-skeleton-role"><div class="skeleton-bar skeleton-title-bar"></div><div class="skeleton-bar skeleton-loc-bar"></div></div>
+                        <div class="ashby-skeleton-role"><div class="skeleton-bar skeleton-title-bar"></div><div class="skeleton-bar skeleton-loc-bar"></div></div>
+                    </div>
+                </div>
+                <p class="ashby-loading sr-only">Loading open roles&hellip;</p>
             </div>
             <noscript>
                 <div class="ashby-fallback">
@@ -131,6 +147,7 @@
                         var jobs = data.jobs || [];
                         var container = document.getElementById('ashby-jobs');
                         if (!jobs.length) {
+                            container.setAttribute('aria-busy', 'false');
                             container.innerHTML = '<p class="ashby-empty">No open roles right now — but we\'re always looking for great people. Send your CV to <a href="mailto:careers@smarkets.com" class="accent-link">careers@smarkets.com</a>.</p>';
                             return;
                         }
@@ -176,11 +193,13 @@
                             fragment.appendChild(deptDiv);
                         });
                         container.innerHTML = '';
+                        container.setAttribute('aria-busy', 'false');
                         container.appendChild(fragment);
                     })
                     .catch(function () {
                         clearTimeout(timeoutId);
                         var container = document.getElementById('ashby-jobs');
+                        container.setAttribute('aria-busy', 'false');
                         container.innerHTML = '<p class="ashby-empty">Couldn\'t load roles right now. <a href="https://jobs.ashbyhq.com/smarkets" target="_blank" rel="noopener noreferrer" class="accent-link">View open roles on Ashby</a>.</p>';
                     });
             })();
