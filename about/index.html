@@ -51,7 +51,7 @@
 <body class="no-js">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <!-- Navigation -->
-    <nav><noscript><div class="noscript-nav" role="navigation" aria-label="Main navigation"><a href="../">Home</a> <a href="../about/">About</a> <a href="../technology/">Technology</a> <a href="../team/">Team</a> <a href="../careers/">Careers</a> <a href="../investors/">Investors</a></div></noscript></nav>
+    <nav><noscript><div class="noscript-nav" aria-label="Main navigation"><a href="../">Home</a> <a href="../about/">About</a> <a href="../technology/">Technology</a> <a href="../team/">Team</a> <a href="../careers/">Careers</a> <a href="../investors/">Investors</a></div></noscript></nav>
 
     <main id="main-content">
 
@@ -290,21 +290,21 @@
     </script>
 
     <!-- Press logos -->
-    <section class="press-logos-section">
+    <section class="press-logos-section" aria-label="Press coverage">
         <div class="press-logos-strip fade-in">
             <span class="press-logos-label">Featured in</span>
             <span class="press-logo-item"><img src="../logos/press/financial-times.svg" alt="Financial Times" loading="lazy"></span>
             <span class="press-logo-item"><img src="../logos/press/bbc.svg" alt="BBC" loading="lazy"></span>
-            <a href="https://www.wired.com/story/crowding-out-the-bookie" target="_blank" rel="noopener noreferrer" class="press-logo-item"><img src="../logos/press/wired.svg" alt="Wired" loading="lazy"></a>
+            <a href="https://www.wired.com/story/crowding-out-the-bookie" target="_blank" rel="noopener noreferrer" class="press-logo-item"><img src="../logos/press/wired.svg" alt="Wired" loading="lazy"><span class="sr-only">(opens in new tab)</span></a>
             <span class="press-logo-item"><img src="../logos/press/techcrunch.svg" alt="TechCrunch" loading="lazy"></span>
             <span class="press-logo-item"><img src="../logos/press/deloitte.svg" alt="Deloitte Fast 50" loading="lazy"></span>
         </div>
     </section>
 
     <!-- What we do -->
-    <section id="what-we-do" class="dk-section">
+    <section id="what-we-do" class="dk-section" aria-labelledby="heading-what-we-do">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">What we do</span></h2>
+            <h2 id="heading-what-we-do" class="dk-heading fade-in"><span class="dk-green">What we do</span></h2>
             <div class="dk-block fade-in">
                 <p class="dk-block-text">Our prediction market lets people trade on the outcomes of real-world events - elections, sports, economics - at prices set by the market, not by a bookmaker. Our sportsbook, SBK, takes the same sharp pricing and wraps it in a simple betting experience.</p>
                 <p class="dk-block-text">Together, the three products serve different audiences with the same underlying engine. SBK builds retail order flow. The exchange serves professional traders. Hanson &mdash; our proprietary market maker, built over 11 years &mdash; prices everything and provides the liquidity that makes both products work. It also operates on third-party platforms, generating revenue independent of any single venue.</p>
@@ -315,7 +315,7 @@
                         <source srcset="../photos/smarkets-exchange.webp" type="image/webp">
                         <img src="../photos/smarkets-exchange.png" alt="Smarkets - live markets with order book" width="1796" height="980" loading="lazy">
                     </picture>
-                    <span class="dk-shot-label">Smarkets <a href="https://smarkets.com" target="_blank" rel="noopener noreferrer">smarkets.com</a></span>
+                    <span class="dk-shot-label">Smarkets <a href="https://smarkets.com" target="_blank" rel="noopener noreferrer">smarkets.com <span class="sr-only">(opens in new tab)</span></a></span>
                     <span class="dk-shot-desc">Prediction market — direct market access for traders</span>
                 </div>
                 <div class="dk-product-shot" aria-label="SBK sportsbook">
@@ -323,7 +323,7 @@
                         <source srcset="../photos/sbk-sportsbook.webp" type="image/webp">
                         <img src="../photos/sbk-sportsbook.png" alt="SBK - sports betting interface" width="482" height="979" loading="lazy" class="dk-shot-portrait">
                     </picture>
-                    <span class="dk-shot-label">SBK <a href="https://betsbk.com" target="_blank" rel="noopener noreferrer">betsbk.com</a></span>
+                    <span class="dk-shot-label">SBK <a href="https://betsbk.com" target="_blank" rel="noopener noreferrer">betsbk.com <span class="sr-only">(opens in new tab)</span></a></span>
                     <span class="dk-shot-desc">Sportsbook — better odds without the complexity</span>
                 </div>
                 <div class="dk-product-shot" aria-label="Hanson Applied Sciences">
@@ -331,7 +331,7 @@
                         <source srcset="../photos/hanson.webp" type="image/webp">
                         <img src="../photos/hanson.png" alt="Hanson Applied Sciences - market making and liquidity" width="1440" height="900" loading="lazy" style="object-position: top">
                     </picture>
-                    <span class="dk-shot-label">Hanson <a href="https://hanson.as" target="_blank" rel="noopener noreferrer">hanson.as</a></span>
+                    <span class="dk-shot-label">Hanson <a href="https://hanson.as" target="_blank" rel="noopener noreferrer">hanson.as <span class="sr-only">(opens in new tab)</span></a></span>
                     <span class="dk-shot-desc">Proprietary market maker &mdash; prices 50,000+ contracts daily across 30 sports and 1,000 market types</span>
                 </div>
             </div>
@@ -339,9 +339,9 @@
     </section>
 
     <!-- Why we exist -->
-    <section id="why-we-exist" class="dk-section">
+    <section id="why-we-exist" class="dk-section" aria-labelledby="heading-why-we-exist">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">Why we exist</span></h2>
+            <h2 id="heading-why-we-exist" class="dk-heading fade-in"><span class="dk-green">Why we exist</span></h2>
             <div class="dk-block fade-in">
                 <p class="dk-block-text">Most betting companies build in massive hidden margins, block winning players, and optimise for addiction over fairness. We think markets work better when they're transparent. When a trader can see real-time pricing, trade in and out of positions, and trust that the platform won't ban them for being good at it. That's the model we're building.</p>
                 <p class="dk-block-text">Most betting companies charge 10&ndash;12% in hidden margin. We charge ~5%. We don't take the other side of every bet, we match buyers and sellers. Better odds for customers. Profit for us. It works.</p>
@@ -350,9 +350,9 @@
     </section>
 
     <!-- Founder story -->
-    <section id="origin" class="dk-section">
+    <section id="origin" class="dk-section" aria-labelledby="heading-origin">
         <div class="dk-inner">
-            <h2 class="dk-heading fade-in"><span class="dk-green">How it started</span></h2>
+            <h2 id="heading-origin" class="dk-heading fade-in"><span class="dk-green">How it started</span></h2>
             <div class="founder-section fade-in">
                 <div class="founder-photo">
                     <img src="../photos/jason-trost-founder.webp" alt="Jason Trost, Founder &amp; CEO of Smarkets" width="420" height="630" loading="lazy">
@@ -367,7 +367,7 @@
     </section>
 
     <!-- Smarkets at a Glance -->
-    <section id="at-a-glance" class="dk-section">
+    <section id="at-a-glance" class="dk-section" aria-label="Smarkets at a glance">
         <div class="dk-inner">
             <div class="global-stats fade-in">
                 <div class="global-stat">
@@ -391,7 +391,7 @@
     </section>
 
     <!-- CTAs -->
-    <section id="contact" class="dk-section">
+    <section id="contact" class="dk-section" aria-label="Contact and explore">
         <div class="dk-inner">
             <div class="cta-grid fade-in">
                 <div class="cta-card">

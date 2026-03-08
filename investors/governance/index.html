@@ -53,7 +53,7 @@
     </svg>
 
     <!-- Navigation -->
-    <nav><noscript><div class="noscript-nav" role="navigation" aria-label="Main navigation"><a href="../../">Home</a> <a href="../../about/">About</a> <a href="../../technology/">Technology</a> <a href="../../team/">Team</a> <a href="../../careers/">Careers</a> <a href="../">Investors</a></div></noscript></nav>
+    <nav><noscript><div class="noscript-nav"><a href="../../">Home</a> <a href="../../about/">About</a> <a href="../../technology/">Technology</a> <a href="../../team/">Team</a> <a href="../../careers/">Careers</a> <a href="../">Investors</a></div></noscript></nav>
 
     <!-- Main Content -->
     <main id="main-content">
@@ -66,37 +66,48 @@
         </section>
 
         <!-- Board of Directors -->
-        <section>
-            <h2 class="section-title">Board of Directors</h2>
-            <p class="section-subtitle fade-in">Smarkets Limited is governed by a board that combines operational leadership with investor oversight and independent perspective.</p>
+        <section aria-labelledby="section-board">
+            <h2 class="section-title" id="section-board">Board of Directors</h2>
+            <p class="section-subtitle fade-in">Smarkets Limited is a private company governed by its founder, with investor oversight through board observers.</p>
             <div class="board-grid fade-in">
                 <div class="board-card">
-                    <img src="../../images/team/jason-trost.jpg" alt="Jason Trost" width="96" height="96" loading="lazy">
+                    <img src="../../photos/jason-trost.jpg" alt="Jason Trost" width="96" height="96" loading="lazy">
                     <h3>Jason Trost</h3>
                     <div class="board-role">Chief Executive Officer & Founder</div>
                     <div class="board-firm">Executive Director</div>
                     <p class="board-bio">Founded Smarkets in <span data-sm="founded">2008</span> with the thesis that prediction market pricing could outperform traditional bookmaking. Previously worked in quantitative finance. Leads the company's long-term strategy, product vision, and technology direction.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Board Observers -->
+        <section aria-labelledby="section-observers">
+            <h2 class="section-title" id="section-observers">Board Observers</h2>
+            <p class="section-subtitle fade-in">Representatives from our major institutional investors who attend board meetings and participate in key governance discussions.</p>
+            <div class="board-grid fade-in">
                 <div class="board-card">
                     <img src="../../images/team/scott-feldman.jpg" alt="Scott Feldman" width="96" height="96" loading="lazy">
                     <h3>Scott Feldman</h3>
-                    <div class="board-role">Investor Representative</div>
+                    <div class="board-role">Board Observer</div>
                     <div class="board-firm">Susquehanna Growth Equity</div>
                     <p class="board-bio">Represents Susquehanna Growth Equity, the growth arm of Susquehanna International Group &mdash; one of the world's largest quantitative trading firms. Brings deep expertise in market structure and exchange economics.</p>
+                    <div class="social-links"><a href="https://www.linkedin.com/in/scottjfeldman/" target="_blank" rel="noopener noreferrer" aria-label="Scott Feldman on LinkedIn"><svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-linkedin"/></svg></a></div>
                 </div>
                 <div class="board-card">
                     <img src="../../images/team/robert-dighero.jpg" alt="Robert Dighero" width="96" height="96" loading="lazy">
                     <h3>Robert Dighero</h3>
-                    <div class="board-role">Investor Representative</div>
+                    <div class="board-role">Board Observer</div>
                     <div class="board-firm">Passion Capital</div>
                     <p class="board-bio">Co-founder of Passion Capital, one of London's most established early-stage venture firms. Has served on the Smarkets board since the company's earliest funding rounds, providing strategic guidance through multiple phases of growth.</p>
+                    <div class="social-links"><a href="https://www.linkedin.com/in/robertdighero/" target="_blank" rel="noopener noreferrer" aria-label="Robert Dighero on LinkedIn"><svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-linkedin"/></svg></a></div>
                 </div>
                 <div class="board-card">
                     <img src="../../images/team/stefan-graiche.jpg" alt="Stefan Graiche" width="96" height="96" loading="lazy">
                     <h3>Stefan Graiche</h3>
-                    <div class="board-role">Investor Representative</div>
+                    <div class="board-role">Board Observer</div>
                     <div class="board-firm">DTCP</div>
                     <p class="board-bio">Represents DTCP, a global investment firm focused on fintech, digital infrastructure, and data-driven platforms. Brings a European institutional perspective to governance and international expansion strategy.</p>
+                    <div class="social-links"><a href="https://www.linkedin.com/in/dr-stefan-graiche-6421ab34/" target="_blank" rel="noopener noreferrer" aria-label="Stefan Graiche on LinkedIn"><svg width="20" height="20" fill="currentColor" aria-hidden="true"><use href="#icon-linkedin"/></svg></a></div>
                 </div>
             </div>
         </section>
@@ -104,8 +115,8 @@
         <hr class="section-divider">
 
         <!-- Governance Principles -->
-        <section>
-            <h2 class="section-title">Governance Principles</h2>
+        <section aria-labelledby="section-principles">
+            <h2 class="section-title" id="section-principles">Governance Principles</h2>
             <p class="section-subtitle fade-in">As a private company, we are not required to comply with a formal corporate governance code. We choose to operate with the transparency and discipline that we believe our shareholders, regulators, and customers expect.</p>
             <div class="governance-grid fade-in">
                 <div class="governance-card">
@@ -138,22 +149,22 @@
         <hr class="section-divider">
 
         <!-- Responsible Betting -->
-        <section>
-            <h2 class="section-title">Responsible Betting</h2>
+        <section aria-labelledby="section-responsible">
+            <h2 class="section-title" id="section-responsible">Responsible Betting</h2>
             <p class="section-subtitle fade-in">As an operator licensed by the UK Gambling Commission and other regulators, responsible betting is a core obligation &mdash; not an afterthought.</p>
             <div class="rg-callout fade-in">
                 <h3>Our approach</h3>
                 <p>We design our products to give customers control. SBK and the Smarkets exchange both include mandatory deposit limits, self-exclusion tools, reality checks, and account activity statements. We participate in GAMSTOP (the UK's national self-exclusion scheme) and share data with the Gambling Commission as required.</p>
                 <p>Our prediction market model is structurally different from traditional bookmaking: we don't profit when customers lose. On the exchange, we match buyers with sellers and charge a small commission. This means our commercial incentives are aligned with sustainable, long-term customer activity rather than maximising individual losses.</p>
-                <p>For more information, see our <a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" target="_blank" rel="noopener noreferrer" class="accent-link">responsible betting resources</a> or contact <a href="mailto:support@smarkets.com" class="accent-link">support@smarkets.com</a>.</p>
+                <p>For more information, see our <a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" target="_blank" rel="noopener noreferrer" class="accent-link">responsible betting resources <span class="sr-only">(opens in new tab)</span></a> or contact <a href="mailto:support@smarkets.com" class="accent-link">support@smarkets.com</a>.</p>
             </div>
         </section>
 
         <hr class="section-divider">
 
         <!-- Code of Conduct -->
-        <section>
-            <h2 class="section-title">Code of Conduct</h2>
+        <section aria-labelledby="section-conduct">
+            <h2 class="section-title" id="section-conduct">Code of Conduct</h2>
             <p class="section-subtitle fade-in">Smarkets expects all employees, directors, and contractors to act with integrity, comply with applicable laws and regulations, and treat colleagues, customers, and partners fairly.</p>
             <div class="governance-grid fade-in">
                 <div class="governance-card">

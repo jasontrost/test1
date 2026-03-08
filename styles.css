@@ -8,7 +8,7 @@
   --bg-secondary: #f5f5f7;
   --bg-tertiary: #eeeef0;
   --accent: #0ccd93;
-  --accent-dark: #00b073;
+  --accent-dark: #00875a;
   --accent-darker: #087a52;
   --accent-dim: rgba(12, 205, 147, 0.08);
   --text-primary: #1a1a1a;
@@ -563,11 +563,11 @@ section {
   cursor: pointer;
   border: none;
   font-family: "Source Sans Pro", Inter, sans-serif;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: var(--text-on-accent);
 }
 .btn:hover {
-  background: var(--accent-dark);
+  background: var(--accent-darker);
   transform: translateY(-2px);
 }
 .tech-stack-grid {
@@ -1919,7 +1919,7 @@ footer .social-links a:hover {
   line-height: 1.5;
 }
 .btn-link {
-  color: var(--accent, #00ce8f);
+  color: var(--accent-darker, #087a52);
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -1970,6 +1970,13 @@ a.accent-link {
 }
 .error-nav a:hover {
   text-decoration: underline;
+}
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
 }
 .social-links svg {
   width: 20px;
@@ -2416,7 +2423,7 @@ a.accent-link {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
   border: none;
   width: 44px;

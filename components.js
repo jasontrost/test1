@@ -28,18 +28,27 @@
     const pathSegments = cleanPath.split('/').filter(Boolean);
     const currentPage = pathSegments[pathSegments.length - 1] || 'index';
 
-    // Careers section detection — careers, careers/life, and office all belong here
+    // Careers section detection — careers, careers/life, and careers/office all belong here
     const careersPages = ['careers', 'life', 'office'];
-    const isInCareersSection = careersPages.includes(currentPage);
+    const isInCareersSection = careersPages.includes(currentPage) &&
+        (currentPage === 'careers' || pathSegments.includes('careers'));
+
+    // Investors section detection — investors and its sub-pages
+    const investorsPages = ['investors', 'governance', 'news', 'faq'];
+    const isInInvestorsSection = investorsPages.includes(currentPage) &&
+        (currentPage === 'investors' || pathSegments.includes('investors'));
 
     function isActive(page) {
         // Special case: "careers" in the primary nav should be active for all careers sub-pages
         if (page === 'careers' && isInCareersSection) return 'active';
+        // Special case: "investors" in the primary nav should be active for all investors sub-pages
+        if (page === 'investors' && isInInvestorsSection) return 'active';
         return currentPage === page ? 'active' : '';
     }
 
     function ariaCurrent(page) {
         if (page === 'careers' && isInCareersSection && currentPage !== 'careers') return '';
+        if (page === 'investors' && isInInvestorsSection && currentPage !== 'investors') return '';
         return currentPage === page ? ' aria-current="page"' : '';
     }
 
@@ -85,22 +94,40 @@
             ${isInCareersSection ? `
             <a href="${bp('/careers')}" class="mobile-nav-sub ${subActive('careers')}"${subAriaCurrent('careers')}>Open Roles</a>
             <a href="${bp('/careers/life')}" class="mobile-nav-sub ${subActive('life')}"${subAriaCurrent('life')}>Life at Smarkets</a>
-            <a href="${bp('/office')}" class="mobile-nav-sub ${subActive('office')}"${subAriaCurrent('office')}>Office</a>
+            <a href="${bp('/careers/office')}" class="mobile-nav-sub ${subActive('office')}"${subAriaCurrent('office')}>Office</a>
             ` : ''}
             <a href="${bp('/investors')}" class="${isActive('investors')}"${ariaCurrent('investors')}>Investors</a>
+            ${isInInvestorsSection ? `
+            <a href="${bp('/investors')}" class="mobile-nav-sub ${subActive('investors')}"${subAriaCurrent('investors')}>Overview</a>
+            <a href="${bp('/investors/governance')}" class="mobile-nav-sub ${subActive('governance')}"${subAriaCurrent('governance')}>Governance</a>
+            <a href="${bp('/investors/news')}" class="mobile-nav-sub ${subActive('news')}"${subAriaCurrent('news')}>News</a>
+            <a href="${bp('/investors/faq')}" class="mobile-nav-sub ${subActive('faq')}"${subAriaCurrent('faq')}>FAQ</a>
+            ` : ''}
         </div>
     `;
 
-    // ── Secondary Nav (Careers section) ─────────
-    const subNavHTML = isInCareersSection ? `
+    // ── Secondary Nav (section sub-navigation) ──
+    let subNavHTML = '';
+    if (isInCareersSection) {
+        subNavHTML = `
         <div class="sub-nav" role="navigation" aria-label="Careers section navigation">
             <div class="sub-nav-inner">
                 <a href="${bp('/careers')}" class="${subActive('careers')}"${subAriaCurrent('careers')}>Open Roles</a>
                 <a href="${bp('/careers/life')}" class="${subActive('life')}"${subAriaCurrent('life')}>Life at Smarkets</a>
-                <a href="${bp('/office')}" class="${subActive('office')}"${subAriaCurrent('office')}>Office</a>
+                <a href="${bp('/careers/office')}" class="${subActive('office')}"${subAriaCurrent('office')}>Office</a>
             </div>
-        </div>
-    ` : '';
+        </div>`;
+    } else if (isInInvestorsSection) {
+        subNavHTML = `
+        <div class="sub-nav" role="navigation" aria-label="Investors section navigation">
+            <div class="sub-nav-inner">
+                <a href="${bp('/investors')}" class="${subActive('investors')}"${subAriaCurrent('investors')}>Overview</a>
+                <a href="${bp('/investors/governance')}" class="${subActive('governance')}"${subAriaCurrent('governance')}>Governance</a>
+                <a href="${bp('/investors/news')}" class="${subActive('news')}"${subAriaCurrent('news')}>News</a>
+                <a href="${bp('/investors/faq')}" class="${subActive('faq')}"${subAriaCurrent('faq')}>FAQ</a>
+            </div>
+        </div>`;
+    }
 
     const nav = document.querySelector('nav');
     if (nav) {
@@ -109,8 +136,8 @@
         nav.innerHTML = navHTML;
         nav.insertAdjacentHTML('afterend', subNavHTML + mobileNavHTML);
 
-        // Add class to body so pages in careers section can adjust padding
-        if (isInCareersSection) {
+        // Add class to body so pages with sub-nav can adjust padding
+        if (isInCareersSection || isInInvestorsSection) {
             document.body.classList.add('has-sub-nav');
         }
 
@@ -240,7 +267,7 @@
                 <h4 class="footer-subheading">Explore</h4>
                 <ul>
                     <li><a href="${bp('/careers/life')}">Life at Smarkets</a></li>
-                    <li><a href="${bp('/office')}">Office</a></li>
+                    <li><a href="${bp('/careers/office')}">Office</a></li>
                     <li><a href="${bp('/newsroom')}">Newsroom</a></li>
                     <li><a href="${bp('/partnerships')}">Partnerships</a></li>
                 </ul>
