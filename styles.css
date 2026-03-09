@@ -3149,3 +3149,196 @@ a.accolade-card:hover {
 .rg-callout p:last-child {
   margin-bottom: 0;
 }
+
+/* ── Design Uplift ──────────────────────────────── */
+
+/* Tighter tracking on display type */
+.section-title { letter-spacing: -0.5px; }
+.hero h1 { letter-spacing: -1.5px; }
+
+/* Punchier stat numbers */
+.global-stat-num {
+  font-size: 3rem;
+  letter-spacing: -1px;
+}
+.metric-value {
+  font-size: 3rem;
+  letter-spacing: -1px;
+}
+
+/* Enhanced standard hero */
+.hero {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(12, 205, 147, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(12, 205, 147, 0.05) 0%, transparent 40%),
+    linear-gradient(to right, rgba(12, 205, 147, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 205, 147, 0.03) 1px, transparent 1px),
+    linear-gradient(135deg, var(--bg-primary) 0, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+  background-size: 100% 100%, 100% 100%, 55px 55px, 55px 55px, 100% 100%;
+  min-height: min(55vh, 520px);
+  padding-bottom: 100px;
+}
+
+/* Why-item: accent left border for visual variety */
+.why-item {
+  border: none;
+  border-left: 3px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+}
+
+/* Person cards: accent top, larger photos */
+.person-card {
+  border: none;
+  border-top: 3px solid var(--accent);
+  border-radius: 0 0 12px 12px;
+}
+.person-photo {
+  width: 96px;
+  height: 96px;
+  border: 3px solid var(--accent);
+}
+
+/* Team cards: interactive hover */
+.team-card-v2 { transition: all 0.3s ease; }
+.team-card-v2:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Metric items: bottom accent shelf */
+.metric-item {
+  border: none;
+  border-bottom: 3px solid var(--accent);
+  border-radius: 0;
+  background: transparent;
+}
+.metric-item:hover {
+  background: var(--accent-dim);
+  border-bottom-color: var(--accent-dark);
+}
+
+/* Full-bleed tinted section */
+.section-tinted {
+  background: var(--bg-secondary);
+  max-width: none;
+  padding: 3rem max(2rem, calc(50vw - 580px));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Full-bleed dark section */
+.section-dark {
+  background: #141414;
+  max-width: none;
+  padding: 4rem max(2rem, calc(50vw - 580px));
+  color: #fff;
+}
+.section-dark .section-title { color: #fff; }
+.section-dark .section-subtitle { color: rgba(255, 255, 255, 0.6); }
+.section-dark .section-note { color: rgba(255, 255, 255, 0.4); }
+.section-dark .why-item {
+  background: #1e1e1e;
+  border-left-color: var(--accent);
+}
+.section-dark .why-item h3 { color: #fff; }
+.section-dark .why-item p { color: rgba(255, 255, 255, 0.65); }
+.section-dark .tech-arch-layer {
+  background: #1e1e1e;
+  border-color: #333;
+}
+.section-dark .tech-arch-item {
+  background: #141414;
+  border-color: #333;
+  color: rgba(255, 255, 255, 0.7);
+}
+.section-dark .tech-arch-item.tech-arch-core {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(12, 205, 147, 0.1);
+}
+.section-dark .tech-arch-label { color: var(--accent); }
+.section-dark .tech-arch-connector { color: rgba(255, 255, 255, 0.3); }
+.section-dark .tech-arch-note { color: rgba(255, 255, 255, 0.4); }
+.section-dark .dk-margin-co { color: #fff; }
+.section-dark .dk-margin-track { background: #2a2a2a; }
+.section-dark .dk-bar-dim { background: linear-gradient(90deg, #2a2a2a, #444); }
+.section-dark .dk-bar-dim span { color: rgba(255, 255, 255, 0.5); }
+
+/* Dark CTA sections */
+.cta-section {
+  background: linear-gradient(135deg, #141414 0%, #1a2e24 100%);
+  color: #fff;
+  border: none;
+}
+.cta-section h2, .cta-section h3 { color: #fff; }
+.cta-section p { color: rgba(255, 255, 255, 0.7); }
+.cta-section .btn {
+  background: var(--accent);
+  color: #141414;
+  font-weight: 700;
+}
+.cta-section .btn:hover {
+  background: #fff;
+  color: #141414;
+}
+.cta-section .cta-email { color: var(--accent); }
+.cta-section a.accent-link { color: var(--accent); }
+
+/* Stagger animation delays */
+.why-smarkets > .fade-in.visible:nth-child(2),
+.investor-grid > .fade-in.visible:nth-child(2),
+.teams-grid-v2 > .fade-in.visible:nth-child(2) { animation-delay: 0.08s; }
+.why-smarkets > .fade-in.visible:nth-child(3),
+.investor-grid > .fade-in.visible:nth-child(3),
+.teams-grid-v2 > .fade-in.visible:nth-child(3) { animation-delay: 0.15s; }
+.why-smarkets > .fade-in.visible:nth-child(4),
+.investor-grid > .fade-in.visible:nth-child(4),
+.teams-grid-v2 > .fade-in.visible:nth-child(4) { animation-delay: 0.22s; }
+.why-smarkets > .fade-in.visible:nth-child(5),
+.investor-grid > .fade-in.visible:nth-child(5),
+.teams-grid-v2 > .fade-in.visible:nth-child(5) { animation-delay: 0.28s; }
+.why-smarkets > .fade-in.visible:nth-child(6),
+.investor-grid > .fade-in.visible:nth-child(6),
+.teams-grid-v2 > .fade-in.visible:nth-child(6) { animation-delay: 0.34s; }
+.why-smarkets > .fade-in.visible:nth-child(7),
+.teams-grid-v2 > .fade-in.visible:nth-child(7) { animation-delay: 0.4s; }
+.teams-grid-v2 > .fade-in.visible:nth-child(8) { animation-delay: 0.46s; }
+.metrics-grid > .fade-in.visible:nth-child(2) { animation-delay: 0.06s; }
+.metrics-grid > .fade-in.visible:nth-child(3) { animation-delay: 0.12s; }
+.metrics-grid > .fade-in.visible:nth-child(4) { animation-delay: 0.18s; }
+.metrics-grid > .fade-in.visible:nth-child(5) { animation-delay: 0.24s; }
+
+/* Reduced motion: remove stagger delays */
+@media (prefers-reduced-motion: reduce) {
+  .why-smarkets > .fade-in.visible,
+  .metrics-grid > .fade-in.visible,
+  .investor-grid > .fade-in.visible,
+  .teams-grid-v2 > .fade-in.visible {
+    animation-delay: 0s !important;
+  }
+}
+
+/* Mobile adjustments for design uplift */
+@media (max-width: 768px) {
+  .section-dark {
+    padding: 3rem max(1.5rem, calc(50vw - 580px));
+  }
+  .section-tinted {
+    padding: 3rem max(1.5rem, calc(50vw - 580px));
+  }
+  .global-stat-num {
+    font-size: 2.5rem;
+  }
+  .metric-value {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 480px) {
+  .global-stat-num {
+    font-size: 2rem;
+  }
+  .metric-value {
+    font-size: 1.8rem;
+  }
+}
