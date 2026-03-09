@@ -87,9 +87,14 @@
             <p>Our headquarters sits in one of <span data-sm="hqCity">London</span>'s most distinctive locations. St. Katharine Docks is a converted marina just east of the City, surrounded by water, boats, and some of the best lunch spots in Zone 1. The office itself is open-plan, built for collaboration — engineers sit with traders, product sits with operations. There are no corner offices.</p>
         </div>
 
-        <!-- Office tour video -->
+        <!-- Office tour video (deferred) -->
         <div class="video-embed fade-in">
-            <iframe src="https://www.youtube.com/embed/ln5zJbU0Fw0" title="Smarkets office tour — St. Katharine Docks, London" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            <div class="deferred-embed" data-aspect="16/9" data-src="https://www.youtube.com/embed/ln5zJbU0Fw0" data-title="Smarkets office tour — St. Katharine Docks, London" data-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" data-allowfullscreen role="button" tabindex="0" aria-label="Play Smarkets office tour video">
+                <div class="deferred-embed-placeholder">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                    <span>Play office tour</span>
+                </div>
+            </div>
         </div>
 
         <div class="photo-carousel fade-in" id="london-photos">
@@ -201,14 +206,22 @@
         <div class="office-locations fade-in">
             <div class="office-location-card">
                 <div class="office-card-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.274678418619!2d-0.0752395233798625!3d51.50817652181347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761cae92eb1ee5%3A0xf8b45327e65b2c08!2sSmarkets!5e0!3m2!1sen!2suk!4v1772396543421!5m2!1sen!2suk" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Smarkets London office location"></iframe>
+                    <div class="deferred-embed" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.274678418619!2d-0.0752395233798625!3d51.50817652181347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761cae92eb1ee5%3A0xf8b45327e65b2c08!2sSmarkets!5e0!3m2!1sen!2suk!4v1772396543421!5m2!1sen!2suk" data-title="Smarkets London office location">
+                        <div class="deferred-embed-placeholder">
+                            <span>Load map</span>
+                        </div>
+                    </div>
                 </div>
                 <h3 data-sm="hqCity">London</h3>
                 <p>1 Commodity Quay<br>St. Katharine Docks<br><span data-sm="hqCity">London</span> E1W 1AZ<br>United Kingdom</p>
             </div>
             <div class="office-location-card">
                 <div class="office-card-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.350732332358!2d14.49084107587182!3d35.913914217156844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e4540d1e6cc31%3A0xd263253333f6b6b6!2sSmarkets%20(Malta)%20Ltd!5e0!3m2!1sen!2suk!4v1772396679508!5m2!1sen!2suk" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Smarkets Malta office location"></iframe>
+                    <div class="deferred-embed" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3231.350732332358!2d14.49084107587182!3d35.913914217156844!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x130e4540d1e6cc31%3A0xd263253333f6b6b6!2sSmarkets%20(Malta)%20Ltd!5e0!3m2!1sen!2suk!4v1772396679508!5m2!1sen!2suk" data-title="Smarkets Malta office location">
+                        <div class="deferred-embed-placeholder">
+                            <span>Load map</span>
+                        </div>
+                    </div>
                 </div>
                 <h3>Malta</h3>
                 <p>The Hedge<br>Ir-Rampa ta' San Giljan Street<br>St. Julians STJ 1062<br>Malta</p>
@@ -232,6 +245,44 @@
     <script src="../../company-data.js" defer></script>
     <script src="../../components.js" defer></script>
     <script>
+    // Deferred embeds — load on scroll (IntersectionObserver) or click
+    (function () {
+        function loadEmbed(el) {
+            if (el.classList.contains('loaded')) return;
+            const iframe = document.createElement('iframe');
+            iframe.src = el.dataset.src;
+            if (el.dataset.title) iframe.title = el.dataset.title;
+            if (el.dataset.allow) iframe.allow = el.dataset.allow;
+            if (el.dataset.allowfullscreen !== undefined) iframe.allowFullscreen = true;
+            iframe.referrerPolicy = 'no-referrer-when-downgrade';
+            iframe.style.border = '0';
+            el.appendChild(iframe);
+            el.classList.add('loaded');
+        }
+
+        const embeds = document.querySelectorAll('.deferred-embed');
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        loadEmbed(entry.target);
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '200px' });
+            embeds.forEach(function (el) { io.observe(el); });
+        }
+
+        // Also allow click/keyboard activation (especially for YouTube facade)
+        embeds.forEach(function (el) {
+            function activate() { loadEmbed(el); }
+            el.addEventListener('click', activate);
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); activate(); }
+            });
+        });
+    })();
+
     // Simple carousel logic
     document.querySelectorAll('.photo-carousel').forEach(carousel => {
         const track = carousel.querySelector('.carousel-track');
