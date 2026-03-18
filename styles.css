@@ -97,7 +97,6 @@ button:focus-visible {
 }
 .card,
 .metric-item,
-.tech-tag,
 a,
 button {
   touch-action: manipulation;
@@ -539,17 +538,6 @@ a.card:hover {
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-.tech-tag {
-  display: inline-block;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  cursor: default;
-}
 .btn {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -758,21 +746,6 @@ a.card:hover {
   color: var(--text-secondary);
   line-height: 1.6;
 }
-.cta-message {
-  text-align: center;
-  padding: 1rem 0;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.cta-message h3 {
-  color: var(--text-primary);
-  margin-bottom: 1rem;
-  font-weight: 700;
-}
-.cta-message p {
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
-}
 .why-smarkets {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -815,40 +788,6 @@ a.card:hover {
   height: 12px;
   background: var(--accent);
   border-radius: 50%;
-}
-.milestone-date {
-  color: var(--accent-darker);
-  font-weight: 600;
-  min-width: 150px;
-}
-.milestone-content {
-  color: var(--text-secondary);
-}
-.milestone-content h4 {
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-}
-.brands-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-top: 3rem;
-}
-.brands-grid .card {
-  text-align: center;
-}
-.brands-grid .card h3 {
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  margin-bottom: 0.25rem;
-}
-.brand-subtitle {
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--accent-darker);
-  margin-bottom: 1rem;
 }
 footer {
   background: var(--bg-secondary);
@@ -1030,13 +969,6 @@ footer .social-links a:hover {
     transform: translateY(0);
   }
 }
-.section-heading {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 3rem;
-  text-align: center;
-}
 .list-styled {
   margin-left: 1.5rem;
   color: var(--text-secondary);
@@ -1101,9 +1033,6 @@ footer .social-links a:hover {
   .metrics-grid {
     grid-template-columns: 1fr;
   }
-  .brands-grid {
-    grid-template-columns: 1fr;
-  }
   .why-smarkets {
     grid-template-columns: 1fr;
   }
@@ -1156,7 +1085,7 @@ footer .social-links a:hover {
     padding: 1.5rem;
   }
   .card,
-  .metric,
+  .metric-item,
   .why-item {
     padding: 1.5rem;
   }
@@ -1236,12 +1165,6 @@ footer .social-links a:hover {
   color: var(--accent-darker);
   background: var(--accent-dim);
 }
-.tech-arch-note {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  margin-top: 0.5rem;
-  font-style: italic;
-}
 .tech-arch-connector {
   font-size: 1.5rem;
   color: var(--text-tertiary);
@@ -1279,51 +1202,13 @@ footer .social-links a:hover {
   white-space: nowrap;
 }
 .press-logo-item:hover {
-  opacity: 0.7;
+  opacity: 0.4;
 }
 .press-logo-item img {
   height: 22px;
   width: auto;
   max-width: 160px;
   object-fit: contain;
-}
-.investor-rep-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-.investor-rep-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-}
-.investor-rep-photo {
-  width: 96px;
-  height: 96px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-}
-.investor-rep-card .social-links {
-  margin-top: 0.75rem;
-}
-.investor-rep-card h3 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-.investor-rep-role {
-  font-size: 0.85rem;
-  color: var(--accent-darker);
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-.investor-rep-firm {
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
 }
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1844,33 +1729,6 @@ footer .social-links a:hover {
   border-color: var(--accent);
   color: var(--accent-darker);
 }
-.yt-facade {
-  position: relative;
-  cursor: pointer;
-  width: 100%;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  border-radius: 8px;
-}
-.yt-facade img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.3s ease;
-}
-.yt-facade:hover img {
-  filter: brightness(0.75);
-}
-.yt-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.3s ease;
-}
-.yt-facade:hover .yt-play {
-  opacity: 0.9;
-}
 @media (max-width: 768px) {
   .dk-hero-inner {
     flex-direction: column;
@@ -2148,57 +2006,6 @@ a.accent-link {
 .press-kit-card strong {
   color: var(--text-primary);
 }
-.press-highlights {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0;
-}
-.press-highlights-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.press-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.25rem 1.25rem 1rem;
-  cursor: default;
-}
-.press-card-logo {
-  height: 22px;
-  width: auto;
-  max-width: 160px;
-  object-fit: contain;
-  object-position: left center;
-  margin-bottom: 0.75rem;
-  filter: invert(1);
-  opacity: 0.5;
-}
-.press-card-headline {
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: var(--text-primary);
-  flex: 1;
-}
-.press-card-year {
-  font-size: 0.8rem;
-  color: var(--text-tertiary);
-  margin-top: 0.75rem;
-}
-
-/* Extended logos text line */
-.press-logos-extended {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  margin-top: 1rem;
-  padding: 0 1rem;
-}
-
 /* Coverage list (linked article list) */
 .coverage-section {
   max-width: 900px;
@@ -2475,12 +2282,6 @@ a.accolade-card:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.75rem;
-}
-.person-quote {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.5;
-  font-style: italic;
 }
 .global-stats {
   display: flex;
@@ -3005,49 +2806,6 @@ a.accolade-card:hover {
   margin-bottom: 0;
 }
 
-/* Events cards */
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-.event-card {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-.event-card .event-date {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  color: var(--accent-darker);
-  margin-bottom: 0.5rem;
-}
-.event-card h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-.event-card p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-.event-card .event-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  background: var(--accent-dim);
-  color: var(--accent-darker);
-  margin-bottom: 0.75rem;
-}
-
 /* News feed (investor-focused press releases) */
 .news-feed-section {
   padding-top: 1rem;
@@ -3255,7 +3013,6 @@ a.accolade-card:hover {
 }
 .section-dark .tech-arch-label { color: var(--accent); }
 .section-dark .tech-arch-connector { color: rgba(255, 255, 255, 0.3); }
-.section-dark .tech-arch-note { color: rgba(255, 255, 255, 0.4); }
 
 /* Dark CTA sections */
 .cta-section {
