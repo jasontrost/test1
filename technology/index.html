@@ -12,7 +12,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Smarkets | Technology">
-    <meta property="og:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $47B lifetime volume.">
+    <meta property="og:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $60B lifetime volume.">
     <meta property="og:url" content="https://smarkets.com/technology">
     <meta property="og:site_name" content="Smarkets">
     <meta property="og:image" content="https://smarkets.com/photos/smarkets-exchange.png">
@@ -21,7 +21,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@smarkets">
     <meta name="twitter:title" content="Smarkets | Technology">
-    <meta name="twitter:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $47B lifetime volume.">
+    <meta name="twitter:description" content="Exchange infrastructure built in-house. Matching engine in Rust. Sub-100ms latency. $60B lifetime volume.">
     <meta name="twitter:image" content="https://smarkets.com/photos/smarkets-exchange.png">
 
     <!-- Fonts -->
@@ -59,8 +59,8 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Built from scratch. Owned end-to-end.</h1>
-            <p>Every component of the Smarkets platform &mdash; matching engine, market maker, risk system, frontends &mdash; is designed, built, and operated in-house by our engineering team.</p>
+            <h1>Built from scratch. Operated fully in-house.</h1>
+            <p>Every core component of the Smarkets platform &mdash; from matching engine and market maker to risk systems and frontends &mdash; is designed, built, and operated in-house.</p>
         </div>
     </section>
 
@@ -81,7 +81,7 @@
             </div>
             <div class="global-stat">
                 <div class="global-stat-num" data-sm="engineeringPct">65%</div>
-                <div class="global-stat-lbl">of team are engineers</div>
+                <div class="global-stat-lbl">of the team are engineers</div>
             </div>
         </div>
     </section>
@@ -93,19 +93,19 @@
         <div class="why-smarkets">
             <div class="why-item fade-in">
                 <h3>Matching engine</h3>
-                <p>The heart of the exchange. Written in Rust for performance and memory safety. Processes orders with sub-100ms latency end-to-end, handles concurrent markets across sports, politics, and economics, and maintains strict price-time priority ordering. Designed for correctness first, speed second &mdash; because in financial systems, getting the answer wrong fast is worse than getting it right slowly.</p>
+                <p>The heart of the exchange. Written in Rust for performance and memory safety. It processes orders with sub-100ms end-to-end latency, supports thousands of concurrent markets across multiple event categories, and maintains price-time priority. Designed for correctness first, speed second &mdash; because in financial systems, getting the answer wrong fast is worse than getting it right slowly.</p>
             </div>
             <div class="why-item fade-in">
                 <h3>Market maker</h3>
-                <p>Our proprietary market-making system provides continuous liquidity across thousands of markets simultaneously. It quotes competitive two-way prices, manages inventory risk in real-time, and adapts to market conditions algorithmically. This is what makes the exchange usable &mdash; without a market maker, an order book is just an empty shell. We call it Hanson &mdash; and it's significant enough to warrant <a href="#hanson" class="accent-link">its own section below</a>.</p>
+                <p>Our proprietary market-making system provides continuous liquidity across thousands of markets simultaneously. It quotes competitive two-way prices, manages inventory risk in real-time, and adapts to market conditions.</p>
             </div>
             <div class="why-item fade-in">
                 <h3>Risk system</h3>
-                <p>Every trade, every position, every customer balance is monitored in real-time. The risk system enforces exposure limits, detects anomalous trading patterns, and manages settlement across all markets. It's integrated directly into the matching engine &mdash; risk checks happen pre-trade, not after the fact.</p>
+                <p>Every trade, every position, every customer balance is monitored in real-time. The risk system enforces exposure limits, monitors for anomalous trading patterns across all markets. It's integrated directly into the matching engine &mdash; risk checks happen pre-trade, not after the fact.</p>
             </div>
             <div class="why-item fade-in">
                 <h3>Payments &amp; settlement</h3>
-                <p>Deposits, withdrawals, and settlement across five jurisdictions with different regulatory requirements. Built to handle the complexity of multi-currency, multi-regulator operations without manual intervention. Every penny is accounted for in real-time.</p>
+                <p>Our payments and settlement systems support deposits, withdrawals, and market settlement across five jurisdictions with different regulatory requirements. Built to handle the complexity of multi-currency, multi-regulator operations without manual intervention. Balances and settlement are tracked in real time.</p>
             </div>
         </div>
     </section>
@@ -113,14 +113,13 @@
     <!-- Architecture -->
     <section aria-labelledby="heading-architecture" class="section-dark">
         <h2 id="heading-architecture" class="section-title">How it fits together</h2>
-        <p class="section-subtitle fade-in">Three products, one architecture. SBK builds retail order flow. The exchange builds professional order flow. Hanson prices both and captures the edge.</p>
+        <p class="section-subtitle fade-in">Three products, one architecture. SBK serves retail customers, the exchange serves more active traders, and the market maker provides pricing and liquidity across both.</p>
         <div class="tech-architecture fade-in">
             <div class="tech-arch-layer">
-                <div class="tech-arch-label">Intelligence layer</div>
+                <div class="tech-arch-label">Liquidity layer</div>
                 <div class="tech-arch-items">
-                    <span class="tech-arch-item tech-arch-core">Hanson Applied Sciences</span>
+                    <span class="tech-arch-item tech-arch-core">Proprietary market maker</span>
                 </div>
-                <div class="tech-arch-note">Proprietary market maker &mdash; prices everything, trades on multiple platforms</div>
             </div>
             <div class="tech-arch-connector">&darr;</div>
             <div class="tech-arch-layer">
@@ -128,16 +127,16 @@
                 <div class="tech-arch-items">
                     <span class="tech-arch-item">SBK (retail)</span>
                     <span class="tech-arch-item">Smarkets Exchange (professional)</span>
-                    <span class="tech-arch-item">API</span>
+                    <span class="tech-arch-item">Payments &amp; Compliance</span>
+                    <span class="tech-arch-item">Risk System</span>
                 </div>
             </div>
             <div class="tech-arch-connector">&darr;</div>
             <div class="tech-arch-layer">
-                <div class="tech-arch-label">Infrastructure layer</div>
+                <div class="tech-arch-label">Orderbook layer</div>
                 <div class="tech-arch-items">
                     <span class="tech-arch-item">Matching Engine</span>
-                    <span class="tech-arch-item">Risk System</span>
-                    <span class="tech-arch-item">Payments &amp; Compliance</span>
+                    <span class="tech-arch-item">API</span>
                 </div>
             </div>
         </div>
@@ -146,7 +145,7 @@
     <!-- Stack -->
     <section aria-labelledby="heading-stack">
         <h2 id="heading-stack" class="section-title">Stack</h2>
-        <p class="section-subtitle fade-in">We pick tools for longevity and performance, not hype cycles.</p>
+        <p class="section-subtitle fade-in">Built on an open-source Linux stack, with room to keep improving the tooling.</p>
         <div class="tech-stack-grid fade-in">
             <div class="tech-category">
                 <h4>Core</h4>
@@ -176,86 +175,20 @@
                 <h4>Data</h4>
                 <div class="tech-pills">
                     <span class="tech-pill">Real-time streaming</span>
-                    <span class="tech-pill">BI dashboards</span>
-                    <span class="tech-pill">ML pricing</span>
+                    <span class="tech-pill">Internal analytics</span>
+                    <span class="tech-pill">Machine-learning-driven pricing</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Hanson Applied Sciences -->
-    <section id="hanson" aria-labelledby="heading-hanson">
-        <h2 id="heading-hanson" class="section-title">Hanson Applied Sciences</h2>
-        <p class="section-subtitle fade-in">Our proprietary market-making engine. Built from scratch over 11 years. Platform-agnostic by design.</p>
 
-        <div class="global-stats fade-in">
-            <div class="global-stat">
-                <div class="global-stat-num">50k+</div>
-                <div class="global-stat-lbl">contracts priced daily</div>
-            </div>
-            <div class="global-stat">
-                <div class="global-stat-num">30</div>
-                <div class="global-stat-lbl">sports covered</div>
-            </div>
-            <div class="global-stat">
-                <div class="global-stat-num">1,000+</div>
-                <div class="global-stat-lbl">market types</div>
-            </div>
-            <div class="global-stat">
-                <div class="global-stat-num">24/7</div>
-                <div class="global-stat-lbl">continuous operation</div>
-            </div>
-        </div>
-
-        <div class="why-smarkets">
-            <div class="why-item fade-in">
-                <h3>What it does</h3>
-                <p>Hanson quotes competitive two-way prices across every market on the Smarkets exchange and SBK sportsbook simultaneously. It manages inventory risk in real-time, adapts to live in-play events algorithmically, and provides the liquidity that makes both products usable. Without Hanson, the exchange is an empty order book and the sportsbook has no pricing engine.</p>
-            </div>
-            <div class="why-item fade-in">
-                <h3>The flywheel</h3>
-                <p>Better pricing attracts more order flow. More order flow creates deeper liquidity. Deeper liquidity enables tighter pricing. This cycle compounds &mdash; and because Hanson improves with every trade it processes, the advantage widens over time. The same pricing engine serves retail sportsbook customers and professional exchange traders, so each side of the business reinforces the other.</p>
-            </div>
-            <div class="why-item fade-in">
-                <h3>Platform-agnostic</h3>
-                <p>Hanson isn't locked to the Smarkets exchange. It operates on third-party platforms, generating revenue wherever there are markets to price. When other venues grow, Hanson can participate in that growth without requiring separate licenses, marketing spend, or local teams. This turns competitor success into an additional revenue stream.</p>
-            </div>
-            <div class="why-item fade-in">
-                <h3>Why it's hard to replicate</h3>
-                <p>Sports and event pricing has no standardised instruments, limited historical data for one-off events, and the complexity of live in-play markets where conditions change by the second. Hanson has been refined through 11 years of continuous operation and billions of dollars in traded volume. Building something equivalent requires deep domain expertise, proprietary data, and years of iteration &mdash; not just capital.</p>
-            </div>
-        </div>
-
-        <div class="cta-section fade-in">
-            <p>Hanson has its own site with more detail on the team, the technology, and the approach.</p>
-            <a href="https://hanson.as" target="_blank" rel="noopener noreferrer" class="btn">Visit hanson.as &rarr; <span class="sr-only">(opens in new tab)</span></a>
-        </div>
-    </section>
-
-    <!-- Why it matters -->
-    <section aria-labelledby="heading-why-build">
-        <h2 id="heading-why-build" class="section-title">Why we build everything ourselves</h2>
-        <div class="why-smarkets">
-            <div class="why-item fade-in">
-                <h3>Speed of iteration</h3>
-                <p>When you own the full stack, you can ship a pricing change, a new market type, or a risk adjustment without waiting for a vendor. Our matching engine and market maker are deployed multiple times a week.</p>
-            </div>
-            <div class="why-item fade-in">
-                <h3>Compounding advantage</h3>
-                <p>Every improvement to the matching engine benefits both the exchange and the sportsbook simultaneously. Every optimisation to the market maker improves pricing for every customer. The shared infrastructure creates a flywheel that gets stronger with every iteration.</p>
-            </div>
-            <div class="why-item fade-in">
-                <h3>Regulatory control</h3>
-                <p>Operating in five jurisdictions means compliance isn't something you bolt on &mdash; it has to be woven into the platform. Owning the full stack lets us implement jurisdiction-specific rules at the infrastructure level, not as afterthoughts.</p>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA -->
     <section aria-label="Build with us">
         <div class="cta-section fade-in">
             <h3>Build with us</h3>
-            <p>Two-thirds of the team write code. If you want to work on systems where correctness matters and every millisecond counts, we should talk.</p>
+            <p>Two-thirds of the team write code. If you want to work on systems where correctness and latency both matter, see our engineering roles.</p>
             <a href="../careers/#open-roles" class="btn">View engineering roles &rarr;</a>
         </div>
     </section>

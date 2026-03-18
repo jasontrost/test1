@@ -26,7 +26,7 @@ window.SM = {
     engineeringPct:     '65%',
 
     // ── Key metrics (as of FY 2024) ──────────────
-    lifetimeVolume:     '$47B',
+    lifetimeVolume:     '$60B',
     revenue2024:        '$31.4M',
     ebitda2024:         '$10.2M',
     grossMargin:        '79%',
