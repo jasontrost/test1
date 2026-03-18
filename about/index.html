@@ -85,16 +85,16 @@
             frame++;
             // Once resolved, stop permanently
             if (paused) return;
-            // Slow scramble: only update every 6th frame (~10fps feel)
-            if (frame % 6 !== 0) return;
+            // Scramble: update every 3rd frame
+            if (frame % 3 !== 0) return;
             let text = '';
             for (let i = 0; i < target.length; i++) {
                 if (i < revealed) text += target[i];
                 else text += chars[Math.floor(Math.random() * chars.length)];
             }
             glitchEl.textContent = text;
-            // Reveal one letter every 12th frame (~slow typewriter)
-            if (frame % 12 === 0) revealed++;
+            // Reveal one letter every 6th frame
+            if (frame % 6 === 0) revealed++;
             if (revealed > target.length) { glitchEl.textContent = target; paused = true; }
         }
 
@@ -371,8 +371,8 @@
                     <div class="global-stat-lbl">in-house tech stack</div>
                 </div>
                 <div class="global-stat">
-                    <div class="global-stat-num">40+</div>
-                    <div class="global-stat-lbl">engineers</div>
+                    <div class="global-stat-num" data-sm="engineeringCount">45+</div>
+                    <div class="global-stat-lbl">engineers and technical staff</div>
                 </div>
                 <div class="global-stat">
                     <div class="global-stat-num" data-sm="founded">2008</div>

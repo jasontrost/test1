@@ -23,7 +23,10 @@ window.SM = {
     hqCity:             'London',
     hqDetail:           'St. Katharine Docks, next to Tower Bridge',
     headcount:          '100+',
-    engineeringPct:     '65%',
+    engineeringPct:     '45%',
+    engineeringCount:   '45+',
+    nationalities:      '27',
+    languages:          '20+',
 
     // ── Key metrics (as of FY 2024) ──────────────
     lifetimeVolume:     '$60B',
