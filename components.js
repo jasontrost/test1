@@ -277,7 +277,7 @@
                 <ul>
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/213469085-Smarkets-Terms-and-Conditions" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
                     <li><a href="https://help.smarkets.com/hc/en-gb/articles/212816949-Privacy-Policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
-                    <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" target="_blank" rel="noopener noreferrer">Responsible Betting</a></li>
+                    <li><a href="https://help.smarkets.com/hc/en-gb/categories/360001480391-Responsible-Gambling" target="_blank" rel="noopener noreferrer">Responsible Trading</a></li>
                     <li><a href="${bp('/licensing')}">Licensing</a></li>
                     <li><a href="https://status.smarkets.com/" target="_blank" rel="noopener noreferrer">System Status</a></li>
                 </ul>

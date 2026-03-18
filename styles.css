@@ -14,7 +14,7 @@
   --accent-dim: rgba(12, 205, 147, 0.08);
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
-  --text-tertiary: #777777;
+  --text-tertiary: #666666;
   --accent-secondary: #2563eb;
   --border: #d8d8d8;
   --border-hover: #bbb;
@@ -2288,7 +2288,7 @@ a.accolade-card:hover {
   justify-content: center;
   gap: 3rem;
   flex-wrap: wrap;
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
   text-align: center;
   background: var(--bg-secondary);
@@ -2732,8 +2732,8 @@ a.accolade-card:hover {
 }
 .board-card .board-role {
   font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--accent-darker);
+  font-weight: 400;
+  color: var(--text-secondary);
   margin-bottom: 0.25rem;
 }
 .board-card .board-firm {
@@ -3102,7 +3102,10 @@ hr.section-divider + section,
 .hero.hero-compact { padding-bottom: 3rem; }
 
 /* ── Secondary accent usage ───────────────────── */
-.board-role, .license-regulator {
+.board-role {
+  color: var(--text-secondary);
+}
+.license-regulator {
   color: var(--accent-secondary);
 }
 .governance-card h3 {
