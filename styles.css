@@ -2717,6 +2717,12 @@ a.accolade-card:hover {
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.board-card .social-links {
+  margin-top: auto;
+  padding-top: 0.75rem;
 }
 .board-card img {
   width: 96px;
@@ -2724,16 +2730,11 @@ a.accolade-card:hover {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+  align-self: center;
 }
 .board-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-.board-card .board-role {
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--text-secondary);
   margin-bottom: 0.25rem;
 }
 .board-card .board-firm {
@@ -3102,9 +3103,6 @@ hr.section-divider + section,
 .hero.hero-compact { padding-bottom: 3rem; }
 
 /* ── Secondary accent usage ───────────────────── */
-.board-role {
-  color: var(--text-secondary);
-}
 .license-regulator {
   color: var(--accent-secondary);
 }
@@ -3113,9 +3111,6 @@ hr.section-divider + section,
 }
 .value-section-num {
   color: var(--accent-secondary);
-}
-.section-dark .board-role {
-  color: #60a5fa;
 }
 .section-dark .governance-card {
   border-bottom-color: #333;
