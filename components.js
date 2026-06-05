@@ -238,7 +238,7 @@
                     <li><a href="https://smarkets.com" target="_blank" rel="noopener noreferrer">Smarkets</a></li>
                     <li><a href="https://betsbk.com" target="_blank" rel="noopener noreferrer">SBK</a></li>
                     <li><a href="https://hanson.as" target="_blank" rel="noopener noreferrer">Hanson</a></li>
-                    <li><a href="https://oddsindex.com" target="_blank" rel="noopener noreferrer">Odds Index</a></li>
+                    <li><a href="https://oddsindex.com" target="_blank" rel="noopener noreferrer">OddsIndex</a></li>
                     <li><a href="https://docs.smarkets.com" target="_blank" rel="noopener noreferrer">API</a></li>
                 </ul>
                 <h4 class="footer-subheading">Resources</h4>
