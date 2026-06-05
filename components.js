@@ -238,6 +238,7 @@
                     <li><a href="https://smarkets.com" target="_blank" rel="noopener noreferrer">Smarkets</a></li>
                     <li><a href="https://betsbk.com" target="_blank" rel="noopener noreferrer">SBK</a></li>
                     <li><a href="https://hanson.as" target="_blank" rel="noopener noreferrer">Hanson</a></li>
+                    <li><a href="https://oddsindex.com" target="_blank" rel="noopener noreferrer">Odds Index</a></li>
                     <li><a href="https://docs.smarkets.com" target="_blank" rel="noopener noreferrer">API</a></li>
                 </ul>
                 <h4 class="footer-subheading">Resources</h4>
@@ -245,6 +246,7 @@
                     <li><a href="https://smarketshq.com/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                     <li><a href="https://betting.getsbk.com/" target="_blank" rel="noopener noreferrer">SBK Content</a></li>
                     <li><a href="https://help.getsbk.com/hc/en-gb" target="_blank" rel="noopener noreferrer">SBK Help</a></li>
+                    <li><a href="https://sbkscores.com" target="_blank" rel="noopener noreferrer">SBK Scores</a></li>
                     <li><a href="https://smarkets.com/about/affiliates/" target="_blank" rel="noopener noreferrer">Affiliates</a></li>
                 </ul>
                 <div class="footer-app-links">
