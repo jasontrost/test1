@@ -84,7 +84,7 @@
         function glitchTick() {
             frame++;
             // Once resolved, stop permanently
-            if (paused) return;
+            if (paused || !glitchEl) return;
             // Scramble: update every 3rd frame
             if (frame % 3 !== 0) return;
             let text = '';
@@ -100,6 +100,7 @@
 
         // --- Canvas setup ---
         const c = document.getElementById('hero-canvas');
+        if (!c) return;
         const ctx = c.getContext('2d');
         function resize() {
             const rect = c.parentElement.getBoundingClientRect();
@@ -277,15 +278,24 @@
             ctx.fillRect(0, 0, W, H);
 
             glitchTick();
-            if (!prefersReduced) requestAnimationFrame(render);
+            // Keep animating only while visible — saves battery in background tabs
+            if (!prefersReduced && !document.hidden) rafId = requestAnimationFrame(render);
         }
 
+        let rafId = null;
         if (prefersReduced) {
             // Render a single static frame, then show the resolved word
-            glitchEl.textContent = 'uncertain';
+            if (glitchEl) glitchEl.textContent = 'uncertain';
             render();
         } else {
             render();
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                } else if (!rafId) {
+                    render(); // resume the loop
+                }
+            });
         }
     })();
     </script>

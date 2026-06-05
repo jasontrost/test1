@@ -13,7 +13,7 @@
  *
  * Usage: <script src="/company-data.js" defer></script>
  *
- * Last reviewed: February 2026
+ * Last reviewed: June 2026
  */
 
 window.SM = {
@@ -51,12 +51,11 @@ window.SM = {
    Find every [data-sm] element and replace its text
    with the matching window.SM value.
    ──────────────────────────────────────────────── */
-document.addEventListener('DOMContentLoaded', function () {
-    var els = document.querySelectorAll('[data-sm]');
-    for (var i = 0; i < els.length; i++) {
-        var key = els[i].getAttribute('data-sm');
-        if (window.SM.hasOwnProperty(key)) {
-            els[i].textContent = String(window.SM[key]);
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-sm]').forEach((el) => {
+        const key = el.getAttribute('data-sm');
+        if (Object.prototype.hasOwnProperty.call(window.SM, key)) {
+            el.textContent = String(window.SM[key]);
         }
-    }
+    });
 });

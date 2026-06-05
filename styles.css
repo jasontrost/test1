@@ -223,14 +223,14 @@ nav {
 .mobile-nav a.active {
   color: var(--accent-darker);
 }
-.mobile-nav-sub {
-  padding-left: 1.5rem !important;
-  font-size: 0.9rem !important;
-  color: var(--text-tertiary) !important;
-  border-bottom-style: dashed !important;
+.mobile-nav a.mobile-nav-sub {
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-tertiary);
+  border-bottom-style: dashed;
 }
-.mobile-nav-sub.active {
-  color: var(--accent-darker) !important;
+.mobile-nav a.mobile-nav-sub.active {
+  color: var(--accent-darker);
 }
 .sub-nav {
   position: fixed;
