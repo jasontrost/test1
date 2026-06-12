@@ -28,13 +28,10 @@
   --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.15);
   --text-on-accent: #fff;
   --nav-height: 50px;
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
   --space-xl: 2rem;
   --space-2xl: 3rem;
-  --space-3xl: 4rem;
 }
 html {
   scroll-behavior: smooth;
@@ -42,6 +39,7 @@ html {
 }
 body {
   font-family:
+    "Source Sans 3",
     "Source Sans Pro",
     Inter,
     -apple-system,
@@ -584,7 +582,7 @@ a.card:hover {
     transform 0.3s ease;
   cursor: pointer;
   border: none;
-  font-family: "Source Sans Pro", Inter, sans-serif;
+  font-family: "Source Sans 3", "Source Sans Pro", Inter, sans-serif;
   background: var(--accent-dark);
   color: var(--text-on-accent);
 }
@@ -1556,11 +1554,6 @@ footer .social-links a:hover {
     background-color 0.2s ease,
     border-color 0.2s ease;
 }
-.product-showcase-links a:hover {
-  color: #fff;
-  border-color: var(--accent);
-  background: rgba(12, 205, 147, 0.15);
-}
 /* Accent info bar on both product cards */
 .product-showcase-info {
   background: var(--accent-dark);
@@ -1621,7 +1614,7 @@ footer .social-links a:hover {
 }
 .dk-license-type {
   font-size: 0.78rem;
-  color: var(--green);
+  color: var(--accent-darker);
   font-weight: 600;
 }
 .dk-license-scope {
