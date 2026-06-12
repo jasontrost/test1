@@ -18,6 +18,14 @@
   --accent-secondary: #2563eb;
   --border: #d8d8d8;
   --border-hover: #bbb;
+  --border-dark: #333;
+  --bg-dark: #141414;
+  --bg-dark-2: #1e1e1e;
+  --bg-dark-card: #1a1a1a;
+  --accent-secondary-light: #60a5fa;
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.15);
   --text-on-accent: #fff;
   --nav-height: 50px;
   --space-xs: 0.25rem;
@@ -90,10 +98,20 @@ body.nav-open {
 a {
   color: inherit;
 }
+::selection {
+  background: rgba(12, 205, 147, 0.25);
+}
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-darker);
   outline-offset: 2px;
+}
+/* Dark surfaces need the bright accent for visible focus */
+.section-dark :focus-visible,
+.cta-section :focus-visible,
+.product-showcase-card:focus-visible,
+.deferred-embed:focus-visible {
+  outline-color: var(--accent);
 }
 .card,
 .metric-item,
@@ -139,6 +157,10 @@ nav {
 .nav-logo {
   height: 24px;
   width: auto;
+  transition: opacity 0.3s ease;
+}
+.nav-brand:hover .nav-logo {
+  opacity: 0.8;
 }
 .nav-links {
   display: flex;
@@ -186,6 +208,8 @@ nav {
   font-size: 1.5rem;
   cursor: pointer;
   padding: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
 }
 .mobile-nav {
   display: none;
@@ -450,7 +474,7 @@ a.card {
 }
 a.card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 .card h3 {
   font-size: 1.2rem;
@@ -485,7 +509,12 @@ a.card:hover {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 2rem;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   text-align: center;
   text-decoration: none;
   color: inherit;
@@ -527,8 +556,10 @@ a.card:hover {
   cursor: default;
 }
 .metric-value {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
   color: var(--accent-dark);
   margin-bottom: 0.5rem;
 }
@@ -545,7 +576,12 @@ a.card:hover {
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   cursor: pointer;
   border: none;
   font-family: "Source Sans Pro", Inter, sans-serif;
@@ -824,7 +860,12 @@ footer {
   padding: 0.5rem 1.25rem;
   border: 1px solid var(--accent-darker);
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 .footer-cta:hover {
   background: var(--accent);
@@ -894,7 +935,12 @@ footer {
   color: var(--text-tertiary);
   border: 1px solid var(--border);
   border-radius: 6px;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 .footer-app-group a:hover {
   color: var(--accent-darker);
@@ -917,7 +963,12 @@ footer .social-links a {
   color: var(--text-secondary);
   font-size: 0.85rem;
   font-weight: 700;
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   text-decoration: none;
 }
 footer .social-links a:hover {
@@ -1098,9 +1149,6 @@ footer .social-links a:hover {
   }
   .metrics-grid {
     grid-template-columns: 1fr;
-  }
-  .metric-value {
-    font-size: 1.5rem;
   }
   .footer-content {
     grid-template-columns: 1fr;
@@ -1333,7 +1381,7 @@ footer .social-links a:hover {
   max-width: 720px;
 }
 .dk-hero h1 {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(2.25rem, 7vw, 5.5rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: 0.01em;
@@ -1422,13 +1470,13 @@ footer .social-links a:hover {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  background: #1a1a1a;
+  background: var(--bg-dark-card);
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-showcase-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-lg);
 }
 .product-showcase-img {
   flex: 1;
@@ -1503,7 +1551,10 @@ footer .social-links a:hover {
   color: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 6px;
-  transition: all 0.2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
 }
 .product-showcase-links a:hover {
   color: #fff;
@@ -1550,9 +1601,9 @@ footer .social-links a:hover {
   margin-top: var(--space-lg);
 }
 .dk-license-card {
-  background: var(--surface);
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1.25rem 1rem;
   display: flex;
   flex-direction: column;
@@ -1781,7 +1832,7 @@ footer .social-links a:hover {
   line-height: 1.5;
 }
 .btn-link {
-  color: var(--accent-darker, #087a52);
+  color: var(--accent-darker);
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -1791,7 +1842,7 @@ footer .social-links a:hover {
   text-decoration: underline;
 }
 a.accent-link {
-  color: var(--accent-darker, #0f9266);
+  color: var(--accent-darker);
 }
 .cta-secondary {
   margin-top: 1rem;
@@ -1826,7 +1877,7 @@ a.accent-link {
   margin: 1rem 0;
 }
 .error-nav a {
-  color: var(--accent, #00ce8f);
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
 }
@@ -1894,7 +1945,7 @@ a.accent-link {
   background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border) 50%, var(--bg-tertiary) 75%);
   background-size: 800px 100%;
   animation: shimmer 1.5s infinite linear;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .skeleton-dept-bar {
   width: 120px;
@@ -2071,7 +2122,7 @@ a.accent-link {
   flex-direction: column;
   background: var(--bg-tertiary);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1.5rem;
   text-decoration: none;
   color: inherit;
@@ -2079,7 +2130,7 @@ a.accent-link {
 }
 a.accolade-card:hover {
   border-color: var(--border-hover);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  box-shadow: var(--shadow-sm);
 }
 .accolade-rank {
   font-size: 2.2rem;
@@ -2129,7 +2180,7 @@ a.accolade-card:hover {
 }
 .value-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-sm);
 }
 .value-card .value-section-lead {
   margin-bottom: 0.75rem;
@@ -2301,8 +2352,10 @@ a.accolade-card:hover {
 }
 .global-stat-num {
   color: var(--accent-dark);
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 800;
+  letter-spacing: -1px;
+  font-variant-numeric: tabular-nums;
   line-height: 1;
 }
 .global-stat-lbl {
@@ -2625,11 +2678,11 @@ a.accolade-card:hover {
   width: 100%;
   height: auto;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   transition: box-shadow 0.2s ease;
 }
 .annual-report-card:hover img {
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-md);
 }
 .annual-report-year {
   margin-top: 0.75rem;
@@ -2656,7 +2709,12 @@ a.accolade-card:hover {
   padding: 1.5rem;
   text-decoration: none;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition:
+    color 0.3s ease,
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 .ir-link-card:hover {
   border-color: var(--accent);
@@ -2918,16 +2976,6 @@ a.accolade-card:hover {
 .section-title { letter-spacing: -0.5px; }
 .hero h1 { letter-spacing: -1.5px; }
 
-/* Punchier stat numbers */
-.global-stat-num {
-  font-size: 3rem;
-  letter-spacing: -1px;
-}
-.metric-value {
-  font-size: 3rem;
-  letter-spacing: -1px;
-}
-
 /* Enhanced standard hero — full-bleed background */
 .hero {
   max-width: none;
@@ -2973,18 +3021,38 @@ a.accolade-card:hover {
   background: transparent;
 }
 
-/* Full-bleed tinted section */
+/* Full-bleed tinted section — carries the hero's grid motif, fainter */
 .section-tinted {
-  background: var(--bg-secondary);
+  background:
+    linear-gradient(to right, rgba(12, 205, 147, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 205, 147, 0.03) 1px, transparent 1px),
+    var(--bg-secondary);
+  background-size:
+    55px 55px,
+    55px 55px,
+    100% 100%;
   max-width: none;
   padding: 3rem max(2rem, calc(50vw - 580px));
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
 
-/* Full-bleed dark section */
+/* Full-bleed dark section — grid motif + green glow from the top edge */
 .section-dark {
-  background: #141414;
+  background:
+    radial-gradient(
+      ellipse 70% 55% at 50% 0,
+      rgba(12, 205, 147, 0.07) 0,
+      transparent 70%
+    ),
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    var(--bg-dark);
+  background-size:
+    100% 100%,
+    55px 55px,
+    55px 55px,
+    100% 100%;
   max-width: none;
   padding: 4rem max(2rem, calc(50vw - 580px));
   color: #fff;
@@ -2993,18 +3061,18 @@ a.accolade-card:hover {
 .section-dark .section-subtitle { color: rgba(255, 255, 255, 0.6); }
 .section-dark .section-note { color: rgba(255, 255, 255, 0.4); }
 .section-dark .why-item {
-  background: #1e1e1e;
+  background: var(--bg-dark-2);
   border-left-color: var(--accent);
 }
 .section-dark .why-item h3 { color: #fff; }
 .section-dark .why-item p { color: rgba(255, 255, 255, 0.65); }
 .section-dark .tech-arch-layer {
-  background: #1e1e1e;
-  border-color: #333;
+  background: var(--bg-dark-2);
+  border-color: var(--border-dark);
 }
 .section-dark .tech-arch-item {
-  background: #141414;
-  border-color: #333;
+  background: var(--bg-dark);
+  border-color: var(--border-dark);
   color: rgba(255, 255, 255, 0.7);
 }
 .section-dark .tech-arch-item.tech-arch-core {
@@ -3017,7 +3085,14 @@ a.accolade-card:hover {
 
 /* Dark CTA sections */
 .cta-section {
-  background: linear-gradient(135deg, #141414 0%, #1a2e24 100%);
+  background:
+    linear-gradient(to right, rgba(12, 205, 147, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(12, 205, 147, 0.05) 1px, transparent 1px),
+    linear-gradient(135deg, var(--bg-dark) 0%, #1a2e24 100%);
+  background-size:
+    55px 55px,
+    55px 55px,
+    100% 100%;
   color: #fff;
   border: none;
 }
@@ -3025,12 +3100,12 @@ a.accolade-card:hover {
 .cta-section p { color: rgba(255, 255, 255, 0.7); }
 .cta-section .btn {
   background: var(--accent);
-  color: #141414;
+  color: var(--bg-dark);
   font-weight: 700;
 }
 .cta-section .btn:hover {
   background: #fff;
-  color: #141414;
+  color: var(--bg-dark);
 }
 .cta-section .cta-email { color: var(--accent); }
 .cta-section a.accent-link { color: var(--accent); }
@@ -3113,10 +3188,10 @@ hr.section-divider + section,
   color: var(--accent-secondary);
 }
 .section-dark .governance-card {
-  border-bottom-color: #333;
+  border-bottom-color: var(--border-dark);
 }
 .section-dark .governance-card h3 {
-  color: #60a5fa;
+  color: var(--accent-secondary-light);
 }
 .section-dark .governance-card p {
   color: rgba(255, 255, 255, 0.65);
@@ -3127,7 +3202,7 @@ hr.section-divider + section,
   position: relative;
   width: 100%;
   cursor: pointer;
-  background: #1a1a1a;
+  background: var(--bg-dark-card);
   border-radius: 12px;
   overflow: hidden;
 }
